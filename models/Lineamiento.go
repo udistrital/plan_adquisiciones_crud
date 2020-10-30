@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -19,8 +18,8 @@ type Lineamiento struct {
 	CentroGestor      int       `orm:"column(centro_gestor)"`
 	AreaFuncionalId   int       `orm:"column(area_funcional_id)"`
 	Vigencia          int       `orm:"column(vigencia)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo            bool      `orm:"column(activo)"`
 }
 

@@ -7,7 +7,10 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/udistrital/utils_oas/time_bogota"
+
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
 // RegistroFuncionamientoModalidadSeleccionController operations for RegistroFuncionamientoModalidadSeleccion
@@ -33,7 +36,9 @@ func (c *RegistroFuncionamientoModalidadSeleccionController) URLMapping() {
 // @router / [post]
 func (c *RegistroFuncionamientoModalidadSeleccionController) Post() {
 	var v models.RegistroFuncionamientoModalidadSeleccion
-	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+ v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+ v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddRegistroFuncionamientoModalidadSeleccion(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
@@ -155,7 +160,9 @@ func (c *RegistroFuncionamientoModalidadSeleccionController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v := models.RegistroFuncionamientoModalidadSeleccion{Id: id}
-	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+ v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
+ v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateRegistroFuncionamientoModalidadSeleccionById(&v); err == nil {
 c.Data["json"] = v
 		} else {

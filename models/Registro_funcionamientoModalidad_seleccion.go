@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -13,9 +12,9 @@ import (
 type RegistroFuncionamientoModalidadSeleccion struct {
 Id int `orm:"column(id);pk;auto"`
 IdModalidadSeleccion string `orm:"column(id_modalidad_seleccion)"`
-FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 Activo bool `orm:"column(activo)"`
-FechaCreacion time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+FechaCreacion string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
 }
 
