@@ -52,7 +52,7 @@ func GetRegistroPlanAdquisicionesActividadById(id int) (v *RegistroPlanAdquisici
 func GetAllRegistroPlanAdquisicionesActividad(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(RegistroPlanAdquisicionesActividad))
+	qs := o.QueryTable(new(RegistroPlanAdquisicionesActividad)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
