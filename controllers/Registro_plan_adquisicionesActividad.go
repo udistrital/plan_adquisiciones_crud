@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"plan_cuentas_crud/models"
+	"github.com/udistrital/plan_adquisiciones_crud/models"
 	"encoding/json"
 	"errors"
 	"strconv"

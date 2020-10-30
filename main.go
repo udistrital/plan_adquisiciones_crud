@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "plan_cuentas_crud/routers"
+	_ "github.com/udistrital/plan_adquisiciones_crud/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"plan_cuentas_crud/models"
+	"github.com/udistrital/plan_adquisiciones_crud/models"
 	"strconv"
 	"strings"
 
