@@ -1155,33 +1155,226 @@ definitions:
   models.Actividad:
     title: Actividad
     type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      MetaId:
+        $ref: '#/definitions/models.Meta'
+      Nombre:
+        type: string
+      Numero:
+        type: integer
+        format: int64
   models.FichaEBIMGA:
     title: FichaEBIMGA
     type: object
+    properties:
+      Activo:
+        type: boolean
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Magnitud:
+        type: integer
+        format: int64
+      MetaId:
+        type: integer
+        format: int64
+      PlanAdquisicionesId:
+        $ref: '#/definitions/models.PlanAdquisiciones'
+      Proceso:
+        type: string
+      Rubro:
+        type: string
+      UnidadMedida:
+        type: string
   models.Lineamiento:
     title: Lineamiento
     type: object
+    properties:
+      Activo:
+        type: boolean
+      AreaFuncionalId:
+        type: integer
+        format: int64
+      CentroGestor:
+        type: integer
+        format: int64
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      FuenteRecursoId:
+        type: integer
+        format: int64
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      Numero:
+        type: integer
+        format: int64
+      Objetivo:
+        type: string
+      Vigencia:
+        type: integer
+        format: int64
   models.Meta:
     title: Meta
     type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      LineamientoId:
+        $ref: '#/definitions/models.Lineamiento'
+      Nombre:
+        type: string
+      Numero:
+        type: integer
+        format: int64
+      Rubro:
+        type: string
   models.PlanAdquisiciones:
     title: PlanAdquisiciones
     type: object
+    properties:
+      Activo:
+        type: boolean
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Vigencia:
+        type: integer
+        format: int64
   models.RegistroFuncionamientoModalidadSeleccion:
     title: RegistroFuncionamientoModalidadSeleccion
     type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      IdModalidadSeleccion:
+        type: string
+      RegistroPlanAdquisicionesId:
+        $ref: '#/definitions/models.RegistroPlanAdquisiciones'
   models.RegistroInversionActividadFuenteFinanciamiento:
     title: RegistroInversionActividadFuenteFinanciamiento
     type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      FuenteFinanciamientoId:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      RegistroPlanAdquisicionesActividadId:
+        $ref: '#/definitions/models.RegistroPlanAdquisicionesActividad'
+      ValorAsignado:
+        type: integer
+        format: int64
   models.RegistroPlanAdquisiciones:
     title: RegistroPlanAdquisiciones
     type: object
+    properties:
+      Activo:
+        type: boolean
+      AreaFuncional:
+        type: integer
+        format: int64
+      CentroGestor:
+        type: integer
+        format: int64
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      MetaId:
+        type: string
+      PlanAdquisicionesId:
+        $ref: '#/definitions/models.PlanAdquisiciones'
+      ProductoId:
+        type: string
+      ResponsableId:
+        type: integer
+        format: int64
   models.RegistroPlanAdquisicionesActividad:
     title: RegistroPlanAdquisicionesActividad
     type: object
+    properties:
+      ActividadId:
+        $ref: '#/definitions/models.Actividad'
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      RegistroPlanAdquisicionesId:
+        $ref: '#/definitions/models.RegistroPlanAdquisiciones'
+      Valor:
+        type: integer
+        format: int64
   models.RegistroPlanAdquisicionesCodigoArka:
     title: RegistroPlanAdquisicionesCodigoArka
     type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoArka:
+        type: string
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      RegistroPlanAdquisicionesId:
+        $ref: '#/definitions/models.RegistroPlanAdquisiciones'
 tags:
 - name: Meta
   description: |
