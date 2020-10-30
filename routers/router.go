@@ -42,13 +42,13 @@ func init() {
 
 		beego.NSNamespace("/Registro_plan_adquisiciones-Actividad",
 			beego.NSInclude(
-				&controllers.RegistroPlanAdquisiciones-ActividadController{},
+				&controllers.RegistroPlanAdquisicionesActividadController{},
 			),
 		),
 
 		beego.NSNamespace("/Registro_inversion_actividad-Fuente_financiamiento",
 			beego.NSInclude(
-				&controllers.RegistroInversionActividad-FuenteFinanciamientoController{},
+				&controllers.RegistroInversionActividadFuenteFinanciamientoController{},
 			),
 		),
 
@@ -60,13 +60,13 @@ func init() {
 
 		beego.NSNamespace("/Registro_plan_adquisiciones-Codigo_arka",
 			beego.NSInclude(
-				&controllers.RegistroPlanAdquisiciones-CodigoArkaController{},
+				&controllers.RegistroPlanAdquisicionesCodigoArkaController{},
 			),
 		),
 
 		beego.NSNamespace("/Registro_funcionamiento-Modalidad_seleccion",
 			beego.NSInclude(
-				&controllers.RegistroFuncionamiento-ModalidadSeleccionController{},
+				&controllers.RegistroFuncionamientoModalidadSeleccionController{},
 			),
 		),
 
