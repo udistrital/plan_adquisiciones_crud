@@ -11,7 +11,7 @@ import (
 )
 
 type RegistroFuncionamientoModalidadSeleccion struct {
-Id int `orm:"column(id);pk"`
+Id int `orm:"column(id);pk;auto"`
 IdModalidadSeleccion string `orm:"column(id_modalidad_seleccion)"`
 FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 Activo bool `orm:"column(activo)"`

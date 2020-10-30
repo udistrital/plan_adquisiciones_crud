@@ -11,7 +11,7 @@ import (
 )
 
 type Lineamiento struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	Numero            int       `orm:"column(numero)"`
 	Nombre            string    `orm:"column(nombre)"`
 	Objetivo          string    `orm:"column(objetivo)"`

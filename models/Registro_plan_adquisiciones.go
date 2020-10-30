@@ -11,7 +11,7 @@ import (
 )
 
 type RegistroPlanAdquisiciones struct {
-	Id                  int                `orm:"column(id);pk"`
+	Id                  int                `orm:"column(id);pk;auto"`
 	AreaFuncional       int                `orm:"column(area_funcional)"`
 	CentroGestor        int                `orm:"column(centro_gestor)"`
 	FechaCreacion       time.Time          `orm:"column(fecha_creacion);type(timestamp without time zone)"`

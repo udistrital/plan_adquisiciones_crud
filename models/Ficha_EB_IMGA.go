@@ -11,7 +11,7 @@ import (
 )
 
 type FichaEBIMGA struct {
-	Id                  int                `orm:"column(id);pk"`
+	Id                  int                `orm:"column(id);pk;auto"`
 	MetaId              int                `orm:"column(meta_id)"`
 	Proceso             string             `orm:"column(proceso)"`
 	Magnitud            int                `orm:"column(magnitud)"`

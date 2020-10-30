@@ -11,7 +11,7 @@ import (
 )
 
 type RegistroInversionActividadFuenteFinanciamiento struct {
-Id int `orm:"column(id);pk"`
+Id int `orm:"column(id);pk;auto"`
 FuenteFinanciamientoId string `orm:"column(fuente_financiamiento_id)"`
 ValorAsignado int `orm:"column(valor_asignado)"`
 FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`

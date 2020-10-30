@@ -11,7 +11,7 @@ import (
 )
 
 type Meta struct {
-	Id                int          `orm:"column(id);pk"`
+	Id                int          `orm:"column(id);pk;auto"`
 	Numero            int          `orm:"column(numero)"`
 	Nombre            string       `orm:"column(nombre)"`
 	FechaCreacion     time.Time    `orm:"column(fecha_creacion);type(timestamp without time zone)"`

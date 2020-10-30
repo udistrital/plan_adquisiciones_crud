@@ -11,7 +11,7 @@ import (
 )
 
 type RegistroPlanAdquisicionesCodigoArka struct {
-Id int `orm:"column(id);pk"`
+Id int `orm:"column(id);pk;auto"`
 CodigoArka string `orm:"column(codigo_arka)"`
 FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 Activo bool `orm:"column(activo)"`
