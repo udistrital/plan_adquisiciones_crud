@@ -10,12 +10,12 @@ import (
 )
 
 type PlanAdquisiciones struct {
-	Id                int       `orm:"column(id);pk;auto"`
-	Descripcion       string    `orm:"column(descripcion)"`
-	Vigencia          int       `orm:"column(vigencia)"`
+	Id                int    `orm:"column(id);pk;auto"`
+	Descripcion       string `orm:"column(descripcion)"`
+	Vigencia          int    `orm:"column(vigencia)"`
 	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo            bool      `orm:"column(activo)"`
+	Activo            bool   `orm:"column(activo)"`
 }
 
 func (t *PlanAdquisiciones) TableName() string {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/udistrital/utils_oas/customerror"
 	_ "github.com/udistrital/plan_adquisiciones_crud/routers"
 
 	"github.com/astaxie/beego"
@@ -10,7 +11,11 @@ import (
 )
 
 func main() {
-	orm.RegisterDataBase("default", "postgres", beego.AppConfig.String("sqlconn"))
+	orm.RegisterDataBase("default", "postgres",
+	"postgres://"+beego.AppConfig.String("PGuser")
+	+":"+beego.AppConfig.String("PGpass")+"@"
+	+beego.AppConfig.String("PGhost")+"/"+beego.AppConfig.String("PGdb")
+	+"?search_path"+"="+beego.AppConfig.String("PGschemas"))
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
@@ -27,6 +32,6 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	  }))
+	beego.ErrorController(&customerror.CustomErrorController{})
 	beego.Run()
 }
-

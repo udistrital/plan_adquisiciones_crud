@@ -10,14 +10,13 @@ import (
 )
 
 type RegistroFuncionamientoModalidadSeleccion struct {
-Id int `orm:"column(id);pk;auto"`
-IdModalidadSeleccion string `orm:"column(id_modalidad_seleccion)"`
-FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-Activo bool `orm:"column(activo)"`
-FechaCreacion string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
+	Id                          int                        `orm:"column(id);pk;auto"`
+	IdModalidadSeleccion        string                     `orm:"column(id_modalidad_seleccion)"`
+	FechaModificacion           string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo                      bool                       `orm:"column(activo)"`
+	FechaCreacion               string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
 }
-
 
 func (t *RegistroFuncionamientoModalidadSeleccion) TableName() string {
 	return "Registro_funcionamiento-Modalidad_seleccion"
