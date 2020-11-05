@@ -1,0 +1,2115 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/Actividad/": {
+            "get": {
+                "tags": [
+                    "Actividad"
+                ],
+                "description": "get Actividad",
+                "operationId": "ActividadController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Actividad"
+                ],
+                "description": "create Actividad",
+                "operationId": "ActividadController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Actividad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Actividad"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Actividad/{id}": {
+            "get": {
+                "tags": [
+                    "Actividad"
+                ],
+                "description": "get Actividad by id",
+                "operationId": "ActividadController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Actividad"
+                ],
+                "description": "update the Actividad",
+                "operationId": "ActividadController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Actividad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Actividad"
+                ],
+                "description": "delete the Actividad",
+                "operationId": "ActividadController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Ficha_EB_IMGA/": {
+            "get": {
+                "tags": [
+                    "Ficha_EB_IMGA"
+                ],
+                "description": "get FichaEBIMGA",
+                "operationId": "FichaEBIMGAController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.FichaEBIMGA"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Ficha_EB_IMGA"
+                ],
+                "description": "create FichaEBIMGA",
+                "operationId": "FichaEBIMGAController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for FichaEBIMGA content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.FichaEBIMGA"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.FichaEBIMGA"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Ficha_EB_IMGA/{id}": {
+            "get": {
+                "tags": [
+                    "Ficha_EB_IMGA"
+                ],
+                "description": "get FichaEBIMGA by id",
+                "operationId": "FichaEBIMGAController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.FichaEBIMGA"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Ficha_EB_IMGA"
+                ],
+                "description": "update the FichaEBIMGA",
+                "operationId": "FichaEBIMGAController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for FichaEBIMGA content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.FichaEBIMGA"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.FichaEBIMGA"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Ficha_EB_IMGA"
+                ],
+                "description": "delete the FichaEBIMGA",
+                "operationId": "FichaEBIMGAController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Lineamiento/": {
+            "get": {
+                "tags": [
+                    "Lineamiento"
+                ],
+                "description": "get Lineamiento",
+                "operationId": "LineamientoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Lineamiento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lineamiento"
+                ],
+                "description": "create Lineamiento",
+                "operationId": "LineamientoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Lineamiento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Lineamiento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Lineamiento"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Lineamiento/{id}": {
+            "get": {
+                "tags": [
+                    "Lineamiento"
+                ],
+                "description": "get Lineamiento by id",
+                "operationId": "LineamientoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Lineamiento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Lineamiento"
+                ],
+                "description": "update the Lineamiento",
+                "operationId": "LineamientoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Lineamiento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Lineamiento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Lineamiento"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Lineamiento"
+                ],
+                "description": "delete the Lineamiento",
+                "operationId": "LineamientoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Meta/": {
+            "get": {
+                "tags": [
+                    "Meta"
+                ],
+                "description": "get Meta",
+                "operationId": "MetaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Meta"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Meta"
+                ],
+                "description": "create Meta",
+                "operationId": "MetaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Meta content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Meta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Meta"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Meta/{id}": {
+            "get": {
+                "tags": [
+                    "Meta"
+                ],
+                "description": "get Meta by id",
+                "operationId": "MetaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Meta"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Meta"
+                ],
+                "description": "update the Meta",
+                "operationId": "MetaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Meta content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Meta"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Meta"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Meta"
+                ],
+                "description": "delete the Meta",
+                "operationId": "MetaController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Plan_adquisiciones/": {
+            "get": {
+                "tags": [
+                    "Plan_adquisiciones"
+                ],
+                "description": "get PlanAdquisiciones",
+                "operationId": "PlanAdquisicionesController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisiciones"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Plan_adquisiciones"
+                ],
+                "description": "create PlanAdquisiciones",
+                "operationId": "PlanAdquisicionesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PlanAdquisiciones content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisiciones"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.PlanAdquisiciones"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Plan_adquisiciones/{id}": {
+            "get": {
+                "tags": [
+                    "Plan_adquisiciones"
+                ],
+                "description": "get PlanAdquisiciones by id",
+                "operationId": "PlanAdquisicionesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisiciones"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Plan_adquisiciones"
+                ],
+                "description": "update the PlanAdquisiciones",
+                "operationId": "PlanAdquisicionesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PlanAdquisiciones content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisiciones"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisiciones"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Plan_adquisiciones"
+                ],
+                "description": "delete the PlanAdquisiciones",
+                "operationId": "PlanAdquisicionesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Registro_funcionamiento-Modalidad_seleccion/": {
+            "get": {
+                "tags": [
+                    "Registro_funcionamiento-Modalidad_seleccion"
+                ],
+                "description": "get RegistroFuncionamientoModalidadSeleccion",
+                "operationId": "RegistroFuncionamientoModalidadSeleccionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Registro_funcionamiento-Modalidad_seleccion"
+                ],
+                "description": "create RegistroFuncionamientoModalidadSeleccion",
+                "operationId": "RegistroFuncionamientoModalidadSeleccionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroFuncionamientoModalidadSeleccion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroFuncionamientoModalidadSeleccion"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Registro_funcionamiento-Modalidad_seleccion/{id}": {
+            "get": {
+                "tags": [
+                    "Registro_funcionamiento-Modalidad_seleccion"
+                ],
+                "description": "get RegistroFuncionamientoModalidadSeleccion by id",
+                "operationId": "RegistroFuncionamientoModalidadSeleccionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Registro_funcionamiento-Modalidad_seleccion"
+                ],
+                "description": "update the RegistroFuncionamientoModalidadSeleccion",
+                "operationId": "RegistroFuncionamientoModalidadSeleccionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroFuncionamientoModalidadSeleccion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Registro_funcionamiento-Modalidad_seleccion"
+                ],
+                "description": "delete the RegistroFuncionamientoModalidadSeleccion",
+                "operationId": "RegistroFuncionamientoModalidadSeleccionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Registro_inversion_actividad-Fuente_financiamiento/": {
+            "get": {
+                "tags": [
+                    "Registro_inversion_actividad-Fuente_financiamiento"
+                ],
+                "description": "get RegistroInversionActividadFuenteFinanciamiento",
+                "operationId": "RegistroInversionActividadFuenteFinanciamientoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Registro_inversion_actividad-Fuente_financiamiento"
+                ],
+                "description": "create RegistroInversionActividadFuenteFinanciamiento",
+                "operationId": "RegistroInversionActividadFuenteFinanciamientoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroInversionActividadFuenteFinanciamiento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroInversionActividadFuenteFinanciamiento"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Registro_inversion_actividad-Fuente_financiamiento/{id}": {
+            "get": {
+                "tags": [
+                    "Registro_inversion_actividad-Fuente_financiamiento"
+                ],
+                "description": "get RegistroInversionActividadFuenteFinanciamiento by id",
+                "operationId": "RegistroInversionActividadFuenteFinanciamientoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Registro_inversion_actividad-Fuente_financiamiento"
+                ],
+                "description": "update the RegistroInversionActividadFuenteFinanciamiento",
+                "operationId": "RegistroInversionActividadFuenteFinanciamientoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroInversionActividadFuenteFinanciamiento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Registro_inversion_actividad-Fuente_financiamiento"
+                ],
+                "description": "delete the RegistroInversionActividadFuenteFinanciamiento",
+                "operationId": "RegistroInversionActividadFuenteFinanciamientoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones-Actividad/": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Actividad"
+                ],
+                "description": "get RegistroPlanAdquisicionesActividad",
+                "operationId": "RegistroPlanAdquisicionesActividadController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Actividad"
+                ],
+                "description": "create RegistroPlanAdquisicionesActividad",
+                "operationId": "RegistroPlanAdquisicionesActividadController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesActividad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroPlanAdquisicionesActividad"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones-Actividad/{id}": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Actividad"
+                ],
+                "description": "get RegistroPlanAdquisicionesActividad by id",
+                "operationId": "RegistroPlanAdquisicionesActividadController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Actividad"
+                ],
+                "description": "update the RegistroPlanAdquisicionesActividad",
+                "operationId": "RegistroPlanAdquisicionesActividadController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesActividad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Actividad"
+                ],
+                "description": "delete the RegistroPlanAdquisicionesActividad",
+                "operationId": "RegistroPlanAdquisicionesActividadController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones-Codigo_arka/": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Codigo_arka"
+                ],
+                "description": "get RegistroPlanAdquisicionesCodigoArka",
+                "operationId": "RegistroPlanAdquisicionesCodigoArkaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Codigo_arka"
+                ],
+                "description": "create RegistroPlanAdquisicionesCodigoArka",
+                "operationId": "RegistroPlanAdquisicionesCodigoArkaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesCodigoArka content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroPlanAdquisicionesCodigoArka"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones-Codigo_arka/{id}": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Codigo_arka"
+                ],
+                "description": "get RegistroPlanAdquisicionesCodigoArka by id",
+                "operationId": "RegistroPlanAdquisicionesCodigoArkaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Codigo_arka"
+                ],
+                "description": "update the RegistroPlanAdquisicionesCodigoArka",
+                "operationId": "RegistroPlanAdquisicionesCodigoArkaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesCodigoArka content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Codigo_arka"
+                ],
+                "description": "delete the RegistroPlanAdquisicionesCodigoArka",
+                "operationId": "RegistroPlanAdquisicionesCodigoArkaController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones/": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones"
+                ],
+                "description": "get RegistroPlanAdquisiciones",
+                "operationId": "RegistroPlanAdquisicionesController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Registro_plan_adquisiciones"
+                ],
+                "description": "create RegistroPlanAdquisiciones",
+                "operationId": "RegistroPlanAdquisicionesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisiciones content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroPlanAdquisiciones"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones/{id}": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones"
+                ],
+                "description": "get RegistroPlanAdquisiciones by id",
+                "operationId": "RegistroPlanAdquisicionesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Registro_plan_adquisiciones"
+                ],
+                "description": "update the RegistroPlanAdquisiciones",
+                "operationId": "RegistroPlanAdquisicionesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisiciones content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Registro_plan_adquisiciones"
+                ],
+                "description": "delete the RegistroPlanAdquisiciones",
+                "operationId": "RegistroPlanAdquisicionesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Actividad": {
+            "title": "Actividad",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "MetaId": {
+                    "$ref": "#/definitions/models.Meta"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Numero": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.FichaEBIMGA": {
+            "title": "FichaEBIMGA",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Magnitud": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "MetaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "PlanAdquisicionesId": {
+                    "$ref": "#/definitions/models.PlanAdquisiciones"
+                },
+                "Proceso": {
+                    "type": "string"
+                },
+                "Rubro": {
+                    "type": "string"
+                },
+                "UnidadMedida": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Lineamiento": {
+            "title": "Lineamiento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "AreaFuncionalId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "CentroGestor": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "FuenteRecursoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Numero": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Objetivo": {
+                    "type": "string"
+                },
+                "Vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Meta": {
+            "title": "Meta",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LineamientoId": {
+                    "$ref": "#/definitions/models.Lineamiento"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Numero": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Rubro": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.PlanAdquisiciones": {
+            "title": "PlanAdquisiciones",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RegistroFuncionamientoModalidadSeleccion": {
+            "title": "RegistroFuncionamientoModalidadSeleccion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdModalidadSeleccion": {
+                    "type": "string"
+                },
+                "RegistroPlanAdquisicionesId": {
+                    "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                }
+            }
+        },
+        "models.RegistroInversionActividadFuenteFinanciamiento": {
+            "title": "RegistroInversionActividadFuenteFinanciamiento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "FuenteFinanciamientoId": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RegistroPlanAdquisicionesActividadId": {
+                    "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                },
+                "ValorAsignado": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RegistroPlanAdquisiciones": {
+            "title": "RegistroPlanAdquisiciones",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "AreaFuncional": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "CentroGestor": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "MetaId": {
+                    "type": "string"
+                },
+                "PlanAdquisicionesId": {
+                    "$ref": "#/definitions/models.PlanAdquisiciones"
+                },
+                "ProductoId": {
+                    "type": "string"
+                },
+                "ResponsableId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RegistroPlanAdquisicionesActividad": {
+            "title": "RegistroPlanAdquisicionesActividad",
+            "type": "object",
+            "properties": {
+                "ActividadId": {
+                    "$ref": "#/definitions/models.Actividad"
+                },
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RegistroPlanAdquisicionesId": {
+                    "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                },
+                "Valor": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RegistroPlanAdquisicionesCodigoArka": {
+            "title": "RegistroPlanAdquisicionesCodigoArka",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoArka": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RegistroPlanAdquisicionesId": {
+                    "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Meta",
+            "description": "MetaController operations for Meta\n"
+        },
+        {
+            "name": "Actividad",
+            "description": "ActividadController operations for Actividad\n"
+        },
+        {
+            "name": "Plan_adquisiciones",
+            "description": "PlanAdquisicionesController operations for PlanAdquisiciones\n"
+        },
+        {
+            "name": "Registro_plan_adquisiciones",
+            "description": "RegistroPlanAdquisicionesController operations for RegistroPlanAdquisiciones\n"
+        },
+        {
+            "name": "Registro_plan_adquisiciones-Actividad",
+            "description": "RegistroPlanAdquisicionesActividadController operations for RegistroPlanAdquisicionesActividad\n"
+        },
+        {
+            "name": "Registro_inversion_actividad-Fuente_financiamiento",
+            "description": "RegistroInversionActividadFuenteFinanciamientoController operations for RegistroInversionActividadFuenteFinanciamiento\n"
+        },
+        {
+            "name": "Ficha_EB_IMGA",
+            "description": "FichaEBIMGAController operations for FichaEBIMGA\n"
+        },
+        {
+            "name": "Registro_plan_adquisiciones-Codigo_arka",
+            "description": "RegistroPlanAdquisicionesCodigoArkaController operations for RegistroPlanAdquisicionesCodigoArka\n"
+        },
+        {
+            "name": "Registro_funcionamiento-Modalidad_seleccion",
+            "description": "RegistroFuncionamientoModalidadSeleccionController operations for RegistroFuncionamientoModalidadSeleccion\n"
+        },
+        {
+            "name": "Lineamiento",
+            "description": "LineamientoController operations for Lineamiento\n"
+        }
+    ]
+}
