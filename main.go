@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "github.com/udistrital/plan_adquisiciones_crud/routers"
+	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 	"github.com/udistrital/utils_oas/customerror"
 
 	"github.com/astaxie/beego"
@@ -29,5 +30,7 @@ func main() {
 		AllowCredentials: true,
 	}))
 	beego.ErrorController(&customerror.CustomErrorController{})
+	apistatus.Init()
+
 	beego.Run()
 }
