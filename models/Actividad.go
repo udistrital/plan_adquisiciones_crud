@@ -10,13 +10,13 @@ import (
 )
 
 type Actividad struct {
-	Id                int       `orm:"column(id);pk;auto"`
-	Numero            int       `orm:"column(numero)"`
-	Nombre            string    `orm:"column(nombre)"`
+	Id                int    `orm:"column(id);pk;auto"`
+	Numero            int    `orm:"column(numero)"`
+	Nombre            string `orm:"column(nombre)"`
 	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo            bool      `orm:"column(activo)"`
-	MetaId            *Meta     `orm:"column(Meta_id);rel(fk)"`
+	Activo            bool   `orm:"column(activo)"`
+	MetaId            *Meta  `orm:"column(Meta_id);rel(fk)"`
 }
 
 func (t *Actividad) TableName() string {

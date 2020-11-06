@@ -10,17 +10,17 @@ import (
 )
 
 type Lineamiento struct {
-	Id                int       `orm:"column(id);pk;auto"`
-	Numero            int       `orm:"column(numero)"`
-	Nombre            string    `orm:"column(nombre)"`
-	Objetivo          string    `orm:"column(objetivo)"`
-	FuenteRecursoId   int       `orm:"column(fuente_recurso_id)"`
-	CentroGestor      int       `orm:"column(centro_gestor)"`
-	AreaFuncionalId   int       `orm:"column(area_funcional_id)"`
-	Vigencia          int       `orm:"column(vigencia)"`
+	Id                int    `orm:"column(id);pk;auto"`
+	Numero            int    `orm:"column(numero)"`
+	Nombre            string `orm:"column(nombre)"`
+	Objetivo          string `orm:"column(objetivo)"`
+	FuenteRecursoId   int    `orm:"column(fuente_recurso_id)"`
+	CentroGestor      int    `orm:"column(centro_gestor)"`
+	AreaFuncionalId   int    `orm:"column(area_funcional_id)"`
+	Vigencia          int    `orm:"column(vigencia)"`
 	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo            bool      `orm:"column(activo)"`
+	Activo            bool   `orm:"column(activo)"`
 }
 
 func (t *Lineamiento) TableName() string {
