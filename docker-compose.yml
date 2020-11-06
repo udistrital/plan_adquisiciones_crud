@@ -1,0 +1,50 @@
+version: '3.4'
+
+services: 
+  api:
+    build: ./bee_build
+    image: ${SERVICE_NAME}
+    container_name: ${SERVICE_NAME}
+    volumes:
+      - gosrc:/go
+      - .:/go/src/${API_BASE_DIR}/${API_NAME}
+    env_file: 
+      - .env
+    ports: 
+      - "${PORT}:${PORT}"
+    environment:
+      - PLAN_ADQUISICIONES_CRUD_HTTP_PORT=${PORT}
+      - API_NAME=${API_NAME}
+      - PLAN_ADQUISICIONES_CRUD_PG_USER=${POSTGRES_USER}
+      - PLAN_ADQUISICIONES_CRUD_PG_PASS=${POSTGRES_PASSWORD}
+      - PLAN_ADQUISICIONES_CRUD_PG_HOST=${POSTGRES_HOST}
+      - PLAN_ADQUISICIONES_CRUD_PG_DB=${POSTGRES_DB}
+      - PLAN_ADQUISICIONES_CRUD_PG_SCHEMA=plan_adquisiciones
+      - RUN_MODE=dev 
+      - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:${SERVICE_NAME}.localhost   
+    command: sh -c 'cd ${API_BASE_DIR}/${API_NAME};go get -v -u ./...; bee migrate -driver=postgres -conn="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable&search_path=public" || true; bee run -downdoc=true -gendoc=true'
+    depends_on: 
+      - db
+    networks: 
+      - back_end
+  db:
+    container_name: ${POSTGRES_HOST}
+    image: postgres:10-alpine
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks: 
+      - back_end
+
+volumes:
+  gosrc:
+  postgres_data:
+networks: 
+  back_end:
+    external: true
