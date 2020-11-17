@@ -64,7 +64,7 @@ CREATE TABLE plan_adquisiciones."Lineamiento" (
 	numero integer NOT NULL,
 	nombre varchar(120) NOT NULL,
 	objetivo text NOT NULL,
-	fuente_recurso_id integer NOT NULL,
+	fuente_recurso_id varchar(5) NOT NULL,
 	centro_gestor integer NOT NULL,
 	area_funcional_id integer NOT NULL,
 	vigencia integer NOT NULL,

@@ -14,7 +14,7 @@ type Lineamiento struct {
 	Numero            int    `orm:"column(numero)"`
 	Nombre            string `orm:"column(nombre)"`
 	Objetivo          string `orm:"column(objetivo)"`
-	FuenteRecursoId   int    `orm:"column(fuente_recurso_id)"`
+	FuenteRecursoId   string `orm:"column(fuente_recurso_id)"`
 	CentroGestor      int    `orm:"column(centro_gestor)"`
 	AreaFuncionalId   int    `orm:"column(area_funcional_id)"`
 	Vigencia          int    `orm:"column(vigencia)"`
