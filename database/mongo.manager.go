@@ -11,15 +11,17 @@ import (
 
 var client = &mongo.Client{}
 var mainDB = ""
+var mainCollection = ""
 
 // InitDB This function will connect to the db provided on the params.
-func InitDB(dbURL, dbPort, dbUser, dbPass, dbAuth, dbMain string) {
+func InitDB(dbURL, dbPort, dbUser, dbPass, dbAuth, dbMain string, dbCollection string) {
 	clientOptions := options.Client().ApplyURI("mongodb://" + dbURL + ":" + dbPort).SetAuth(options.Credential{
 		Username:   dbUser,
 		Password:   dbPass,
 		AuthSource: dbAuth, // db name
 	})
 	mainDB = dbMain
+	mainCollection = dbCollection
 	var err error
 	client, err = mongo.Connect(context.TODO(), clientOptions)
 
@@ -57,4 +59,13 @@ func GetCollection(collName string) (*mongo.Collection, error) {
 
 	return nil, errors.New("cannot-get-collection")
 
+}
+
+// GetCollection  get the coll obj provided by the configuration. singleton for connection pool.
+func GetMainCollection() (*mongo.Collection, error) {
+	if client != nil {
+		return client.Database(mainDB).Collection(mainCollection), nil
+	}
+
+	return nil, errors.New("cannot-get-collection")
 }

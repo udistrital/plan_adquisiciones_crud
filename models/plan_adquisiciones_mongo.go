@@ -4,14 +4,9 @@ import (
 	"context"
 	dbMongoManager "github.com/udistrital/plan_adquisiciones_crud/database"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"github.com/astaxie/beego/logs"
-	"encoding/json"
 )
-
-type HelloWorld struct {
-	ID                int    `json:"id"`
-	Descripcion       string `json:"descripcion"`
-}
 
 type PlanAdquisicionesMongo struct {
 	ID                int    `json:"id"`
@@ -98,26 +93,49 @@ type PlanAdquisicionesMongo struct {
 						Activo            bool   `json:"activo"`
 					} `json:"lineamiento"`
 				} `json:"meta"`
-			} `json:"Actividad"`
+			} `json:"actividad"`
 		} `json:"registro_plan_adquisiciones-actividad"`
 	} `json:"registro_plan_adquisiciones"`
 }
 
+// AddPlanAdquisiciones insert a new PlanAdquisiciones into database and returns
+// last inserted Id on success.
+func AddPlanAdquisicionesMongo(m *PlanAdquisicionesMongo) (id interface{}, err error) {
+	collection, err := dbMongoManager.GetMainCollection();
+	insertResult, err := collection.InsertOne(context.TODO(), m);
+	return insertResult.InsertedID, err;
+}
+
+// GetPlanAdquisicionesById retrieves PlanAdquisiciones by Id. Returns error if
+// Id doesn't exist
+func GetPlanAdquisicionesMongoById(id string) (v *bson.M, err error) {
+	collection, err := dbMongoManager.GetMainCollection();
+	objId, err := primitive.ObjectIDFromHex(id);
+	collection.FindOne(context.TODO(), bson.M{"_id": objId}).Decode(&v)
+	if err != nil {
+		logs.Error(err);
+	} else {
+		return v, nil
+	}
+	return nil, err
+}
+
 // GetAllPlanAdquisiciones retrieves all PlanAdquisiciones matches certain condition. Returns empty list if
 // no records exist
-func GetAllPlanAdquisicionesMongo() (ml []interface{}, err error) {
-	db,_ := dbMongoManager.GetDatabase();
-	collection := db.Collection("plan_adquisiciones_crud_mongo");
-	cursor, err := collection.Find(context.TODO(), bson.M{});
-	var ml2 []PlanAdquisicionesMongo;
+func GetAllPlanAdquisicionesMongo(query bson.M) (ml []interface{}, err error) {
+	collection, err := dbMongoManager.GetMainCollection();
+	if query == nil{
+		query = bson.M{};
+	}
+	cursor, err := collection.Find(context.TODO(), query);
+	var ml2 []bson.M;
 	if err = cursor.All(context.TODO(), &ml2);
 	err != nil {
 		logs.Error(err);
 		return nil, err;
 	}
-	for i, v := range ml2 {
-		ml = append(ml, &PlanAdquisicionesMongo{});
+	for _, m := range ml2 {
+		ml = append(ml, m);
 	}
-	var test = &ml2;
 	return ml, nil;
 }

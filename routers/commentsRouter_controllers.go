@@ -259,24 +259,6 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:PlanAdquisicionesMongoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:PlanAdquisicionesMongoController"],
-        beego.ControllerComments{
-            Method: "Put",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"put"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:PlanAdquisicionesMongoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:PlanAdquisicionesMongoController"],
-        beego.ControllerComments{
-            Method: "Delete",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"delete"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
     beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:RegistroFuncionamientoModalidadSeleccionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:RegistroFuncionamientoModalidadSeleccionController"],
         beego.ControllerComments{
             Method: "Post",
