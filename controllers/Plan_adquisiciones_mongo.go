@@ -2,16 +2,17 @@ package controllers
 
 import (
 	"encoding/json"
+
 	"github.com/udistrital/plan_adquisiciones_crud/models"
 
 	"github.com/udistrital/utils_oas/time_bogota"
 
-	"go.mongodb.org/mongo-driver/bson"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
-// PlanAdquisicionesController operations for PlanAdquisiciones
+// PlanAdquisicionesMongoController operations for PlanAdquisicionesMongo
 type PlanAdquisicionesMongoController struct {
 	beego.Controller
 }
@@ -21,15 +22,13 @@ func (c *PlanAdquisicionesMongoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
-	c.Mapping("Put", c.Put)
-	c.Mapping("Delete", c.Delete)
 }
 
 // Post ...
 // @Title Post
-// @Description create PlanAdquisiciones
-// @Param	body		body 	models.PlanAdquisiciones	true		"body for PlanAdquisiciones content"
-// @Success 201 {int} models.PlanAdquisiciones
+// @Description create PlanAdquisicionesMongo
+// @Param	body		body 	models.PlanAdquisicionesMongo	true		"body for PlanAdquisicionesMongo content"
+// @Success 201 {int} models.PlanAdquisicionesMongo
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *PlanAdquisicionesMongoController) Post() {
@@ -57,9 +56,9 @@ func (c *PlanAdquisicionesMongoController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description get PlanAdquisiciones by id
+// @Description get PlanAdquisicionesMongo by id
 // @Param	id		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.PlanAdquisiciones
+// @Success 200 {object} models.PlanAdquisicionesMongo
 // @Failure 404 not found resource
 // @router /:id [get]
 func (c *PlanAdquisicionesMongoController) GetOne() {
@@ -78,16 +77,16 @@ func (c *PlanAdquisicionesMongoController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description get PlanAdquisiciones
+// @Description get PlanAdquisicionesMongo
 // @Param	query	query	string	false	"Filter. e.g. {"vigencia":2020}"
-// @Success 200 {object} models.PlanAdquisiciones
+// @Success 200 {object} models.PlanAdquisicionesMongo
 // @Failure 404 not found resource
 // @router / [get]
 func (c *PlanAdquisicionesMongoController) GetAll() {
-	var query bson.M;
-	query = nil;
+	var query bson.M
+	query = nil
 	if v := c.GetString("query"); v != "" {
-		err := json. Unmarshal([]byte(v), &query);
+		err := json.Unmarshal([]byte(v), &query)
 		if err != nil {
 			logs.Error("json. Unmarshal() ERROR:", err)
 		}
