@@ -880,6 +880,89 @@
                 }
             }
         },
+        "/Plan_adquisiciones_mongo/": {
+            "get": {
+                "tags": [
+                    "Plan_adquisiciones_mongo"
+                ],
+                "description": "get PlanAdquisicionesMongo",
+                "operationId": "PlanAdquisicionesMongoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. {vigencia:2020}",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisicionesMongo"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Plan_adquisiciones_mongo"
+                ],
+                "description": "create PlanAdquisicionesMongo",
+                "operationId": "PlanAdquisicionesMongoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PlanAdquisicionesMongo content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisicionesMongo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.PlanAdquisicionesMongo"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Plan_adquisiciones_mongo/{id}": {
+            "get": {
+                "tags": [
+                    "Plan_adquisiciones_mongo"
+                ],
+                "description": "get PlanAdquisicionesMongo by id",
+                "operationId": "PlanAdquisicionesMongoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisicionesMongo"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/Registro_funcionamiento-Modalidad_seleccion/": {
             "get": {
                 "tags": [
@@ -1776,6 +1859,35 @@
                 }
             }
         },
+        "models.ActividadMongo": {
+            "title": "ActividadMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "meta": {
+                    "$ref": "#/definitions/models.MetaMongo"
+                },
+                "nombre": {
+                    "type": "string"
+                },
+                "numero": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
         "models.FichaEBIMGA": {
             "title": "FichaEBIMGA",
             "type": "object",
@@ -1863,6 +1975,51 @@
                 }
             }
         },
+        "models.LineamientoMongo": {
+            "title": "LineamientoMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "area_funcional_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "centro_gestor": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "fuente_recurso_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "nombre": {
+                    "type": "string"
+                },
+                "numero": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "objetivo": {
+                    "type": "string"
+                },
+                "vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
         "models.Meta": {
             "title": "Meta",
             "type": "object",
@@ -1895,6 +2052,38 @@
                 }
             }
         },
+        "models.MetaMongo": {
+            "title": "MetaMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "lineamiento": {
+                    "$ref": "#/definitions/models.LineamientoMongo"
+                },
+                "nombre": {
+                    "type": "string"
+                },
+                "numero": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "rubro": {
+                    "type": "string"
+                }
+            }
+        },
         "models.PlanAdquisiciones": {
             "title": "PlanAdquisiciones",
             "type": "object",
@@ -1916,6 +2105,44 @@
                     "format": "int64"
                 },
                 "Vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.PlanAdquisicionesMongo": {
+            "title": "PlanAdquisicionesMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "descripcion": {
+                    "type": "string"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "ficha_eb_imga": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.FichaEBIMGA"
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "registro_plan_adquisiciones": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesMongo"
+                    }
+                },
+                "vigencia": {
                     "type": "integer",
                     "format": "int64"
                 }
@@ -1946,6 +2173,29 @@
                 }
             }
         },
+        "models.RegistroFuncionamientoModalidadSeleccionMongo": {
+            "title": "RegistroFuncionamientoModalidadSeleccionMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id_modalidad_seleccion": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
         "models.RegistroInversionActividadFuenteFinanciamiento": {
             "title": "RegistroInversionActividadFuenteFinanciamiento",
             "type": "object",
@@ -1970,6 +2220,32 @@
                     "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
                 },
                 "ValorAsignado": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RegistroInversionActividadFuenteFinanciamientoMongo": {
+            "title": "RegistroInversionActividadFuenteFinanciamientoMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "fuente_financiamiento_id": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "valor_asignado": {
                     "type": "integer",
                     "format": "int64"
                 }
@@ -2044,6 +2320,38 @@
                 }
             }
         },
+        "models.RegistroPlanAdquisicionesActividadMongo": {
+            "title": "RegistroPlanAdquisicionesActividadMongo",
+            "type": "object",
+            "properties": {
+                "actividad": {
+                    "$ref": "#/definitions/models.ActividadMongo"
+                },
+                "activo": {
+                    "type": "boolean"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "registro_inversion_actividad-fuente_financiamiento": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamientoMongo"
+                    }
+                },
+                "valor": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
         "models.RegistroPlanAdquisicionesCodigoArka": {
             "title": "RegistroPlanAdquisicionesCodigoArka",
             "type": "object",
@@ -2068,6 +2376,79 @@
                     "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
                 }
             }
+        },
+        "models.RegistroPlanAdquisicionesCodigoArkaMongo": {
+            "title": "RegistroPlanAdquisicionesCodigoArkaMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "codigo_arka": {
+                    "type": "string"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RegistroPlanAdquisicionesMongo": {
+            "title": "RegistroPlanAdquisicionesMongo",
+            "type": "object",
+            "properties": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "centro_gestor": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "fecha_creacion": {
+                    "type": "string"
+                },
+                "fecha_modificacion": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "meta_id": {
+                    "type": "string"
+                },
+                "producto_id": {
+                    "type": "string"
+                },
+                "registro_funcionamiento-modalidad_seleccion": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccionMongo"
+                    }
+                },
+                "registro_plan_adquisiciones-actividad": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividadMongo"
+                    }
+                },
+                "registro_plan_adquisiciones-codigo_arka": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArkaMongo"
+                    }
+                },
+                "responsable_id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
         }
     },
     "tags": [
@@ -2082,6 +2463,10 @@
         {
             "name": "Plan_adquisiciones",
             "description": "PlanAdquisicionesController operations for PlanAdquisiciones\n"
+        },
+        {
+            "name": "Plan_adquisiciones_mongo",
+            "description": "PlanAdquisicionesMongoController operations for PlanAdquisicionesMongo\n"
         },
         {
             "name": "Registro_plan_adquisiciones",

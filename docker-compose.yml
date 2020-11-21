@@ -22,10 +22,18 @@ services:
       - PLAN_ADQUISICIONES_CRUD_PG_SCHEMA=plan_adquisiciones
       - PLAN_ADQUISICIONES_CRUD_RUN_MODE=dev
       - RUN_MODE=dev 
+      - PLAN_ADQUISICIONES_CRUD_MONGO_HOST=${MONGO_HOST}
+      - PLAN_ADQUISICIONES_CRUD_MONGO_PORT=${MONGO_PORT}
+      - PLAN_ADQUISICIONES_CRUD_MONGO_DB=${MONGO_DB}
+      - PLAN_ADQUISICIONES_CRUD_MONGO_USER=${MONGO_USER}
+      - PLAN_ADQUISICIONES_CRUD_MONGO_PASS=${MONGO_PASS}
+      - PLAN_ADQUISICIONES_CRUD_MONGO_AUTH=${MONGO_AUTH}
+      - PLAN_ADQUISICIONES_CRUD_MONGO_COLLECTION=${MONGO_COLLECTION}
       - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:${SERVICE_NAME}.localhost   
     command: sh -c 'cd ${API_BASE_DIR}/${API_NAME};go get -v -u ./...; bee migrate -driver=postgres -conn="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable&search_path=public" || true; go mod init ; bee run'
     depends_on: 
       - db
+      - db_mongo
     networks: 
       - back_end
   db:
@@ -42,10 +50,40 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     networks: 
       - back_end
+  
+  db_mongo:
+    image: mongo:latest
+    container_name: ${MONGO_HOST}
+    environment: 
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASS}
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - 27017:${MONGO_PORT} 
+    networks: 
+      - back_end
+  
+  mongoexpress:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=${MONGO_HOST}
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_USER}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_PASS}
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+    ports:
+      - 8090:8081
+    depends_on:
+      - db_mongo
+    networks: 
+      - back_end
 
 volumes:
   gosrc:
   postgres_data:
+  mongo_data:
 networks: 
   back_end:
     external: true

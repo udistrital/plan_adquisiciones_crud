@@ -34,6 +34,12 @@ func init() {
 			),
 		),
 
+		beego.NSNamespace("/Plan_adquisiciones_mongo",
+			beego.NSInclude(
+				&controllers.PlanAdquisicionesMongoController{},
+			),
+		),
+
 		beego.NSNamespace("/Registro_plan_adquisiciones",
 			beego.NSInclude(
 				&controllers.RegistroPlanAdquisicionesController{},

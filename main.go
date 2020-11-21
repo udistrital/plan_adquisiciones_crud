@@ -4,7 +4,7 @@ import (
 	_ "github.com/udistrital/plan_adquisiciones_crud/routers"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 	"github.com/udistrital/utils_oas/customerror"
-
+	dbMongoManager "github.com/udistrital/plan_adquisiciones_crud/database"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
@@ -12,6 +12,14 @@ import (
 )
 
 func main() {
+	dbMongoManager.InitDB(beego.AppConfig.String("mongoHost"),
+		beego.AppConfig.String("mongoPort"),
+		beego.AppConfig.String("mongoUser"),
+		beego.AppConfig.String("mongoPass"),
+		beego.AppConfig.String("mongoAuth"),
+		beego.AppConfig.String("mongodb"),
+		beego.AppConfig.String("mongoCollection"),
+	)
 	orm.RegisterDataBase("default", "postgres", "postgres://"+beego.AppConfig.String("PGuser")+":"+beego.AppConfig.String("PGpass")+"@"+beego.AppConfig.String("PGhost")+"/"+beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path"+"="+beego.AppConfig.String("PGschemas"))
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
