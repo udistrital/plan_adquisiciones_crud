@@ -16,6 +16,7 @@ type PlanAdquisiciones struct {
 	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo            bool   `orm:"column(activo)"`
+	Publicado         bool   `orm:"column(publicado)"`
 }
 
 func (t *PlanAdquisiciones) TableName() string {

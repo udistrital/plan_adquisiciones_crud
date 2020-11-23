@@ -3,9 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/plan_adquisiciones_crud/models"
 	"strconv"
 	"strings"
+
+	"github.com/udistrital/plan_adquisiciones_crud/models"
 
 	"github.com/udistrital/utils_oas/time_bogota"
 
@@ -39,6 +40,8 @@ func (c *RegistroPlanAdquisicionesController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		// v.FechaEstimadaInicio = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaInicio)
+		// v.FechaEstimadaFin = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaFin)
 		if _, err := models.AddRegistroPlanAdquisiciones(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
@@ -163,6 +166,8 @@ func (c *RegistroPlanAdquisicionesController) Put() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		v.FechaEstimadaInicio = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaInicio)
+		v.FechaEstimadaFin = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaFin)
 		if err := models.UpdateRegistroPlanAdquisicionesById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
