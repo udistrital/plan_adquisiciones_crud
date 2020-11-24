@@ -40,8 +40,8 @@ func (c *RegistroPlanAdquisicionesController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
-		// v.FechaEstimadaInicio = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaInicio)
-		// v.FechaEstimadaFin = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaFin)
+		v.FechaEstimadaInicio = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaInicio)
+		v.FechaEstimadaFin = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaFin)
 		if _, err := models.AddRegistroPlanAdquisiciones(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
