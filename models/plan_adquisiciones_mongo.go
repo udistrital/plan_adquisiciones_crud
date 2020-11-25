@@ -17,6 +17,7 @@ type PlanAdquisicionesMongo struct {
 	FechaCreacion             string                           `json:"fecha_creacion"`
 	FechaModificacion         string                           `json:"fecha_modificacion"`
 	Activo                    bool                             `json:"activo"`
+	Publicado                 bool                             `json:"publicado"`
 	FichaEbImga               []FichaEBIMGA                    `json:"ficha_eb_imga"`
 	RegistroPlanAdquisiciones []RegistroPlanAdquisicionesMongo `json:"registro_plan_adquisiciones"`
 }
@@ -45,6 +46,9 @@ type RegistroPlanAdquisicionesMongo struct {
 	ResponsableID                            int                                             `json:"responsable_id"`
 	Activo                                   bool                                            `json:"activo"`
 	ProductoID                               string                                          `json:"producto_id"`
+	RubroID                                  string                                          `json:"rubro_id"`
+	FechaEstimadaInicio                      string                                          `json:"fecha_estimada_inicio"`
+	FechaEstimadaFin                         string                                          `json:"fecha_estimada_fin"`
 	RegistroPlanAdquisicionesCodigoArka      []RegistroPlanAdquisicionesCodigoArkaMongo      `json:"registro_plan_adquisiciones-codigo_arka"`
 	RegistroFuncionamientoModalidadSeleccion []RegistroFuncionamientoModalidadSeleccionMongo `json:"registro_funcionamiento-modalidad_seleccion"`
 	RegistroPlanAdquisicionesActividad       []RegistroPlanAdquisicionesActividadMongo       `json:"registro_plan_adquisiciones-actividad"`

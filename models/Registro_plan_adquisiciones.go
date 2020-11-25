@@ -19,6 +19,9 @@ type RegistroPlanAdquisiciones struct {
 	Activo              bool               `orm:"column(activo)"`
 	MetaId              string             `orm:"column(meta_id);null"`
 	ProductoId          string             `orm:"column(producto_id);null"`
+	RubroId             string             `orm:"column(rubro_id)"`
+	FechaEstimadaInicio string             `orm:"column(fecha_estimada_inicio);type(timestamp without time zone)"`
+	FechaEstimadaFin    string             `orm:"column(fecha_estimada_fin);type(timestamp without time zone)"`
 	PlanAdquisicionesId *PlanAdquisiciones `orm:"column(Plan_adquisiciones_id);rel(fk)"`
 }
 
