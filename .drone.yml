@@ -237,19 +237,19 @@ steps:
     channel: deploy
     template: >
       {{#success build.status}}
-        ✅  <{{ build.link }}|SUCCESS> <b>Build #{{build.number}}</b>
-        <b>type: </b><code>{{ build.event }}</code>
-        <b>Repo: </b><code>{{repo.name}}</code>
-        <b>Commit: </b><https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
-        <b>Branch: </b><code>{{commit.branch}}</code>
-        <b>Autor: </b>{{commit.author}} <code>&#128526 </code>
+        ✅  <{{ build.link }}|SUCCESS> Build #{{build.number}}
+        type: {{ build.event }}
+        Repo: {{repo.name}}
+        Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+        Branch: {{commit.branch}}
+        Autor: {{commit.author}} :D
       {{else}}
-        ❌ <{{ build.link }}|FAILURE> <b>Build #{{build.number}}</b>
-        <b>type: </b><code>{{ build.event }}</code>
-        <b>Repo: </b><code>{{repo.name}}</code>
-        <b>Branch: </b><code>{{commit.branch}}</code>
-        <b>Commit: </b><https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
-        <b>Autor: </b>{{commit.author}} <code>&#128549 </code>
+        ❌ <{{ build.link }}|FAILURE> Build #{{build.number}}
+        type: {{ build.event }}
+        Repo: {{repo.name}}
+        Branch: {{commit.branch}}
+        Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+        Autor: {{commit.author}} :(
       {{/success}}
   when:
     branch:
