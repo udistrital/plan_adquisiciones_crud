@@ -1292,8 +1292,7 @@ definitions:
       FechaModificacion:
         type: string
       FuenteRecursoId:
-        type: integer
-        format: int64
+        type: string
       Id:
         type: integer
         format: int64
@@ -1398,6 +1397,8 @@ definitions:
       Id:
         type: integer
         format: int64
+      Publicado:
+        type: boolean
       Vigencia:
         type: integer
         format: int64
@@ -1420,6 +1421,8 @@ definitions:
       id:
         type: integer
         format: int64
+      publicado:
+        type: boolean
       registro_plan_adquisiciones:
         type: array
         items:
@@ -1512,6 +1515,10 @@ definitions:
         format: int64
       FechaCreacion:
         type: string
+      FechaEstimadaFin:
+        type: string
+      FechaEstimadaInicio:
+        type: string
       FechaModificacion:
         type: string
       Id:
@@ -1526,6 +1533,8 @@ definitions:
       ResponsableId:
         type: integer
         format: int64
+      RubroId:
+        type: string
   models.RegistroPlanAdquisicionesActividad:
     title: RegistroPlanAdquisicionesActividad
     type: object
@@ -1611,6 +1620,10 @@ definitions:
         format: int64
       fecha_creacion:
         type: string
+      fecha_estimada_fin:
+        type: string
+      fecha_estimada_inicio:
+        type: string
       fecha_modificacion:
         type: string
       id:
@@ -1635,6 +1648,8 @@ definitions:
       responsable_id:
         type: integer
         format: int64
+      rubro_id:
+        type: string
 tags:
 - name: Meta
   description: |
