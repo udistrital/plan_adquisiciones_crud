@@ -234,7 +234,6 @@ steps:
   settings:
     webhook: slack_webhook
     channel: deploy
-    format: html
     template: >
       {{#success build.status}}
         ✅ <a href="{{build.link}}">SUCCESS</a> <b>Build #{{build.number}}</b>
