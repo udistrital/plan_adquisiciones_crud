@@ -220,6 +220,7 @@ steps:
       {{/success}}
   when:
     branch:
+    - feature/*
     - develop
     - release/*
     - master
@@ -236,18 +237,18 @@ steps:
     channel: deploy
     template: >
       {{#success build.status}}
-        ✅ <a href="{{build.link}}">SUCCESS</a> <b>Build #{{build.number}}</b>
+        ✅  <{{ build.link }}|SUCCESS> <b>Build #{{build.number}}</b>
         <b>type: </b><code>{{ build.event }}</code>
         <b>Repo: </b><code>{{repo.name}}</code>
-        <b>Commit: </b><a href="{{commit.link}}">{{truncate commit.sha 7}}</a>
+        <b>Commit: </b><https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
         <b>Branch: </b><code>{{commit.branch}}</code>
         <b>Autor: </b>{{commit.author}} <code>&#128526 </code>
       {{else}}
-        ❌ <a href="{{build.link}}">FAILURE</a> <b>Build #{{build.number}}</b>
+        ❌ <{{ build.link }}|FAILURE> <b>Build #{{build.number}}</b>
         <b>type: </b><code>{{ build.event }}</code>
         <b>Repo: </b><code>{{repo.name}}</code>
         <b>Branch: </b><code>{{commit.branch}}</code>
-        <b>Commit: </b><a href="{{commit.link}}">{{truncate commit.sha 7}}</a>
+        <b>Commit: </b><https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
         <b>Autor: </b>{{commit.author}} <code>&#128549 </code>
       {{/success}}
   when:
