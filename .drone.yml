@@ -221,7 +221,6 @@ steps:
       {{/success}}
   when:
     branch:
-    - develop
     - release/*
     - master
     event:
