@@ -228,3 +228,33 @@ steps:
     status:
     - failure
     - success
+
+- name: notify_slack
+  image: plugins/slack
+  settings:
+    webhook: 
+      from_secret: slack_webhook
+    channel: deploy
+    template: >
+      {{#success build.status}}
+        ✅  <{{ build.link }}|SUCCESS> Build #{{build.number}}
+        type: {{ build.event }} - Repo: {{repo.name}}
+        Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+        Branch: {{commit.branch}} - Autor: {{build.author}}  :sunglasses:
+      {{else}}
+        ❌ <{{ build.link }}|FAILURE> Build #{{build.number}}
+        type: {{ build.event }} - Repo: {{repo.name}}
+        Branch: {{commit.branch}} - Autor: {{build.author}} :weary:
+        Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+        
+      {{/success}}
+  when:
+    branch:
+    - develop
+    - release/*
+    - master
+    event:
+    - push
+    status:
+    - failure
+    - success
