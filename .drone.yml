@@ -220,7 +220,6 @@ steps:
       {{/success}}
   when:
     branch:
-    - feature/*
     - develop
     - release/*
     - master
@@ -233,7 +232,8 @@ steps:
 - name: notify_slack
   image: plugins/slack
   settings:
-    webhook: slack_webhook
+    webhook: 
+      from_secret: slack_webhook
     channel: deploy
     template: >
       {{#success build.status}}
