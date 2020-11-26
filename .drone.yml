@@ -238,18 +238,15 @@ steps:
     template: >
       {{#success build.status}}
         ✅  <{{ build.link }}|SUCCESS> Build #{{build.number}}
-        type: {{ build.event }}
-        Repo: {{repo.name}}
+        type: {{ build.event }} - Repo: {{repo.name}}
         Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
-        Branch: {{commit.branch}}
-        Autor: {{commit.author}} :D
+        Branch: {{commit.branch}} - Autor: {{build.author}}  :sunglasses:
       {{else}}
         ❌ <{{ build.link }}|FAILURE> Build #{{build.number}}
-        type: {{ build.event }}
-        Repo: {{repo.name}}
-        Branch: {{commit.branch}}
+        type: {{ build.event }} - Repo: {{repo.name}}
+        Branch: {{commit.branch}} - Autor: {{build.author}} :weary:
         Commit: <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
-        Autor: {{commit.author}} :(
+        
       {{/success}}
   when:
     branch:
