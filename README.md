@@ -14,7 +14,8 @@ Esta API representa la capa de datos del subsistema de plan de adquisiciones, el
 ### Tecnologías Implementadas y Versiones
 * [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
 * [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
-* [MongoDB]()
+* [MongoDB](https://docs.mongodb.com/manual/)
+* [Postgres](https://github.com/udistrital/lineamientos_oas/blob/master/instalacion_de_herramientas/postgres.md)
 * [Docker](https://docs.docker.com/engine/install/ubuntu/)
 * [Docker Compose](https://docs.docker.com/compose/)
 
