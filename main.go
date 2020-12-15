@@ -24,7 +24,7 @@ func main() {
 	orm.RegisterDataBase("default", "postgres", "postgres://"+
 		beego.AppConfig.String("PGuser")+":"+
 		beego.AppConfig.String("PGpass")+"@"+
-		beego.AppConfig.String("PGhost")+
+		beego.AppConfig.String("PGhost")+":"+
 		beego.AppConfig.String("PGport")+"/"+
 		beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+
 		beego.AppConfig.String("PGschema")+"")
