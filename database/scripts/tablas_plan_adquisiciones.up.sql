@@ -15,7 +15,7 @@
 
 -- object: plan_adquisiciones | type: SCHEMA --
 -- DROP SCHEMA IF EXISTS plan_adquisiciones CASCADE;
-CREATE SCHEMA plan_adquisiciones;
+CREATE SCHEMA IF NOT EXISTS plan_adquisiciones;
 -- ddl-end --
 -- ALTER SCHEMA plan_adquisiciones OWNER TO postgres;
 -- ddl-end --
