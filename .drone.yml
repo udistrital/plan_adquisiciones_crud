@@ -5,6 +5,7 @@ workspace:
       branch:
       - develop
       - release/*
+      - release
       - master
 
 kind: pipeline
@@ -20,6 +21,7 @@ steps:
     - develop
     - feature/*
     - release/*
+    - release
     event:
     - push
 
@@ -32,6 +34,7 @@ steps:
     - develop
     - feature/*
     - release/*
+    - release
     event:
     - push
 
@@ -44,6 +47,7 @@ steps:
     - develop
     - feature/*
     - release/*
+    - release
     event:
     - push
 
@@ -57,6 +61,7 @@ steps:
     branch:
     - develop
     - release/*
+    - release
     - master
     event:
     - push
@@ -78,6 +83,7 @@ steps:
     branch:
     - develop
     - release/*
+    - release
     - master
     event:
     - push
@@ -108,6 +114,7 @@ steps:
   when:
     branch:
     - release/*
+    - release
     event:
     - push
 
@@ -129,6 +136,7 @@ steps:
   when:
     branch:
     - release/*
+    - release
     status:
     - failure
 
@@ -148,6 +156,7 @@ steps:
   when:
     branch:
     - release/*
+    - release
     event:
     - push
 
@@ -204,6 +213,7 @@ steps:
   when:
     branch:
     - release/*
+    - release
     - master
     event:
     - push
@@ -236,6 +246,7 @@ steps:
     branch:
     - develop
     - release/*
+    - release
     - master
     event:
     - push
@@ -265,6 +276,7 @@ steps:
     branch:
     - develop
     - release/*
+    - release
     - master
     event:
     - push
