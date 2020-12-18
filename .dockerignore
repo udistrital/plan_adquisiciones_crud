@@ -1,3 +1,5 @@
 .git
+go.mod
+go.sum
 plan_adquisiciones_crud
 lastupdate.tmp
