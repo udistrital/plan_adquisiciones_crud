@@ -1863,21 +1863,21 @@
             "title": "ActividadMongo",
             "type": "object",
             "properties": {
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "MetaId": {
+                    "$ref": "#/definitions/models.MetaMongo"
+                },
                 "activo": {
                     "type": "boolean"
-                },
-                "fecha_creacion": {
-                    "type": "string"
-                },
-                "fecha_modificacion": {
-                    "type": "string"
                 },
                 "id": {
                     "type": "integer",
                     "format": "int64"
-                },
-                "meta": {
-                    "$ref": "#/definitions/models.MetaMongo"
                 },
                 "nombre": {
                     "type": "string"
@@ -1978,26 +1978,25 @@
             "title": "LineamientoMongo",
             "type": "object",
             "properties": {
+                "AreaFuncionalId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "CentroGestor": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "FuenteRecursoId": {
+                    "type": "string"
+                },
                 "activo": {
                     "type": "boolean"
-                },
-                "area_funcional_id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "centro_gestor": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "fecha_creacion": {
-                    "type": "string"
-                },
-                "fecha_modificacion": {
-                    "type": "string"
-                },
-                "fuente_recurso_id": {
-                    "type": "integer",
-                    "format": "int64"
                 },
                 "id": {
                     "type": "integer",
@@ -2055,21 +2054,21 @@
             "title": "MetaMongo",
             "type": "object",
             "properties": {
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "LineamientoId": {
+                    "$ref": "#/definitions/models.LineamientoMongo"
+                },
                 "activo": {
                     "type": "boolean"
-                },
-                "fecha_creacion": {
-                    "type": "string"
-                },
-                "fecha_modificacion": {
-                    "type": "string"
                 },
                 "id": {
                     "type": "integer",
                     "format": "int64"
-                },
-                "lineamiento": {
-                    "$ref": "#/definitions/models.LineamientoMongo"
                 },
                 "nombre": {
                     "type": "string"
@@ -2116,16 +2115,16 @@
             "title": "PlanAdquisicionesMongo",
             "type": "object",
             "properties": {
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
                 "activo": {
                     "type": "boolean"
                 },
                 "descripcion": {
-                    "type": "string"
-                },
-                "fecha_creacion": {
-                    "type": "string"
-                },
-                "fecha_modificacion": {
                     "type": "string"
                 },
                 "ficha_eb_imga": {
@@ -2182,20 +2181,19 @@
             "title": "RegistroFuncionamientoModalidadSeleccionMongo",
             "type": "object",
             "properties": {
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "IdModalidadSeleccion": {
+                    "type": "string"
+                },
                 "activo": {
                     "type": "boolean"
                 },
-                "fecha_creacion": {
-                    "type": "string"
-                },
-                "fecha_modificacion": {
-                    "type": "string"
-                },
                 "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "id_modalidad_seleccion": {
                     "type": "integer",
                     "format": "int64"
                 }
@@ -2234,23 +2232,23 @@
             "title": "RegistroInversionActividadFuenteFinanciamientoMongo",
             "type": "object",
             "properties": {
-                "activo": {
-                    "type": "boolean"
-                },
-                "fecha_creacion": {
+                "FechaCreacion": {
                     "type": "string"
                 },
-                "fecha_modificacion": {
+                "FechaModificacion": {
                     "type": "string"
                 },
-                "fuente_financiamiento_id": {
+                "FuenteFinanciamiento": {
                     "type": "string"
                 },
-                "id": {
+                "ValorAsignado": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "valor_asignado": {
+                "activo": {
+                    "type": "boolean"
+                },
+                "id": {
                     "type": "integer",
                     "format": "int64"
                 }
@@ -2338,27 +2336,27 @@
             "title": "RegistroPlanAdquisicionesActividadMongo",
             "type": "object",
             "properties": {
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "FuentesFinanciamiento": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamientoMongo"
+                    }
+                },
+                "RegistroActividadId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "actividad": {
                     "$ref": "#/definitions/models.ActividadMongo"
                 },
                 "activo": {
                     "type": "boolean"
-                },
-                "fecha_creacion": {
-                    "type": "string"
-                },
-                "fecha_modificacion": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "registro_inversion_actividad-fuente_financiamiento": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamientoMongo"
-                    }
                 },
                 "valor": {
                     "type": "integer",
@@ -2395,17 +2393,17 @@
             "title": "RegistroPlanAdquisicionesCodigoArkaMongo",
             "type": "object",
             "properties": {
+                "CodigoArka": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
                 "activo": {
                     "type": "boolean"
-                },
-                "codigo_arka": {
-                    "type": "string"
-                },
-                "fecha_creacion": {
-                    "type": "string"
-                },
-                "fecha_modificacion": {
-                    "type": "string"
                 },
                 "id": {
                     "type": "integer",
@@ -2417,34 +2415,41 @@
             "title": "RegistroPlanAdquisicionesMongo",
             "type": "object",
             "properties": {
-                "activo": {
-                    "type": "boolean"
-                },
-                "centro_gestor": {
+                "CentroGestor": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "fecha_creacion": {
+                "FechaCreacion": {
                     "type": "string"
                 },
-                "fecha_estimada_fin": {
+                "FechaEstimadaFin": {
                     "type": "string"
                 },
-                "fecha_estimada_inicio": {
+                "FechaEstimadaInicio": {
                     "type": "string"
                 },
-                "fecha_modificacion": {
+                "FechaModificacion": {
                     "type": "string"
+                },
+                "MetaId": {
+                    "type": "string"
+                },
+                "ProductoId": {
+                    "type": "string"
+                },
+                "ResponsableId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RubroId": {
+                    "type": "string"
+                },
+                "activo": {
+                    "type": "boolean"
                 },
                 "id": {
                     "type": "integer",
                     "format": "int64"
-                },
-                "meta_id": {
-                    "type": "string"
-                },
-                "producto_id": {
-                    "type": "string"
                 },
                 "registro_funcionamiento-modalidad_seleccion": {
                     "type": "array",
@@ -2463,13 +2468,6 @@
                     "items": {
                         "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArkaMongo"
                     }
-                },
-                "responsable_id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "rubro_id": {
-                    "type": "string"
                 }
             }
         }
