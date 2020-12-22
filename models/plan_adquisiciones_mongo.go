@@ -14,8 +14,8 @@ type PlanAdquisicionesMongo struct {
 	ID                        int                              `json:"id"`
 	Descripcion               string                           `json:"descripcion"`
 	Vigencia                  int                              `json:"vigencia"`
-	FechaCreacion             string                           `json:"fecha_creacion"`
-	FechaModificacion         string                           `json:"fecha_modificacion"`
+	FechaCreacion             string                           `json:"FechaCreacion"`
+	FechaModificacion         string                           `json:"FechaModificacion"`
 	Activo                    bool                             `json:"activo"`
 	Publicado                 bool                             `json:"publicado"`
 	FichaEbImga               []FichaEBIMGA                    `json:"ficha_eb_imga"`
@@ -31,7 +31,7 @@ type FichaEbImga struct {
 	UnidadMedida      string `json:"unidad_medida"`
 	Descripcion       string `json:"descripcion"`
 	FechaModificacion string `json:"fecha_modificacion"`
-	FechaCreacion     string `json:"fecha_creacion"`
+	FechaCreacion     string `json:"FechaModificacion"`
 	Activo            bool   `json:"activo"`
 	Rubro             string `json:"rubro"`
 }
@@ -39,16 +39,16 @@ type FichaEbImga struct {
 // RegistroPlanAdquisicionesMongo ...
 type RegistroPlanAdquisicionesMongo struct {
 	ID                                       int                                             `json:"id"`
-	MetaID                                   string                                          `json:"meta_id"`
-	CentroGestor                             int                                             `json:"centro_gestor"`
-	FechaCreacion                            string                                          `json:"fecha_creacion"`
-	FechaModificacion                        string                                          `json:"fecha_modificacion"`
-	ResponsableID                            int                                             `json:"responsable_id"`
+	MetaID                                   string                                          `json:"MetaId"`
+	CentroGestor                             int                                             `json:"CentroGestor"`
+	FechaCreacion                            string                                          `json:"FechaCreacion"`
+	FechaModificacion                        string                                          `json:"FechaModificacion"`
+	ResponsableID                            int                                             `json:"ResponsableId"`
 	Activo                                   bool                                            `json:"activo"`
-	ProductoID                               string                                          `json:"producto_id"`
-	RubroID                                  string                                          `json:"rubro_id"`
-	FechaEstimadaInicio                      string                                          `json:"fecha_estimada_inicio"`
-	FechaEstimadaFin                         string                                          `json:"fecha_estimada_fin"`
+	ProductoID                               string                                          `json:"ProductoId"`
+	RubroID                                  string                                          `json:"RubroId"`
+	FechaEstimadaInicio                      string                                          `json:"FechaEstimadaInicio"`
+	FechaEstimadaFin                         string                                          `json:"FechaEstimadaFin"`
 	RegistroPlanAdquisicionesCodigoArka      []RegistroPlanAdquisicionesCodigoArkaMongo      `json:"registro_plan_adquisiciones-codigo_arka"`
 	RegistroFuncionamientoModalidadSeleccion []RegistroFuncionamientoModalidadSeleccionMongo `json:"registro_funcionamiento-modalidad_seleccion"`
 	RegistroPlanAdquisicionesActividad       []RegistroPlanAdquisicionesActividadMongo       `json:"registro_plan_adquisiciones-actividad"`
@@ -57,40 +57,40 @@ type RegistroPlanAdquisicionesMongo struct {
 // RegistroPlanAdquisicionesCodigoArkaMongo ...
 type RegistroPlanAdquisicionesCodigoArkaMongo struct {
 	ID                int    `json:"id"`
-	CodigoArka        string `json:"codigo_arka"`
-	FechaModificacion string `json:"fecha_modificacion"`
+	CodigoArka        string `json:"CodigoArka"`
+	FechaModificacion string `json:"FechaModificacion"`
 	Activo            bool   `json:"activo"`
-	FechaCreacion     string `json:"fecha_creacion"`
+	FechaCreacion     string `json:"FechaCreacion"`
 }
 
 // RegistroFuncionamientoModalidadSeleccionMongo ...
 type RegistroFuncionamientoModalidadSeleccionMongo struct {
 	ID                   int    `json:"id"`
-	IDModalidadSeleccion int    `json:"id_modalidad_seleccion"`
-	FechaModificacion    string `json:"fecha_modificacion"`
+	IDModalidadSeleccion string `json:"IdModalidadSeleccion"`
+	FechaModificacion    string `json:"FechaModificacion"`
 	Activo               bool   `json:"activo"`
-	FechaCreacion        string `json:"fecha_creacion"`
+	FechaCreacion        string `json:"FechaCreacion"`
 }
 
 // RegistroPlanAdquisicionesActividadMongo ...
 type RegistroPlanAdquisicionesActividadMongo struct {
-	ID                                             int                                                   `json:"id"`
+	ID                                             int                                                   `json:"RegistroActividadId"`
 	Valor                                          int                                                   `json:"valor"`
-	FechaCreacion                                  string                                                `json:"fecha_creacion"`
-	FechaModificacion                              string                                                `json:"fecha_modificacion"`
+	FechaCreacion                                  string                                                `json:"FechaCreacion"`
+	FechaModificacion                              string                                                `json:"FechaModificacion"`
 	Activo                                         bool                                                  `json:"activo"`
-	RegistroInversionActividadFuenteFinanciamiento []RegistroInversionActividadFuenteFinanciamientoMongo `json:"registro_inversion_actividad-fuente_financiamiento"`
+	RegistroInversionActividadFuenteFinanciamiento []RegistroInversionActividadFuenteFinanciamientoMongo `json:"FuentesFinanciamiento"`
 	Actividad                                      ActividadMongo                                        `json:"actividad"`
 }
 
 // RegistroInversionActividadFuenteFinanciamientoMongo ...
 type RegistroInversionActividadFuenteFinanciamientoMongo struct {
 	ID                     int    `json:"id"`
-	FuenteFinanciamientoID string `json:"fuente_financiamiento_id"`
-	ValorAsignado          int    `json:"valor_asignado"`
-	FechaModificacion      string `json:"fecha_modificacion"`
+	FuenteFinanciamientoID string `json:"FuenteFinanciamiento"`
+	ValorAsignado          int    `json:"ValorAsignado"`
+	FechaModificacion      string `json:"FechaModificacion"`
 	Activo                 bool   `json:"activo"`
-	FechaCreacion          string `json:"fecha_creacion"`
+	FechaCreacion          string `json:"FechaCreacion"`
 }
 
 // ActividadMongo ...
@@ -98,10 +98,10 @@ type ActividadMongo struct {
 	ID                int       `json:"id"`
 	Numero            int       `json:"numero"`
 	Nombre            string    `json:"nombre"`
-	FechaCreacion     string    `json:"fecha_creacion"`
-	FechaModificacion string    `json:"fecha_modificacion"`
+	FechaCreacion     string    `json:"FechaCreacion"`
+	FechaModificacion string    `json:"FechaModificacion"`
 	Activo            bool      `json:"activo"`
-	Meta              MetaMongo `json:"meta"`
+	Meta              MetaMongo `json:"MetaId"`
 }
 
 // MetaMongo ...
@@ -109,11 +109,11 @@ type MetaMongo struct {
 	ID                int              `json:"id"`
 	Numero            int              `json:"numero"`
 	Nombre            string           `json:"nombre"`
-	FechaCreacion     string           `json:"fecha_creacion"`
-	FechaModificacion string           `json:"fecha_modificacion"`
+	FechaCreacion     string           `json:"FechaCreacion"`
+	FechaModificacion string           `json:"FechaModificacion"`
 	Activo            bool             `json:"activo"`
 	Rubro             string           `json:"rubro"`
-	Lineamiento       LineamientoMongo `json:"lineamiento"`
+	Lineamiento       LineamientoMongo `json:"LineamientoId"`
 }
 
 // LineamientoMongo ...
@@ -122,12 +122,12 @@ type LineamientoMongo struct {
 	Numero            int    `json:"numero"`
 	Nombre            string `json:"nombre"`
 	Objetivo          string `json:"objetivo"`
-	FuenteRecursoID   int    `json:"fuente_recurso_id"`
-	CentroGestor      int    `json:"centro_gestor"`
-	AreaFuncionalID   int    `json:"area_funcional_id"`
+	FuenteRecursoID   string `json:"FuenteRecursoId"`
+	CentroGestor      int    `json:"CentroGestor"`
+	AreaFuncionalID   int    `json:"AreaFuncionalId"`
 	Vigencia          int    `json:"vigencia"`
-	FechaCreacion     string `json:"fecha_creacion"`
-	FechaModificacion string `json:"fecha_modificacion"`
+	FechaCreacion     string `json:"FechaCreacion"`
+	FechaModificacion string `json:"FechaModificacion"`
 	Activo            bool   `json:"activo"`
 }
 
