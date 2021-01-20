@@ -11,15 +11,15 @@ import (
 
 // PlanAdquisicionesMongo ...
 type PlanAdquisicionesMongo struct {
-	ID                        int                              `json:"id"`
-	Descripcion               string                           `json:"descripcion"`
-	Vigencia                  int                              `json:"vigencia"`
-	FechaCreacion             string                           `json:"FechaCreacion"`
-	FechaModificacion         string                           `json:"FechaModificacion"`
-	Activo                    bool                             `json:"activo"`
-	Publicado                 bool                             `json:"publicado"`
-	FichaEbImga               []FichaEBIMGA                    `json:"ficha_eb_imga"`
-	RegistroPlanAdquisiciones []RegistroPlanAdquisicionesMongo `json:"registro_plan_adquisiciones"`
+	ID                        int                    `json:"id"`
+	Descripcion               string                 `json:"descripcion"`
+	Vigencia                  int                    `json:"vigencia"`
+	FechaCreacion             string                 `json:"FechaCreacion"`
+	FechaModificacion         string                 `json:"FechaModificacion"`
+	Activo                    bool                   `json:"activo"`
+	Publicado                 bool                   `json:"publicado"`
+	FichaEbImga               []FichaEBIMGA          `json:"ficha_eb_imga"`
+	RegistroPlanAdquisiciones map[string]interface{} `json:"registro_plan_adquisiciones"`
 }
 
 // FichaEbImga ...
@@ -40,13 +40,20 @@ type FichaEbImga struct {
 type RegistroPlanAdquisicionesMongo struct {
 	ID                                       int                                             `json:"id"`
 	MetaID                                   string                                          `json:"MetaId"`
+	AreaFuncional                            int                                             `json:"AreaFuncional"`
+	MetaNombre                               string                                          `json:"MetaNombre"`
 	CentroGestor                             int                                             `json:"CentroGestor"`
 	FechaCreacion                            string                                          `json:"FechaCreacion"`
 	FechaModificacion                        string                                          `json:"FechaModificacion"`
 	ResponsableID                            int                                             `json:"ResponsableId"`
+	ResponsableNombre                        string                                          `json:"ResponsableNombre"`
 	Activo                                   bool                                            `json:"activo"`
 	ProductoID                               string                                          `json:"ProductoId"`
+	ProductoNombre                           string                                          `json:"ProductoNombre"`
 	RubroID                                  string                                          `json:"RubroId"`
+	RubroNombre                              string                                          `json:"RubroNombre"`
+	FuenteRecursosNombre                     string                                          `json:"FuenteRecursosNombre"`
+	ValorTotalActividades                    float64                                         `json:"ValorTotalActividades"`
 	FechaEstimadaInicio                      string                                          `json:"FechaEstimadaInicio"`
 	FechaEstimadaFin                         string                                          `json:"FechaEstimadaFin"`
 	RegistroPlanAdquisicionesCodigoArka      []RegistroPlanAdquisicionesCodigoArkaMongo      `json:"registro_plan_adquisiciones-codigo_arka"`
@@ -61,6 +68,7 @@ type RegistroPlanAdquisicionesCodigoArkaMongo struct {
 	FechaModificacion string `json:"FechaModificacion"`
 	Activo            bool   `json:"activo"`
 	FechaCreacion     string `json:"FechaCreacion"`
+	Descripcion       string `json:"Descripcion"`
 }
 
 // RegistroFuncionamientoModalidadSeleccionMongo ...
@@ -70,6 +78,7 @@ type RegistroFuncionamientoModalidadSeleccionMongo struct {
 	FechaModificacion    string `json:"FechaModificacion"`
 	Activo               bool   `json:"activo"`
 	FechaCreacion        string `json:"FechaCreacion"`
+	Nombre               string `json:"Nombre"`
 }
 
 // RegistroPlanAdquisicionesActividadMongo ...
@@ -91,6 +100,7 @@ type RegistroInversionActividadFuenteFinanciamientoMongo struct {
 	FechaModificacion      string `json:"FechaModificacion"`
 	Activo                 bool   `json:"activo"`
 	FechaCreacion          string `json:"FechaCreacion"`
+	Nombre                 string `json:"Nombre"`
 }
 
 // ActividadMongo ...
