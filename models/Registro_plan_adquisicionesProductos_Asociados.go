@@ -9,56 +9,49 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
-type RegistroPlanAdquisiciones struct {
-	Id                  	int                	`orm:"column(id);pk;auto"`
-	AreaFuncional       	int                	`orm:"column(area_funcional)"`
-	CentroGestor        	int                	`orm:"column(centro_gestor)"`
-	FechaCreacion       	string             	`orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   	string             	`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	ResponsableId       	int                	`orm:"column(responsable_id)"`
-	Activo              	bool               	`orm:"column(activo)"`
-	MetaId              	string             	`orm:"column(meta_id);null"`
-	ProductoId          	string             	`orm:"column(producto_id);null"`
-	RubroId             	string             	`orm:"column(rubro_id)"`
-	FechaEstimadaInicio 	string             	`orm:"column(fecha_estimada_inicio);type(timestamp without time zone)"`
-	FechaEstimadaFin    	string             	`orm:"column(fecha_estimada_fin);type(timestamp without time zone)"`
-	FuenteFinanciamientoId	string				`orm:"column(fuente_financiamiento_id)"`
-	PlanAdquisicionesId 	*PlanAdquisiciones 	`orm:"column(Plan_adquisiciones_id);rel(fk)"`
+type RegistroPlanAdquisicionesProductosAsociados struct {
+	Id 							int 						`orm:"column(id);pk"`
+	ProductoAsociadoId 			string 						`orm:"column(producto_asociado_id)"`
+	FechaModificacion 			string	 					`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo 						bool 						`orm:"column(activo)"`
+	FechaCreacion 				string	 					`orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones 	`orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
 }
 
-func (t *RegistroPlanAdquisiciones) TableName() string {
-	return "Registro_plan_adquisiciones"
+
+func (t *RegistroPlanAdquisicionesProductosAsociados) TableName() string {
+	return "Registro_plan_adquisiciones-Productos_Asociados"
 }
 
 func init() {
-	orm.RegisterModel(new(RegistroPlanAdquisiciones))
+	orm.RegisterModel(new(RegistroPlanAdquisicionesProductosAsociados))
 }
 
-// AddRegistroPlanAdquisiciones insert a new RegistroPlanAdquisiciones into database and returns
+// AddRegistroPlanAdquisicionesProductosAsociados insert a new RegistroPlanAdquisicionesProductosAsociados into database and returns
 // last inserted Id on success.
-func AddRegistroPlanAdquisiciones(m *RegistroPlanAdquisiciones) (id int64, err error) {
+func AddRegistroPlanAdquisicionesProductosAsociados(m *RegistroPlanAdquisicionesProductosAsociados) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetRegistroPlanAdquisicionesById retrieves RegistroPlanAdquisiciones by Id. Returns error if
+// GetRegistroPlanAdquisicionesProductosAsociadosById retrieves RegistroPlanAdquisicionesProductosAsociados by Id. Returns error if
 // Id doesn't exist
-func GetRegistroPlanAdquisicionesById(id int) (v *RegistroPlanAdquisiciones, err error) {
+func GetRegistroPlanAdquisicionesProductosAsociadosById(id int) (v *RegistroPlanAdquisicionesProductosAsociados, err error) {
 	o := orm.NewOrm()
-	v = &RegistroPlanAdquisiciones{Id: id}
+	v = &RegistroPlanAdquisicionesProductosAsociados{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllRegistroPlanAdquisiciones retrieves all RegistroPlanAdquisiciones matches certain condition. Returns empty list if
+// GetAllRegistroPlanAdquisicionesProductosAsociados retrieves all RegistroPlanAdquisicionesProductosAsociados matches certain condition. Returns empty list if
 // no records exist
-func GetAllRegistroPlanAdquisiciones(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllRegistroPlanAdquisicionesProductosAsociados(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(RegistroPlanAdquisiciones)).RelatedSel()
+	qs := o.QueryTable(new(RegistroPlanAdquisicionesProductosAsociados)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -108,7 +101,7 @@ func GetAllRegistroPlanAdquisiciones(query map[string]string, fields []string, s
 		}
 	}
 
-	var l []RegistroPlanAdquisiciones
+	var l []RegistroPlanAdquisicionesProductosAsociados
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -131,11 +124,11 @@ func GetAllRegistroPlanAdquisiciones(query map[string]string, fields []string, s
 	return nil, err
 }
 
-// UpdateRegistroPlanAdquisiciones updates RegistroPlanAdquisiciones by Id and returns error if
+// UpdateRegistroPlanAdquisicionesProductosAsociados updates RegistroPlanAdquisicionesProductosAsociados by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateRegistroPlanAdquisicionesById(m *RegistroPlanAdquisiciones) (err error) {
+func UpdateRegistroPlanAdquisicionesProductosAsociadosById(m *RegistroPlanAdquisicionesProductosAsociados) (err error) {
 	o := orm.NewOrm()
-	v := RegistroPlanAdquisiciones{Id: m.Id}
+	v := RegistroPlanAdquisicionesProductosAsociados{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -146,15 +139,15 @@ func UpdateRegistroPlanAdquisicionesById(m *RegistroPlanAdquisiciones) (err erro
 	return
 }
 
-// DeleteRegistroPlanAdquisiciones deletes RegistroPlanAdquisiciones by Id and returns error if
+// DeleteRegistroPlanAdquisicionesProductosAsociados deletes RegistroPlanAdquisicionesProductosAsociados by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteRegistroPlanAdquisiciones(id int) (err error) {
+func DeleteRegistroPlanAdquisicionesProductosAsociados(id int) (err error) {
 	o := orm.NewOrm()
-	v := RegistroPlanAdquisiciones{Id: id}
+	v := RegistroPlanAdquisicionesProductosAsociados{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&RegistroPlanAdquisiciones{Id: id}); err == nil {
+		if num, err = o.Delete(&RegistroPlanAdquisicionesProductosAsociados{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
