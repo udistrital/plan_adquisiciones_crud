@@ -1,6 +1,10 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+	
 	"github.com/astaxie/beego/migration"
 )
 
