@@ -81,6 +81,18 @@ func init() {
 				&controllers.LineamientoController{},
 			),
 		),
+		
+		beego.NSNamespace("/Registro_plan_adquisiciones-Metas_Asociadas",
+			beego.NSInclude(
+				&controllers.RegistroPlanAdquisicionesMetasAsociadasController{},
+			),
+		),
+
+		beego.NSNamespace("/Registro_plan_adquisiciones-Productos_Asociados",
+			beego.NSInclude(
+				&controllers.RegistroPlanAdquisicionesProductosAsociadosController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
