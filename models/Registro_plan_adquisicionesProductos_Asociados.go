@@ -10,7 +10,7 @@ import (
 )
 
 type RegistroPlanAdquisicionesProductosAsociados struct {
-	Id 							int 						`orm:"column(id);pk"`
+	Id 							int 						`orm:"column(id);pk;auto"`
 	ProductoAsociadoId 			string 						`orm:"column(producto_asociado_id)"`
 	FechaModificacion 			string	 					`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo 						bool 						`orm:"column(activo)"`

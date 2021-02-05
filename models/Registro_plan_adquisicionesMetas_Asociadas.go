@@ -10,7 +10,7 @@ import (
 )
 
 type RegistroPlanAdquisicionesMetasAsociadas struct {
-	Id 							int							`orm:"column(id);pk"`
+	Id 							int							`orm:"column(id);pk;auto"`
 	MetaId 						*Meta 						`orm:"column(Meta_id);rel(fk)"`
 	FechaModificacion 			string 						`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo 						bool 						`orm:"column(activo)"`
