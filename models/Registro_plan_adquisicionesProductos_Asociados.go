@@ -15,6 +15,7 @@ type RegistroPlanAdquisicionesProductosAsociados struct {
 	FechaModificacion 			string	 					`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo 						bool 						`orm:"column(activo)"`
 	FechaCreacion 				string	 					`orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	PorcentajeDistribucion     	int                			`orm:"column(porcentaje_distribucion)"`
 	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones 	`orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
 }
 

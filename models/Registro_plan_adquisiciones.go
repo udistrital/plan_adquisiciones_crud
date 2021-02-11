@@ -23,6 +23,8 @@ type RegistroPlanAdquisiciones struct {
 	FechaEstimadaInicio 	string             	`orm:"column(fecha_estimada_inicio);type(timestamp without time zone)"`
 	FechaEstimadaFin    	string             	`orm:"column(fecha_estimada_fin);type(timestamp without time zone)"`
 	FuenteFinanciamientoId	string				`orm:"column(fuente_financiamiento_id)"`
+	ActividadId		       	int                	`orm:"column(actividad_id)"`
+	ValorActividad       	int                	`orm:"column(valor_actividad)"`
 	PlanAdquisicionesId 	*PlanAdquisiciones 	`orm:"column(Plan_adquisiciones_id);rel(fk)"`
 }
 
