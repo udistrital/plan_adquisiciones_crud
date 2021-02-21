@@ -17,7 +17,7 @@ type Meta struct {
 	FechaModificacion string       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo            bool         `orm:"column(activo)"`
 	Rubro             string       `orm:"column(rubro)"`
-	LineamientoId     *Lineamiento `orm:"column(Lineamiento_id);rel(fk)"`
+	LineamientoId     *Lineamiento `orm:"column(Lineamiento_id);rel(fk);null"`
 }
 
 func (t *Meta) TableName() string {
