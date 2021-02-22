@@ -1655,6 +1655,352 @@
                 }
             }
         },
+        "/Registro_plan_adquisiciones-Metas_Asociadas/": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Metas_Asociadas"
+                ],
+                "description": "get RegistroPlanAdquisicionesMetasAsociadas",
+                "operationId": "RegistroPlanAdquisicionesMetasAsociadasController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Metas_Asociadas"
+                ],
+                "description": "create RegistroPlanAdquisicionesMetasAsociadas",
+                "operationId": "RegistroPlanAdquisicionesMetasAsociadasController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesMetasAsociadas content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroPlanAdquisicionesMetasAsociadas"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones-Metas_Asociadas/{id}": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Metas_Asociadas"
+                ],
+                "description": "get RegistroPlanAdquisicionesMetasAsociadas by id",
+                "operationId": "RegistroPlanAdquisicionesMetasAsociadasController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Metas_Asociadas"
+                ],
+                "description": "update the RegistroPlanAdquisicionesMetasAsociadas",
+                "operationId": "RegistroPlanAdquisicionesMetasAsociadasController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesMetasAsociadas content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Metas_Asociadas"
+                ],
+                "description": "delete the RegistroPlanAdquisicionesMetasAsociadas",
+                "operationId": "RegistroPlanAdquisicionesMetasAsociadasController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones-Productos_Asociados/": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Productos_Asociados"
+                ],
+                "description": "get RegistroPlanAdquisicionesProductosAsociados",
+                "operationId": "RegistroPlanAdquisicionesProductosAsociadosController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Productos_Asociados"
+                ],
+                "description": "create RegistroPlanAdquisicionesProductosAsociados",
+                "operationId": "RegistroPlanAdquisicionesProductosAsociadosController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesProductosAsociados content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroPlanAdquisicionesProductosAsociados"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/Registro_plan_adquisiciones-Productos_Asociados/{id}": {
+            "get": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Productos_Asociados"
+                ],
+                "description": "get RegistroPlanAdquisicionesProductosAsociados by id",
+                "operationId": "RegistroPlanAdquisicionesProductosAsociadosController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Productos_Asociados"
+                ],
+                "description": "update the RegistroPlanAdquisicionesProductosAsociados",
+                "operationId": "RegistroPlanAdquisicionesProductosAsociadosController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroPlanAdquisicionesProductosAsociados content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Registro_plan_adquisiciones-Productos_Asociados"
+                ],
+                "description": "delete the RegistroPlanAdquisicionesProductosAsociados",
+                "operationId": "RegistroPlanAdquisicionesProductosAsociadosController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/Registro_plan_adquisiciones/": {
             "get": {
                 "tags": [
@@ -1859,35 +2205,6 @@
                 }
             }
         },
-        "models.ActividadMongo": {
-            "title": "ActividadMongo",
-            "type": "object",
-            "properties": {
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "MetaId": {
-                    "$ref": "#/definitions/models.MetaMongo"
-                },
-                "activo": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "nombre": {
-                    "type": "string"
-                },
-                "numero": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
         "models.FichaEBIMGA": {
             "title": "FichaEBIMGA",
             "type": "object",
@@ -1974,50 +2291,6 @@
                 }
             }
         },
-        "models.LineamientoMongo": {
-            "title": "LineamientoMongo",
-            "type": "object",
-            "properties": {
-                "AreaFuncionalId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "CentroGestor": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "FuenteRecursoId": {
-                    "type": "string"
-                },
-                "activo": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "nombre": {
-                    "type": "string"
-                },
-                "numero": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "objetivo": {
-                    "type": "string"
-                },
-                "vigencia": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
         "models.Meta": {
             "title": "Meta",
             "type": "object",
@@ -2046,38 +2319,6 @@
                     "format": "int64"
                 },
                 "Rubro": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.MetaMongo": {
-            "title": "MetaMongo",
-            "type": "object",
-            "properties": {
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "LineamientoId": {
-                    "$ref": "#/definitions/models.LineamientoMongo"
-                },
-                "activo": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "nombre": {
-                    "type": "string"
-                },
-                "numero": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "rubro": {
                     "type": "string"
                 }
             }
@@ -2141,10 +2382,7 @@
                     "type": "boolean"
                 },
                 "registro_plan_adquisiciones": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesMongo"
-                    }
+                    "$ref": "#/definitions/map[string][60483.0xc0006c89f0.false]"
                 },
                 "vigencia": {
                     "type": "integer",
@@ -2177,28 +2415,6 @@
                 }
             }
         },
-        "models.RegistroFuncionamientoModalidadSeleccionMongo": {
-            "title": "RegistroFuncionamientoModalidadSeleccionMongo",
-            "type": "object",
-            "properties": {
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "IdModalidadSeleccion": {
-                    "type": "string"
-                },
-                "activo": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
         "models.RegistroInversionActividadFuenteFinanciamiento": {
             "title": "RegistroInversionActividadFuenteFinanciamiento",
             "type": "object",
@@ -2228,36 +2444,14 @@
                 }
             }
         },
-        "models.RegistroInversionActividadFuenteFinanciamientoMongo": {
-            "title": "RegistroInversionActividadFuenteFinanciamientoMongo",
-            "type": "object",
-            "properties": {
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "FuenteFinanciamiento": {
-                    "type": "string"
-                },
-                "ValorAsignado": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "activo": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
         "models.RegistroPlanAdquisiciones": {
             "title": "RegistroPlanAdquisiciones",
             "type": "object",
             "properties": {
+                "ActividadId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "Activo": {
                     "type": "boolean"
                 },
@@ -2281,6 +2475,9 @@
                 "FechaModificacion": {
                     "type": "string"
                 },
+                "FuenteFinanciamientoId": {
+                    "type": "string"
+                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -2300,6 +2497,10 @@
                 },
                 "RubroId": {
                     "type": "string"
+                },
+                "ValorActividad": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },
@@ -2332,38 +2533,6 @@
                 }
             }
         },
-        "models.RegistroPlanAdquisicionesActividadMongo": {
-            "title": "RegistroPlanAdquisicionesActividadMongo",
-            "type": "object",
-            "properties": {
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "FuentesFinanciamiento": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamientoMongo"
-                    }
-                },
-                "RegistroActividadId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "actividad": {
-                    "$ref": "#/definitions/models.ActividadMongo"
-                },
-                "activo": {
-                    "type": "boolean"
-                },
-                "valor": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
         "models.RegistroPlanAdquisicionesCodigoArka": {
             "title": "RegistroPlanAdquisicionesCodigoArka",
             "type": "object",
@@ -2389,12 +2558,12 @@
                 }
             }
         },
-        "models.RegistroPlanAdquisicionesCodigoArkaMongo": {
-            "title": "RegistroPlanAdquisicionesCodigoArkaMongo",
+        "models.RegistroPlanAdquisicionesMetasAsociadas": {
+            "title": "RegistroPlanAdquisicionesMetasAsociadas",
             "type": "object",
             "properties": {
-                "CodigoArka": {
-                    "type": "string"
+                "Activo": {
+                    "type": "boolean"
                 },
                 "FechaCreacion": {
                     "type": "string"
@@ -2402,72 +2571,44 @@
                 "FechaModificacion": {
                     "type": "string"
                 },
-                "activo": {
-                    "type": "boolean"
-                },
-                "id": {
+                "Id": {
                     "type": "integer",
                     "format": "int64"
+                },
+                "MetaId": {
+                    "$ref": "#/definitions/models.Meta"
+                },
+                "RegistroPlanAdquisicionesId": {
+                    "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
                 }
             }
         },
-        "models.RegistroPlanAdquisicionesMongo": {
-            "title": "RegistroPlanAdquisicionesMongo",
+        "models.RegistroPlanAdquisicionesProductosAsociados": {
+            "title": "RegistroPlanAdquisicionesProductosAsociados",
             "type": "object",
             "properties": {
-                "CentroGestor": {
-                    "type": "integer",
-                    "format": "int64"
+                "Activo": {
+                    "type": "boolean"
                 },
                 "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaEstimadaFin": {
-                    "type": "string"
-                },
-                "FechaEstimadaInicio": {
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
                 },
-                "MetaId": {
-                    "type": "string"
-                },
-                "ProductoId": {
-                    "type": "string"
-                },
-                "ResponsableId": {
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "RubroId": {
-                    "type": "string"
-                },
-                "activo": {
-                    "type": "boolean"
-                },
-                "id": {
+                "PorcentajeDistribucion": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "registro_funcionamiento-modalidad_seleccion": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccionMongo"
-                    }
+                "ProductoAsociadoId": {
+                    "type": "string"
                 },
-                "registro_plan_adquisiciones-actividad": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividadMongo"
-                    }
-                },
-                "registro_plan_adquisiciones-codigo_arka": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArkaMongo"
-                    }
+                "RegistroPlanAdquisicionesId": {
+                    "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
                 }
             }
         }
@@ -2516,6 +2657,14 @@
         {
             "name": "Lineamiento",
             "description": "LineamientoController operations for Lineamiento\n"
+        },
+        {
+            "name": "Registro_plan_adquisiciones-Metas_Asociadas",
+            "description": "RegistroPlanAdquisicionesMetasAsociadasController operations for RegistroPlanAdquisicionesMetasAsociadas\n"
+        },
+        {
+            "name": "Registro_plan_adquisiciones-Productos_Asociados",
+            "description": "RegistroPlanAdquisicionesProductosAsociadosController operations for RegistroPlanAdquisicionesProductosAsociados\n"
         }
     ]
 }
