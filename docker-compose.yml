@@ -1,6 +1,6 @@
 version: '3.4'
 
-services: 
+services:
   api:
     build: ./bee_build
     image: ${SERVICE_NAME}
@@ -8,9 +8,9 @@ services:
     volumes:
       - gosrc:/go
       - .:/go/src/${API_BASE_DIR}/${API_NAME}
-    env_file: 
+    env_file:
       - .develop.env
-    ports: 
+    ports:
       - "${PORT}:${PORT}"
     environment:
       - PLAN_ADQUISICIONES_CRUD_HTTP_PORT=${PORT}
@@ -21,7 +21,7 @@ services:
       - PLAN_ADQUISICIONES_CRUD_PGDB=${POSTGRES_DB}
       - PLAN_ADQUISICIONES_CRUD_PGSCHEMA=plan_adquisiciones
       - PLAN_ADQUISICIONES_CRUD_RUN_MODE=dev
-      - RUN_MODE=dev 
+      - RUN_MODE=dev
       - PLAN_ADQUISICIONES_CRUD_MONGO_HOST=${MONGO_HOST}
       - PLAN_ADQUISICIONES_CRUD_MONGO_PORT=${MONGO_PORT}
       - PLAN_ADQUISICIONES_CRUD_MONGO_DB=${MONGO_DB}
@@ -29,32 +29,32 @@ services:
       - PLAN_ADQUISICIONES_CRUD_MONGO_PASS=${MONGO_PASS}
       - PLAN_ADQUISICIONES_CRUD_MONGO_AUTH=${MONGO_AUTH}
       - PLAN_ADQUISICIONES_CRUD_MONGO_COLLECTION=${MONGO_COLLECTION}
-      - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:${SERVICE_NAME}.localhost   
+      - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:${SERVICE_NAME}.localhost
     command: sh -c 'cd ${API_BASE_DIR}/${API_NAME};go get -v -u ./...; bee migrate -driver=postgres -conn="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable&search_path=public" || true; go mod init ; bee run'
-    depends_on: 
+    depends_on:
       - db
       - db_mongo
-    networks: 
+    networks:
       - back_end
   db:
     container_name: ${POSTGRES_HOST}
     image: postgres:10-alpine
     ports:
       - "${POSTGRES_PORT}:5432"
-    volumes: 
+    volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_HOST=${POSTGRES_HOST}
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    networks: 
+    networks:
       - back_end
-  
+
   db_mongo:
     image: mongo:latest
     container_name: ${MONGO_HOST}
-    environment: 
+    environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
@@ -62,10 +62,10 @@ services:
     volumes:
       - mongo_data:/data/db
     ports:
-      - 27017:${MONGO_PORT} 
-    networks: 
+      - 27017:${MONGO_PORT}
+    networks:
       - back_end
-  
+
   mongoexpress:
     image: mongo-express
     environment:
@@ -77,13 +77,13 @@ services:
       - 8090:8081
     depends_on:
       - db_mongo
-    networks: 
+    networks:
       - back_end
 
 volumes:
   gosrc:
   postgres_data:
   mongo_data:
-networks: 
+networks:
   back_end:
     external: true
