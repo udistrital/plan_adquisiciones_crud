@@ -4,6 +4,7 @@ swagger/**
 
 # Compilados
 *.exe
+*~
 plan_adquisiciones_crud*
 main*
 
@@ -11,6 +12,11 @@ main*
 *.tmp
 .scannerwork
 .vscode
+
+# Variables de entorno
+*.env
+!.develop.env
+!.template.env
 
 # NO IGNORAR go.mod/sum
 # Ver https://go.dev/blog/using-go-modules
