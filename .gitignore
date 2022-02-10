@@ -1,23 +1,22 @@
-swagger/**
-!swagger/swagger.yml
-!swagger/swagger.json
-
-# Compilados
+# Binarios, Compilados y Temporales
+*.log
+*.tmp
 *.exe
+*.zip
 *~
-plan_adquisiciones_crud*
-main*
+plan_adquisiciones_crud
+main
 
 # Temporales y/o IDEs
-*.tmp
 .scannerwork
 .vscode
 
 # Variables de entorno
 *.env
 !.develop.env
-!.template.env
+!template.env
 
-# NO IGNORAR go.mod/sum
-# Ver https://go.dev/blog/using-go-modules
-# para más información
+# Swagger
+swagger/**
+!swagger/swagger.yml
+!swagger/swagger.json
