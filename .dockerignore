@@ -1,4 +1,4 @@
-.git
-go.mod
-go.sum
-lastupdate.tmp
+.git*
+*.tmp
+*.log
+*.env
