@@ -52,13 +52,16 @@ SOLICITUD_CRUD_HTTP_PORT=8080 SOLICITUD_CRUD_PGURL=127.0.0.1 SOLICITUD_CRUD_SOME
 
 ```shell
 #1. Clonar el repositorio
-git clone -b develop https://github.com/udistrital/entradas_crud
+git clone -b develop https://github.com/udistrital/plan_adquisiciones_crud
 
 #2. Moverse a la carpeta del repositorio
-cd solicitudes_crud
+cd plan_adquisiciones_crud
 
-#3. Crear un fichero con el nombre **custom.env**
-touch .env
+# 3. Cargar las variables de entorno para desarrollo local con docker-compose
+source .develop.env
+# ALTERNATIVA: En caso de querer trabajar con valores diferentes a los
+# del archivo anterior (.develop.env), trabajar sobre una copia de este:
+cp .develop.env .env
 
 #4. Crear la network **back_end** para los contenedores
 docker network create back_end
