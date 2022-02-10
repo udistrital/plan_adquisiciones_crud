@@ -1091,6 +1091,234 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /Registro_plan_adquisiciones-Metas_Asociadas/:
+    get:
+      tags:
+      - Registro_plan_adquisiciones-Metas_Asociadas
+      description: get RegistroPlanAdquisicionesMetasAsociadas
+      operationId: RegistroPlanAdquisicionesMetasAsociadasController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
+        "404":
+          description: not found resource
+    post:
+      tags:
+      - Registro_plan_adquisiciones-Metas_Asociadas
+      description: create RegistroPlanAdquisicionesMetasAsociadas
+      operationId: RegistroPlanAdquisicionesMetasAsociadasController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RegistroPlanAdquisicionesMetasAsociadas content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
+      responses:
+        "201":
+          description: '{int} models.RegistroPlanAdquisicionesMetasAsociadas'
+        "400":
+          description: the request contains incorrect syntax
+  /Registro_plan_adquisiciones-Metas_Asociadas/{id}:
+    get:
+      tags:
+      - Registro_plan_adquisiciones-Metas_Asociadas
+      description: get RegistroPlanAdquisicionesMetasAsociadas by id
+      operationId: RegistroPlanAdquisicionesMetasAsociadasController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
+        "404":
+          description: not found resource
+    put:
+      tags:
+      - Registro_plan_adquisiciones-Metas_Asociadas
+      description: update the RegistroPlanAdquisicionesMetasAsociadas
+      operationId: RegistroPlanAdquisicionesMetasAsociadasController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RegistroPlanAdquisicionesMetasAsociadas content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
+        "400":
+          description: the request contains incorrect syntax
+    delete:
+      tags:
+      - Registro_plan_adquisiciones-Metas_Asociadas
+      description: delete the RegistroPlanAdquisicionesMetasAsociadas
+      operationId: RegistroPlanAdquisicionesMetasAsociadasController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "404":
+          description: not found resource
+  /Registro_plan_adquisiciones-Productos_Asociados/:
+    get:
+      tags:
+      - Registro_plan_adquisiciones-Productos_Asociados
+      description: get RegistroPlanAdquisicionesProductosAsociados
+      operationId: RegistroPlanAdquisicionesProductosAsociadosController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
+        "404":
+          description: not found resource
+    post:
+      tags:
+      - Registro_plan_adquisiciones-Productos_Asociados
+      description: create RegistroPlanAdquisicionesProductosAsociados
+      operationId: RegistroPlanAdquisicionesProductosAsociadosController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RegistroPlanAdquisicionesProductosAsociados content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
+      responses:
+        "201":
+          description: '{int} models.RegistroPlanAdquisicionesProductosAsociados'
+        "400":
+          description: the request contains incorrect syntax
+  /Registro_plan_adquisiciones-Productos_Asociados/{id}:
+    get:
+      tags:
+      - Registro_plan_adquisiciones-Productos_Asociados
+      description: get RegistroPlanAdquisicionesProductosAsociados by id
+      operationId: RegistroPlanAdquisicionesProductosAsociadosController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
+        "404":
+          description: not found resource
+    put:
+      tags:
+      - Registro_plan_adquisiciones-Productos_Asociados
+      description: update the RegistroPlanAdquisicionesProductosAsociados
+      operationId: RegistroPlanAdquisicionesProductosAsociadosController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RegistroPlanAdquisicionesProductosAsociados content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
+        "400":
+          description: the request contains incorrect syntax
+    delete:
+      tags:
+      - Registro_plan_adquisiciones-Productos_Asociados
+      description: delete the RegistroPlanAdquisicionesProductosAsociados
+      operationId: RegistroPlanAdquisicionesProductosAsociadosController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "404":
+          description: not found resource
   /Registro_plan_adquisiciones/:
     get:
       tags:
@@ -1226,26 +1454,6 @@ definitions:
       Numero:
         type: integer
         format: int64
-  models.ActividadMongo:
-    title: ActividadMongo
-    type: object
-    properties:
-      activo:
-        type: boolean
-      fecha_creacion:
-        type: string
-      fecha_modificacion:
-        type: string
-      id:
-        type: integer
-        format: int64
-      meta:
-        $ref: '#/definitions/models.MetaMongo'
-      nombre:
-        type: string
-      numero:
-        type: integer
-        format: int64
   models.FichaEBIMGA:
     title: FichaEBIMGA
     type: object
@@ -1306,38 +1514,6 @@ definitions:
       Vigencia:
         type: integer
         format: int64
-  models.LineamientoMongo:
-    title: LineamientoMongo
-    type: object
-    properties:
-      activo:
-        type: boolean
-      area_funcional_id:
-        type: integer
-        format: int64
-      centro_gestor:
-        type: integer
-        format: int64
-      fecha_creacion:
-        type: string
-      fecha_modificacion:
-        type: string
-      fuente_recurso_id:
-        type: integer
-        format: int64
-      id:
-        type: integer
-        format: int64
-      nombre:
-        type: string
-      numero:
-        type: integer
-        format: int64
-      objetivo:
-        type: string
-      vigencia:
-        type: integer
-        format: int64
   models.Meta:
     title: Meta
     type: object
@@ -1359,28 +1535,6 @@ definitions:
         type: integer
         format: int64
       Rubro:
-        type: string
-  models.MetaMongo:
-    title: MetaMongo
-    type: object
-    properties:
-      activo:
-        type: boolean
-      fecha_creacion:
-        type: string
-      fecha_modificacion:
-        type: string
-      id:
-        type: integer
-        format: int64
-      lineamiento:
-        $ref: '#/definitions/models.LineamientoMongo'
-      nombre:
-        type: string
-      numero:
-        type: integer
-        format: int64
-      rubro:
         type: string
   models.PlanAdquisiciones:
     title: PlanAdquisiciones
@@ -1406,13 +1560,13 @@ definitions:
     title: PlanAdquisicionesMongo
     type: object
     properties:
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
       activo:
         type: boolean
       descripcion:
-        type: string
-      fecha_creacion:
-        type: string
-      fecha_modificacion:
         type: string
       ficha_eb_imga:
         type: array
@@ -1424,9 +1578,7 @@ definitions:
       publicado:
         type: boolean
       registro_plan_adquisiciones:
-        type: array
-        items:
-          $ref: '#/definitions/models.RegistroPlanAdquisicionesMongo'
+        $ref: '#/definitions/map[string][60483.0xc000525bc0.false]'
       vigencia:
         type: integer
         format: int64
@@ -1447,22 +1599,6 @@ definitions:
         type: string
       RegistroPlanAdquisicionesId:
         $ref: '#/definitions/models.RegistroPlanAdquisiciones'
-  models.RegistroFuncionamientoModalidadSeleccionMongo:
-    title: RegistroFuncionamientoModalidadSeleccionMongo
-    type: object
-    properties:
-      activo:
-        type: boolean
-      fecha_creacion:
-        type: string
-      fecha_modificacion:
-        type: string
-      id:
-        type: integer
-        format: int64
-      id_modalidad_seleccion:
-        type: integer
-        format: int64
   models.RegistroInversionActividadFuenteFinanciamiento:
     title: RegistroInversionActividadFuenteFinanciamiento
     type: object
@@ -1483,28 +1619,13 @@ definitions:
       ValorAsignado:
         type: integer
         format: int64
-  models.RegistroInversionActividadFuenteFinanciamientoMongo:
-    title: RegistroInversionActividadFuenteFinanciamientoMongo
-    type: object
-    properties:
-      activo:
-        type: boolean
-      fecha_creacion:
-        type: string
-      fecha_modificacion:
-        type: string
-      fuente_financiamiento_id:
-        type: string
-      id:
-        type: integer
-        format: int64
-      valor_asignado:
-        type: integer
-        format: int64
   models.RegistroPlanAdquisiciones:
     title: RegistroPlanAdquisiciones
     type: object
     properties:
+      ActividadId:
+        type: integer
+        format: int64
       Activo:
         type: boolean
       AreaFuncional:
@@ -1521,6 +1642,8 @@ definitions:
         type: string
       FechaModificacion:
         type: string
+      FuenteFinanciamientoId:
+        type: string
       Id:
         type: integer
         format: int64
@@ -1535,6 +1658,9 @@ definitions:
         format: int64
       RubroId:
         type: string
+      ValorActividad:
+        type: integer
+        format: int64
   models.RegistroPlanAdquisicionesActividad:
     title: RegistroPlanAdquisicionesActividad
     type: object
@@ -1555,28 +1681,6 @@ definitions:
       Valor:
         type: integer
         format: int64
-  models.RegistroPlanAdquisicionesActividadMongo:
-    title: RegistroPlanAdquisicionesActividadMongo
-    type: object
-    properties:
-      actividad:
-        $ref: '#/definitions/models.ActividadMongo'
-      activo:
-        type: boolean
-      fecha_creacion:
-        type: string
-      fecha_modificacion:
-        type: string
-      id:
-        type: integer
-        format: int64
-      registro_inversion_actividad-fuente_financiamiento:
-        type: array
-        items:
-          $ref: '#/definitions/models.RegistroInversionActividadFuenteFinanciamientoMongo'
-      valor:
-        type: integer
-        format: int64
   models.RegistroPlanAdquisicionesCodigoArka:
     title: RegistroPlanAdquisicionesCodigoArka
     type: object
@@ -1594,62 +1698,43 @@ definitions:
         format: int64
       RegistroPlanAdquisicionesId:
         $ref: '#/definitions/models.RegistroPlanAdquisiciones'
-  models.RegistroPlanAdquisicionesCodigoArkaMongo:
-    title: RegistroPlanAdquisicionesCodigoArkaMongo
+  models.RegistroPlanAdquisicionesMetasAsociadas:
+    title: RegistroPlanAdquisicionesMetasAsociadas
     type: object
     properties:
-      activo:
+      Activo:
         type: boolean
-      codigo_arka:
+      FechaCreacion:
         type: string
-      fecha_creacion:
+      FechaModificacion:
         type: string
-      fecha_modificacion:
-        type: string
-      id:
+      Id:
         type: integer
         format: int64
-  models.RegistroPlanAdquisicionesMongo:
-    title: RegistroPlanAdquisicionesMongo
+      MetaId:
+        $ref: '#/definitions/models.Meta'
+      RegistroPlanAdquisicionesId:
+        $ref: '#/definitions/models.RegistroPlanAdquisiciones'
+  models.RegistroPlanAdquisicionesProductosAsociados:
+    title: RegistroPlanAdquisicionesProductosAsociados
     type: object
     properties:
-      activo:
+      Activo:
         type: boolean
-      centro_gestor:
+      FechaCreacion:
+        type: string
+      FechaModificacion:
+        type: string
+      Id:
         type: integer
         format: int64
-      fecha_creacion:
-        type: string
-      fecha_estimada_fin:
-        type: string
-      fecha_estimada_inicio:
-        type: string
-      fecha_modificacion:
-        type: string
-      id:
+      PorcentajeDistribucion:
         type: integer
         format: int64
-      meta_id:
+      ProductoAsociadoId:
         type: string
-      producto_id:
-        type: string
-      registro_funcionamiento-modalidad_seleccion:
-        type: array
-        items:
-          $ref: '#/definitions/models.RegistroFuncionamientoModalidadSeleccionMongo'
-      registro_plan_adquisiciones-actividad:
-        type: array
-        items:
-          $ref: '#/definitions/models.RegistroPlanAdquisicionesActividadMongo'
-      registro_plan_adquisiciones-codigo_arka:
-        type: array
-        items:
-          $ref: '#/definitions/models.RegistroPlanAdquisicionesCodigoArkaMongo'
-      responsable_id:
-        type: integer
-        format: int64
-      rubro_id:
-        type: string
+      RegistroPlanAdquisicionesId:
+        $ref: '#/definitions/models.RegistroPlanAdquisiciones'
 tags:
 - name: Meta
   description: |
@@ -1684,3 +1769,9 @@ tags:
 - name: Lineamiento
   description: |
     LineamientoController operations for Lineamiento
+- name: Registro_plan_adquisiciones-Metas_Asociadas
+  description: |
+    RegistroPlanAdquisicionesMetasAsociadasController operations for RegistroPlanAdquisicionesMetasAsociadas
+- name: Registro_plan_adquisiciones-Productos_Asociados
+  description: |
+    RegistroPlanAdquisicionesProductosAsociadosController operations for RegistroPlanAdquisicionesProductosAsociados

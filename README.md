@@ -6,6 +6,7 @@ Esta API representa la capa de datos del subsistema de plan de adquisiciones, el
 ## Especificaciones Técnicas
 
 ### Tecnologías Implementadas y Versiones
+
 * [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
 * [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
 * [MongoDB](https://docs.mongodb.com/manual/)
@@ -15,16 +16,18 @@ Esta API representa la capa de datos del subsistema de plan de adquisiciones, el
 
 
 ### Variables de Entorno
+
 ```shell
 # Ejemplo que se debe actualizar acorde al proyecto
 PLAN_ADQUISICIONES_CRUD_DB_USER = [descripción]
 PLAN_ADQUISICIONES_CRUD_DB_PASS = [descripción]
 PLAN_ADQUISICIONES_CRUD_DB_HOST = [descripción]
 ```
+
 **NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con PLAN_ADQUISICIONES_CRUD_...
 
-
 ### Ejecución del Proyecto
+
 ```shell
 #1. Obtener el repositorio con Go
 go get github.com/udistrital/plan_adquisiciones_crud
@@ -40,20 +43,25 @@ SOLICITUD_CRUD_HTTP_PORT=8080 SOLICITUD_CRUD_PGURL=127.0.0.1 SOLICITUD_CRUD_SOME
 ```
 
 ### Ejecución Dockerfile
+
 ```shell
 # Implementado para despliegue del Sistema de integración continua CI.
 ```
 
 ### Ejecución docker-compose
+
 ```shell
 #1. Clonar el repositorio
-git clone -b develop https://github.com/udistrital/entradas_crud
+git clone -b develop https://github.com/udistrital/plan_adquisiciones_crud
 
 #2. Moverse a la carpeta del repositorio
-cd solicitudes_crud
+cd plan_adquisiciones_crud
 
-#3. Crear un fichero con el nombre **custom.env**
-touch .env
+# 3. Cargar las variables de entorno para desarrollo local con docker-compose
+source .develop.env
+# ALTERNATIVA: En caso de querer trabajar con valores diferentes a los
+# del archivo anterior (.develop.env), trabajar sobre una copia de este:
+cp .develop.env .env
 
 #4. Crear la network **back_end** para los contenedores
 docker network create back_end
@@ -68,21 +76,23 @@ docker ps
 ### Ejecución Pruebas
 
 Pruebas unitarias
+
 ```shell
 # Not Data
 ```
 
 ## Modelo de datos
+
 [Mode Relacional plan_adquisicion_crud](modelobd.png)
 
-
 ## Estado CI
-| Develop | Relese  | Master |
-| -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) |
 
+| Develop | Release 1.1.1 | Master |
+| -- | -- | -- |
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/release/1.1.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/master)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) |
 
 ## Licencia
+
 This file is part of plan_adquisiciones_crud
 
 plan_adquisiciones_crud is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.

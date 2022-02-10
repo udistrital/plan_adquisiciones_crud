@@ -1,18 +1,22 @@
+# Binarios, Compilados y Temporales
+*.log
+*.tmp
+*.exe
+*.zip
+*~
 plan_adquisiciones_crud
-lastupdate.tmp
 main
-.scannerwork/
-swagger/*.png
-swagger/*.html
-swagger/*.js
-swagger/*.map
-swagger/*.css
-swagger/*.yml
-swagger/css/
-swagger/fonts/
-swagger/images/
-swagger/lang/
-swagger/lib/
-.vscode/
-go.mod
-go.sum
+
+# Temporales y/o IDEs
+.scannerwork
+.vscode
+
+# Variables de entorno
+*.env
+!.develop.env
+!template.env
+
+# Swagger
+swagger/**
+!swagger/swagger.yml
+!swagger/swagger.json
