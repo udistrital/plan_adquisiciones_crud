@@ -2382,7 +2382,7 @@
                     "type": "boolean"
                 },
                 "registro_plan_adquisiciones": {
-                    "$ref": "#/definitions/map[string][60483.0xc000525bc0.false]"
+                    "$ref": "#/definitions/map[string][60483.0xc000526570.false]"
                 },
                 "vigencia": {
                     "type": "integer",
