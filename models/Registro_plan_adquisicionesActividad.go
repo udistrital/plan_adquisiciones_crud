@@ -11,7 +11,7 @@ import (
 
 type RegistroPlanAdquisicionesActividad struct {
 	Id                          int                        `orm:"column(id);pk;auto"`
-	Valor                       int                        `orm:"column(valor)"`
+	Valor                       float64                    `orm:"column(valor);digits(20);decimals(7)"`
 	FechaCreacion               string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion           string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo                      bool                       `orm:"column(activo)"`
