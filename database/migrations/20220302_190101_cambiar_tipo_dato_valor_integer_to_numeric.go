@@ -24,7 +24,7 @@ func init() {
 // Run the migrations
 func (m *CambiarTipoDatoValorIntegerToNumeric_20220302_190101) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
-	file, err := ioutil.ReadFile("../scripts/cambiar_tipo_dato_valor_integer_to_numeric.up.sql")
+	file, err := ioutil.ReadFile("../scripts/20220302_190101_cambiar_tipo_dato_valor_integer_to_numeric.up.sql")
 
 	if err != nil {
 		// handle error
@@ -44,7 +44,7 @@ func (m *CambiarTipoDatoValorIntegerToNumeric_20220302_190101) Up() {
 // Reverse the migrations
 func (m *CambiarTipoDatoValorIntegerToNumeric_20220302_190101) Down() {
 	// use m.SQL("DROP TABLE ...") to reverse schema update
-	file, err := ioutil.ReadFile("../scripts/cambiar_tipo_dato_valor_integer_to_numeric.down.sql")
+	file, err := ioutil.ReadFile("../scripts/20220302_190101_cambiar_tipo_dato_valor_integer_to_numeric.down.sql")
 
 	if err != nil {
 		// handle error
