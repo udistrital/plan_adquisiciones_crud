@@ -47,7 +47,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Actividad'
+            type: array
+            items:
+              $ref: '#/definitions/models.Actividad'
         "404":
           description: not found resource
     post:
@@ -64,7 +66,9 @@ paths:
           $ref: '#/definitions/models.Actividad'
       responses:
         "201":
-          description: '{int} models.Actividad'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Actividad'
         "400":
           description: the request contains incorrect syntax
   /Actividad/{id}:
@@ -78,7 +82,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -96,7 +101,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for Actividad content
@@ -120,7 +126,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -162,7 +169,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.FichaEBIMGA'
+            type: array
+            items:
+              $ref: '#/definitions/models.FichaEBIMGA'
         "404":
           description: not found resource
     post:
@@ -179,7 +188,9 @@ paths:
           $ref: '#/definitions/models.FichaEBIMGA'
       responses:
         "201":
-          description: '{int} models.FichaEBIMGA'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.FichaEBIMGA'
         "400":
           description: the request contains incorrect syntax
   /Ficha_EB_IMGA/{id}:
@@ -193,7 +204,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -211,7 +223,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for FichaEBIMGA content
@@ -235,7 +248,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -277,7 +291,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Lineamiento'
+            type: array
+            items:
+              $ref: '#/definitions/models.Lineamiento'
         "404":
           description: not found resource
     post:
@@ -294,7 +310,9 @@ paths:
           $ref: '#/definitions/models.Lineamiento'
       responses:
         "201":
-          description: '{int} models.Lineamiento'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Lineamiento'
         "400":
           description: the request contains incorrect syntax
   /Lineamiento/{id}:
@@ -308,7 +326,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -326,7 +345,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for Lineamiento content
@@ -350,7 +370,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -392,7 +413,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Meta'
+            type: array
+            items:
+              $ref: '#/definitions/models.Meta'
         "404":
           description: not found resource
     post:
@@ -409,7 +432,9 @@ paths:
           $ref: '#/definitions/models.Meta'
       responses:
         "201":
-          description: '{int} models.Meta'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Meta'
         "400":
           description: the request contains incorrect syntax
   /Meta/{id}:
@@ -423,7 +448,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -441,7 +467,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for Meta content
@@ -465,7 +492,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -507,7 +535,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.PlanAdquisiciones'
+            type: array
+            items:
+              $ref: '#/definitions/models.PlanAdquisiciones'
         "404":
           description: not found resource
     post:
@@ -524,7 +554,9 @@ paths:
           $ref: '#/definitions/models.PlanAdquisiciones'
       responses:
         "201":
-          description: '{int} models.PlanAdquisiciones'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.PlanAdquisiciones'
         "400":
           description: the request contains incorrect syntax
   /Plan_adquisiciones/{id}:
@@ -538,7 +570,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -556,7 +589,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for PlanAdquisiciones content
@@ -580,7 +614,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -601,7 +636,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.PlanAdquisicionesMongo'
+            type: array
+            items:
+              $ref: '#/definitions/models.PlanAdquisicionesMongo'
         "404":
           description: not found resource
     post:
@@ -618,7 +655,9 @@ paths:
           $ref: '#/definitions/models.PlanAdquisicionesMongo'
       responses:
         "201":
-          description: '{int} models.PlanAdquisicionesMongo'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.PlanAdquisicionesMongo'
         "400":
           description: the request contains incorrect syntax
   /Plan_adquisiciones_mongo/{id}:
@@ -676,7 +715,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.RegistroFuncionamientoModalidadSeleccion'
+            type: array
+            items:
+              $ref: '#/definitions/models.RegistroFuncionamientoModalidadSeleccion'
         "404":
           description: not found resource
     post:
@@ -693,7 +734,9 @@ paths:
           $ref: '#/definitions/models.RegistroFuncionamientoModalidadSeleccion'
       responses:
         "201":
-          description: '{int} models.RegistroFuncionamientoModalidadSeleccion'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroFuncionamientoModalidadSeleccion'
         "400":
           description: the request contains incorrect syntax
   /Registro_funcionamiento-Modalidad_seleccion/{id}:
@@ -707,7 +750,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -725,7 +769,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for RegistroFuncionamientoModalidadSeleccion content
@@ -749,7 +794,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -791,7 +837,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.RegistroInversionActividadFuenteFinanciamiento'
+            type: array
+            items:
+              $ref: '#/definitions/models.RegistroInversionActividadFuenteFinanciamiento'
         "404":
           description: not found resource
     post:
@@ -808,7 +856,9 @@ paths:
           $ref: '#/definitions/models.RegistroInversionActividadFuenteFinanciamiento'
       responses:
         "201":
-          description: '{int} models.RegistroInversionActividadFuenteFinanciamiento'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroInversionActividadFuenteFinanciamiento'
         "400":
           description: the request contains incorrect syntax
   /Registro_inversion_actividad-Fuente_financiamiento/{id}:
@@ -822,7 +872,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -840,7 +891,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for RegistroInversionActividadFuenteFinanciamiento content
@@ -864,7 +916,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -906,7 +959,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.RegistroPlanAdquisicionesActividad'
+            type: array
+            items:
+              $ref: '#/definitions/models.RegistroPlanAdquisicionesActividad'
         "404":
           description: not found resource
     post:
@@ -923,7 +978,9 @@ paths:
           $ref: '#/definitions/models.RegistroPlanAdquisicionesActividad'
       responses:
         "201":
-          description: '{int} models.RegistroPlanAdquisicionesActividad'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesActividad'
         "400":
           description: the request contains incorrect syntax
   /Registro_plan_adquisiciones-Actividad/{id}:
@@ -937,7 +994,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -955,7 +1013,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for RegistroPlanAdquisicionesActividad content
@@ -979,7 +1038,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -1021,7 +1081,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.RegistroPlanAdquisicionesCodigoArka'
+            type: array
+            items:
+              $ref: '#/definitions/models.RegistroPlanAdquisicionesCodigoArka'
         "404":
           description: not found resource
     post:
@@ -1038,7 +1100,9 @@ paths:
           $ref: '#/definitions/models.RegistroPlanAdquisicionesCodigoArka'
       responses:
         "201":
-          description: '{int} models.RegistroPlanAdquisicionesCodigoArka'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesCodigoArka'
         "400":
           description: the request contains incorrect syntax
   /Registro_plan_adquisiciones-Codigo_arka/{id}:
@@ -1052,7 +1116,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -1070,7 +1135,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for RegistroPlanAdquisicionesCodigoArka content
@@ -1094,7 +1160,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -1136,7 +1203,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
+            type: array
+            items:
+              $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
         "404":
           description: not found resource
     post:
@@ -1153,7 +1222,9 @@ paths:
           $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
       responses:
         "201":
-          description: '{int} models.RegistroPlanAdquisicionesMetasAsociadas'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas'
         "400":
           description: the request contains incorrect syntax
   /Registro_plan_adquisiciones-Metas_Asociadas/{id}:
@@ -1167,7 +1238,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -1185,7 +1257,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for RegistroPlanAdquisicionesMetasAsociadas content
@@ -1209,7 +1282,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -1251,7 +1325,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
+            type: array
+            items:
+              $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
         "404":
           description: not found resource
     post:
@@ -1268,7 +1344,9 @@ paths:
           $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
       responses:
         "201":
-          description: '{int} models.RegistroPlanAdquisicionesProductosAsociados'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisicionesProductosAsociados'
         "400":
           description: the request contains incorrect syntax
   /Registro_plan_adquisiciones-Productos_Asociados/{id}:
@@ -1282,7 +1360,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -1300,7 +1379,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for RegistroPlanAdquisicionesProductosAsociados content
@@ -1324,7 +1404,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -1366,7 +1447,9 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.RegistroPlanAdquisiciones'
+            type: array
+            items:
+              $ref: '#/definitions/models.RegistroPlanAdquisiciones'
         "404":
           description: not found resource
     post:
@@ -1383,7 +1466,9 @@ paths:
           $ref: '#/definitions/models.RegistroPlanAdquisiciones'
       responses:
         "201":
-          description: '{int} models.RegistroPlanAdquisiciones'
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RegistroPlanAdquisiciones'
         "400":
           description: the request contains incorrect syntax
   /Registro_plan_adquisiciones/{id}:
@@ -1397,7 +1482,8 @@ paths:
         name: id
         description: The key for staticblock
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
@@ -1415,7 +1501,8 @@ paths:
         name: id
         description: The id you want to update
         required: true
-        type: string
+        type: integer
+        format: int64
       - in: body
         name: body
         description: body for RegistroPlanAdquisiciones content
@@ -1439,7 +1526,8 @@ paths:
         name: id
         description: The id you want to delete
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: '{string} delete success!'
@@ -1590,7 +1678,7 @@ definitions:
       publicado:
         type: boolean
       registro_plan_adquisiciones:
-        $ref: '#/definitions/map[string][60483.0xc000526570.false]'
+        $ref: '#/definitions/map[string][60817.0xc000588720.false]'
       vigencia:
         type: integer
         format: int64
@@ -1629,8 +1717,8 @@ definitions:
       RegistroPlanAdquisicionesActividadId:
         $ref: '#/definitions/models.RegistroPlanAdquisicionesActividad'
       ValorAsignado:
-        type: integer
-        format: int64
+        type: number
+        format: double
   models.RegistroPlanAdquisiciones:
     title: RegistroPlanAdquisiciones
     type: object
@@ -1691,8 +1779,8 @@ definitions:
       RegistroPlanAdquisicionesId:
         $ref: '#/definitions/models.RegistroPlanAdquisiciones'
       Valor:
-        type: integer
-        format: int64
+        type: number
+        format: double
   models.RegistroPlanAdquisicionesCodigoArka:
     title: RegistroPlanAdquisicionesCodigoArka
     type: object
