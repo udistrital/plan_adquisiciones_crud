@@ -15,8 +15,8 @@ type RegistroPlanAdquisicionesActividad struct {
 	FechaCreacion               string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion           string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo                      bool                       `orm:"column(activo)"`
-	ActividadId                 *Actividad                 `orm:"column(Actividad_id);rel(fk)"`
-	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
+	ActividadId                 *Actividad                 `orm:"column(actividad_id);rel(fk)"`
+	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(registro_plan_adquisiciones_id);rel(fk)"`
 }
 
 func (t *RegistroPlanAdquisicionesActividad) TableName() string {

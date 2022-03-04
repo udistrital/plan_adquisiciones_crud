@@ -14,8 +14,8 @@ CREATE TABLE plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociadas" (
 	fecha_modificacion timestamp NOT NULL,
 	activo boolean NOT NULL,
 	fecha_creacion timestamp NOT NULL,
-	"Registro_plan_adquisiciones_id" integer,
-	"Meta_id" integer,
+	"registro_plan_adquisiciones_id" integer,
+	"meta_id" integer,
 	CONSTRAINT "Registro_plan_adquisiciones-Metas_Asociadas_pk" PRIMARY KEY (id)
 
 );
@@ -35,7 +35,7 @@ COMMENT ON COLUMN plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociada
 
 -- object: "Registro_plan_adquisiciones_fk" | type: CONSTRAINT --
 -- ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociadas" DROP CONSTRAINT IF EXISTS "Registro_plan_adquisiciones_fk" CASCADE;
-ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociadas" ADD CONSTRAINT "Registro_plan_adquisiciones_fk" FOREIGN KEY ("Registro_plan_adquisiciones_id")
+ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociadas" ADD CONSTRAINT "Registro_plan_adquisiciones_fk" FOREIGN KEY ("registro_plan_adquisiciones_id")
 REFERENCES plan_adquisiciones."Registro_plan_adquisiciones" (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
@@ -48,7 +48,7 @@ CREATE TABLE plan_adquisiciones."Registro_plan_adquisiciones-Productos_Asociados
 	fecha_modificacion timestamp NOT NULL,
 	activo boolean NOT NULL,
 	fecha_creacion timestamp NOT NULL,
-	"Registro_plan_adquisiciones_id" integer,
+	"registro_plan_adquisiciones_id" integer,
 	CONSTRAINT "Registro_plan_adquisiciones-Productos_Asociados_pk" PRIMARY KEY (id)
 
 );
@@ -70,14 +70,14 @@ COMMENT ON COLUMN plan_adquisiciones."Registro_plan_adquisiciones-Productos_Asoc
 
 -- object: "Registro_plan_adquisiciones_fk" | type: CONSTRAINT --
 -- ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Productos_Asociados" DROP CONSTRAINT IF EXISTS "Registro_plan_adquisiciones_fk" CASCADE;
-ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Productos_Asociados" ADD CONSTRAINT "Registro_plan_adquisiciones_fk" FOREIGN KEY ("Registro_plan_adquisiciones_id")
+ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Productos_Asociados" ADD CONSTRAINT "Registro_plan_adquisiciones_fk" FOREIGN KEY ("registro_plan_adquisiciones_id")
 REFERENCES plan_adquisiciones."Registro_plan_adquisiciones" (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: "Meta_fk" | type: CONSTRAINT --
 -- ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociadas" DROP CONSTRAINT IF EXISTS "Meta_fk" CASCADE;
-ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociadas" ADD CONSTRAINT "Meta_fk" FOREIGN KEY ("Meta_id")
+ALTER TABLE plan_adquisiciones."Registro_plan_adquisiciones-Metas_Asociadas" ADD CONSTRAINT "Meta_fk" FOREIGN KEY ("meta_id")
 REFERENCES plan_adquisiciones."Meta" (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --

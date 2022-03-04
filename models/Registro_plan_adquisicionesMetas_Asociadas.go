@@ -10,14 +10,13 @@ import (
 )
 
 type RegistroPlanAdquisicionesMetasAsociadas struct {
-	Id 							int							`orm:"column(id);pk;auto"`
-	MetaId 						*Meta 						`orm:"column(Meta_id);rel(fk)"`
-	FechaModificacion 			string 						`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo 						bool 						`orm:"column(activo)"`
-	FechaCreacion 				string						`orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones 	`orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
+	Id                          int                        `orm:"column(id);pk;auto"`
+	MetaId                      *Meta                      `orm:"column(meta_id);rel(fk)"`
+	FechaModificacion           string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo                      bool                       `orm:"column(activo)"`
+	FechaCreacion               string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(registro_plan_adquisiciones_id);rel(fk)"`
 }
-
 
 func (t *RegistroPlanAdquisicionesMetasAsociadas) TableName() string {
 	return "Registro_plan_adquisiciones-Metas_Asociadas"
