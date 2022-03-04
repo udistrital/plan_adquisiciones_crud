@@ -64,7 +64,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.Actividad"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Actividad"
+                            }
                         }
                     },
                     "404": {
@@ -91,7 +94,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.Actividad"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -112,7 +118,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -139,7 +146,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -175,7 +183,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -237,7 +246,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.FichaEBIMGA"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.FichaEBIMGA"
+                            }
                         }
                     },
                     "404": {
@@ -264,7 +276,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.FichaEBIMGA"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.FichaEBIMGA"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -285,7 +300,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -312,7 +328,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -348,7 +365,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -410,7 +428,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.Lineamiento"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Lineamiento"
+                            }
                         }
                     },
                     "404": {
@@ -437,7 +458,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.Lineamiento"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Lineamiento"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -458,7 +482,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -485,7 +510,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -521,7 +547,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -583,7 +610,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.Meta"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Meta"
+                            }
                         }
                     },
                     "404": {
@@ -610,7 +640,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.Meta"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Meta"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -631,7 +664,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -658,7 +692,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -694,7 +729,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -756,7 +792,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.PlanAdquisiciones"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.PlanAdquisiciones"
+                            }
                         }
                     },
                     "404": {
@@ -783,7 +822,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.PlanAdquisiciones"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisiciones"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -804,7 +846,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -831,7 +874,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -867,7 +911,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -899,7 +944,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.PlanAdquisicionesMongo"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.PlanAdquisicionesMongo"
+                            }
                         }
                     },
                     "404": {
@@ -926,7 +974,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.PlanAdquisicionesMongo"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanAdquisicionesMongo"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -1012,7 +1063,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                            }
                         }
                     },
                     "404": {
@@ -1039,7 +1093,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.RegistroFuncionamientoModalidadSeleccion"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccion"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -1060,7 +1117,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1087,7 +1145,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -1123,7 +1182,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1185,7 +1245,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                            }
                         }
                     },
                     "404": {
@@ -1212,7 +1275,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.RegistroInversionActividadFuenteFinanciamiento"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroInversionActividadFuenteFinanciamiento"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -1233,7 +1299,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1260,7 +1327,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -1296,7 +1364,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1358,7 +1427,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                            }
                         }
                     },
                     "404": {
@@ -1385,7 +1457,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.RegistroPlanAdquisicionesActividad"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -1406,7 +1481,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1433,7 +1509,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -1469,7 +1546,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1531,7 +1609,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                            }
                         }
                     },
                     "404": {
@@ -1558,7 +1639,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.RegistroPlanAdquisicionesCodigoArka"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArka"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -1579,7 +1663,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1606,7 +1691,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -1642,7 +1728,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1704,7 +1791,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                            }
                         }
                     },
                     "404": {
@@ -1731,7 +1821,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.RegistroPlanAdquisicionesMetasAsociadas"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesMetasAsociadas"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -1752,7 +1845,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1779,7 +1873,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -1815,7 +1910,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1877,7 +1973,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                            }
                         }
                     },
                     "404": {
@@ -1904,7 +2003,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.RegistroPlanAdquisicionesProductosAsociados"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisicionesProductosAsociados"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -1925,7 +2027,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -1952,7 +2055,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -1988,7 +2092,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -2050,7 +2155,10 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                            }
                         }
                     },
                     "404": {
@@ -2077,7 +2185,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.RegistroPlanAdquisiciones"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -2098,7 +2209,8 @@
                         "name": "id",
                         "description": "The key for staticblock",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -2125,7 +2237,8 @@
                         "name": "id",
                         "description": "The id you want to update",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "body",
@@ -2161,7 +2274,8 @@
                         "name": "id",
                         "description": "The id you want to delete",
                         "required": true,
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
@@ -2382,7 +2496,7 @@
                     "type": "boolean"
                 },
                 "registro_plan_adquisiciones": {
-                    "$ref": "#/definitions/map[string][60483.0xc000526570.false]"
+                    "$ref": "#/definitions/map[string][60817.0xc000588720.false]"
                 },
                 "vigencia": {
                     "type": "integer",
@@ -2439,8 +2553,8 @@
                     "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividad"
                 },
                 "ValorAsignado": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "number",
+                    "format": "double"
                 }
             }
         },
@@ -2528,8 +2642,8 @@
                     "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
                 },
                 "Valor": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "number",
+                    "format": "double"
                 }
             }
         },

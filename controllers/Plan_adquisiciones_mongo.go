@@ -28,7 +28,7 @@ func (c *PlanAdquisicionesMongoController) URLMapping() {
 // @Title Post
 // @Description create PlanAdquisicionesMongo
 // @Param	body		body 	models.PlanAdquisicionesMongo	true		"body for PlanAdquisicionesMongo content"
-// @Success 201 {int} models.PlanAdquisicionesMongo
+// @Success 201 {object} models.PlanAdquisicionesMongo
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *PlanAdquisicionesMongoController) Post() {
@@ -79,7 +79,7 @@ func (c *PlanAdquisicionesMongoController) GetOne() {
 // @Title Get All
 // @Description get PlanAdquisicionesMongo
 // @Param	query	query	string	false	"Filter. e.g. {"vigencia":2020}"
-// @Success 200 {object} models.PlanAdquisicionesMongo
+// @Success 200 {object} []models.PlanAdquisicionesMongo
 // @Failure 404 not found resource
 // @router / [get]
 func (c *PlanAdquisicionesMongoController) GetAll() {
@@ -88,7 +88,9 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 	if v := c.GetString("query"); v != "" {
 		err := json.Unmarshal([]byte(v), &query)
 		if err != nil {
-			logs.Error("json. Unmarshal() ERROR:", err)
+			logs.Error("json. Unmarshal() ERROR (query):", err)
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	}
 	l, err := models.GetAllPlanAdquisicionesMongo(query)
@@ -98,7 +100,7 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 		c.Abort("404")
 	} else {
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			l = []interface{}{}
 		}
 		c.Data["json"] = l
 	}

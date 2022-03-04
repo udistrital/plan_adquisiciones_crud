@@ -20,7 +20,7 @@ type FichaEBIMGA struct {
 	FechaCreacion       string             `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	Activo              bool               `orm:"column(activo)"`
 	Rubro               string             `orm:"column(rubro)"`
-	PlanAdquisicionesId *PlanAdquisiciones `orm:"column(Plan_adquisiciones_id);rel(fk)"`
+	PlanAdquisicionesId *PlanAdquisiciones `orm:"column(plan_adquisiciones_id);rel(fk)"`
 }
 
 func (t *FichaEBIMGA) TableName() string {

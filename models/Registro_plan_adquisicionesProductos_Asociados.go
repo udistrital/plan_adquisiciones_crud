@@ -10,15 +10,14 @@ import (
 )
 
 type RegistroPlanAdquisicionesProductosAsociados struct {
-	Id 							int 						`orm:"column(id);pk;auto"`
-	ProductoAsociadoId 			string 						`orm:"column(producto_asociado_id)"`
-	FechaModificacion 			string	 					`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo 						bool 						`orm:"column(activo)"`
-	FechaCreacion 				string	 					`orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	PorcentajeDistribucion     	int                			`orm:"column(porcentaje_distribucion)"`
-	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones 	`orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
+	Id                          int                        `orm:"column(id);pk;auto"`
+	ProductoAsociadoId          string                     `orm:"column(producto_asociado_id)"`
+	FechaModificacion           string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo                      bool                       `orm:"column(activo)"`
+	FechaCreacion               string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	PorcentajeDistribucion      int                        `orm:"column(porcentaje_distribucion)"`
+	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(registro_plan_adquisiciones_id);rel(fk)"`
 }
-
 
 func (t *RegistroPlanAdquisicionesProductosAsociados) TableName() string {
 	return "Registro_plan_adquisiciones-Productos_Asociados"
