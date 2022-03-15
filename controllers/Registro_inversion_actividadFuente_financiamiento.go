@@ -3,9 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/plan_adquisiciones_crud/models"
 	"strconv"
 	"strings"
+
+	"github.com/udistrital/plan_adquisiciones_crud/models"
 
 	"github.com/udistrital/utils_oas/time_bogota"
 
@@ -31,7 +32,7 @@ func (c *RegistroInversionActividadFuenteFinanciamientoController) URLMapping() 
 // @Title Post
 // @Description create RegistroInversionActividadFuenteFinanciamiento
 // @Param	body		body 	models.RegistroInversionActividadFuenteFinanciamiento	true		"body for RegistroInversionActividadFuenteFinanciamiento content"
-// @Success 201 {int} models.RegistroInversionActividadFuenteFinanciamiento
+// @Success 201 {object} models.RegistroInversionActividadFuenteFinanciamiento
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *RegistroInversionActividadFuenteFinanciamientoController) Post() {
@@ -60,7 +61,7 @@ func (c *RegistroInversionActividadFuenteFinanciamientoController) Post() {
 // GetOne ...
 // @Title Get One
 // @Description get RegistroInversionActividadFuenteFinanciamiento by id
-// @Param	id		path 	string	true		"The key for staticblock"
+// @Param	id		path 	int	true		"The key for staticblock"
 // @Success 200 {object} models.RegistroInversionActividadFuenteFinanciamiento
 // @Failure 404 not found resource
 // @router /:id [get]
@@ -88,7 +89,7 @@ func (c *RegistroInversionActividadFuenteFinanciamientoController) GetOne() {
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.RegistroInversionActividadFuenteFinanciamiento
+// @Success 200 {object} []models.RegistroInversionActividadFuenteFinanciamiento
 // @Failure 404 not found resource
 // @router / [get]
 func (c *RegistroInversionActividadFuenteFinanciamientoController) GetAll() {
@@ -141,7 +142,7 @@ func (c *RegistroInversionActividadFuenteFinanciamientoController) GetAll() {
 		c.Abort("404")
 	} else {
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			l = []interface{}{}
 		}
 		c.Data["json"] = l
 	}
@@ -151,7 +152,7 @@ func (c *RegistroInversionActividadFuenteFinanciamientoController) GetAll() {
 // Put ...
 // @Title Put
 // @Description update the RegistroInversionActividadFuenteFinanciamiento
-// @Param	id		path 	string	true		"The id you want to update"
+// @Param	id		path 	int	true		"The id you want to update"
 // @Param	body		body 	models.RegistroInversionActividadFuenteFinanciamiento	true		"body for RegistroInversionActividadFuenteFinanciamiento content"
 // @Success 200 {object} models.RegistroInversionActividadFuenteFinanciamiento
 // @Failure 400 the request contains incorrect syntax
@@ -183,7 +184,7 @@ func (c *RegistroInversionActividadFuenteFinanciamientoController) Put() {
 // Delete ...
 // @Title Delete
 // @Description delete the RegistroInversionActividadFuenteFinanciamiento
-// @Param	id		path 	string	true		"The id you want to delete"
+// @Param	id		path 	int	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]

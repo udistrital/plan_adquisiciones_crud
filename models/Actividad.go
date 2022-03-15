@@ -16,7 +16,7 @@ type Actividad struct {
 	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo            bool   `orm:"column(activo)"`
-	MetaId            *Meta  `orm:"column(Meta_id);rel(fk)"`
+	MetaId            *Meta  `orm:"column(meta_id);rel(fk)"`
 }
 
 func (t *Actividad) TableName() string {

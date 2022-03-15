@@ -3,9 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/plan_adquisiciones_crud/models"
 	"strconv"
 	"strings"
+
+	"github.com/udistrital/plan_adquisiciones_crud/models"
 
 	"github.com/udistrital/utils_oas/time_bogota"
 
@@ -31,7 +32,7 @@ func (c *LineamientoController) URLMapping() {
 // @Title Post
 // @Description create Lineamiento
 // @Param	body		body 	models.Lineamiento	true		"body for Lineamiento content"
-// @Success 201 {int} models.Lineamiento
+// @Success 201 {object} models.Lineamiento
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *LineamientoController) Post() {
@@ -60,7 +61,7 @@ func (c *LineamientoController) Post() {
 // GetOne ...
 // @Title Get One
 // @Description get Lineamiento by id
-// @Param	id		path 	string	true		"The key for staticblock"
+// @Param	id		path 	int	true		"The key for staticblock"
 // @Success 200 {object} models.Lineamiento
 // @Failure 404 not found resource
 // @router /:id [get]
@@ -88,7 +89,7 @@ func (c *LineamientoController) GetOne() {
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.Lineamiento
+// @Success 200 {object} []models.Lineamiento
 // @Failure 404 not found resource
 // @router / [get]
 func (c *LineamientoController) GetAll() {
@@ -141,7 +142,7 @@ func (c *LineamientoController) GetAll() {
 		c.Abort("404")
 	} else {
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			l = []interface{}{}
 		}
 		c.Data["json"] = l
 	}
@@ -151,7 +152,7 @@ func (c *LineamientoController) GetAll() {
 // Put ...
 // @Title Put
 // @Description update the Lineamiento
-// @Param	id		path 	string	true		"The id you want to update"
+// @Param	id		path 	int	true		"The id you want to update"
 // @Param	body		body 	models.Lineamiento	true		"body for Lineamiento content"
 // @Success 200 {object} models.Lineamiento
 // @Failure 400 the request contains incorrect syntax
@@ -183,7 +184,7 @@ func (c *LineamientoController) Put() {
 // Delete ...
 // @Title Delete
 // @Description delete the Lineamiento
-// @Param	id		path 	string	true		"The id you want to delete"
+// @Param	id		path 	int	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]
