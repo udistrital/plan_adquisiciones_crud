@@ -12,7 +12,7 @@ import (
 type RegistroInversionActividadFuenteFinanciamiento struct {
 	Id                                   int                                 `orm:"column(id);pk;auto"`
 	FuenteFinanciamientoId               string                              `orm:"column(fuente_financiamiento_id)"`
-	ValorAsignado                        float64                             `orm:"column(valor);digits(20);decimals(7)"`
+	ValorAsignado                        float64                             `orm:"column(valor_asignado);digits(20);decimals(7)"`
 	FechaModificacion                    string                              `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo                               bool                                `orm:"column(activo)"`
 	FechaCreacion                        string                              `orm:"column(fecha_creacion);type(timestamp without time zone)"`

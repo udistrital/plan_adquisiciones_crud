@@ -9,17 +9,23 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+//PlanAdquisicionesMongo con ID
+type PlanAdquisicionesMongoID struct {
+	IdMongo               interface{}
+	PlanAdquisiconesMongo PlanAdquisicionesMongo
+}
+
 // PlanAdquisicionesMongo ...
 type PlanAdquisicionesMongo struct {
-	ID                        int                    	`json:"id"`
-	Descripcion               string                 	`json:"descripcion"`
-	Vigencia                  int                    	`json:"vigencia"`
-	FechaCreacion             string                 	`json:"FechaCreacion"`
-	FechaModificacion         string                 	`json:"FechaModificacion"`
-	Activo                    bool            	     	`json:"activo"`
-	Publicado                 bool             	     	`json:"publicado"`
-	FichaEbImga               []FichaEBIMGA          	`json:"ficha_eb_imga"`
-	RegistroPlanAdquisiciones []map[string]interface{} 	`json:"registro_plan_adquisiciones"`
+	ID                        int                      `json:"id"`
+	Descripcion               string                   `json:"descripcion"`
+	Vigencia                  int                      `json:"vigencia"`
+	FechaCreacion             string                   `json:"FechaCreacion"`
+	FechaModificacion         string                   `json:"FechaModificacion"`
+	Activo                    bool                     `json:"activo"`
+	Publicado                 bool                     `json:"publicado"`
+	FichaEbImga               []FichaEBIMGA            `json:"ficha_eb_imga"`
+	RegistroPlanAdquisiciones []map[string]interface{} `json:"registro_plan_adquisiciones"`
 }
 
 // FichaEbImga ...

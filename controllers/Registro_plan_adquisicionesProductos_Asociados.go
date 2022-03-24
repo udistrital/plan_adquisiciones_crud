@@ -132,6 +132,7 @@ func (c *RegistroPlanAdquisicionesProductosAsociadosController) GetAll() {
 	}
 
 	l, err := models.GetAllRegistroPlanAdquisicionesProductosAsociados(query, fields, sortby, order, offset, limit)
+	// logs.Debug(fmt.Sprintf("l: %+v, err: %+v", l, err))
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"
