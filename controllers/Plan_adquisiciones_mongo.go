@@ -3,8 +3,10 @@ package controllers
 import (
 	"encoding/json"
 
+	"github.com/udistrital/plan_adquisiciones_crud/helpers"
 	"github.com/udistrital/plan_adquisiciones_crud/models"
 
+	"github.com/udistrital/utils_oas/formatdata"
 	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
@@ -106,6 +108,54 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 			l = []interface{}{}
 		}
 		c.Data["json"] = l
+	}
+	c.ServeJSON()
+}
+
+// GetDiferencia ...
+// @Title Get Diferencia de Planes
+// @Description Retorna la diferencia entre dos planes publicados
+// @Param	idPlanPublicado	path string	true	"Id de la versión del plan de adquisiciones"
+// @Success 200 {object} []models.PlanAdquisicionesMongo
+// @Failure 404 not found resource
+// @router /diferencia/:idPlanPublicado [get]
+func (c *PlanAdquisicionesMongoController) GetDiferencia() {
+	idPlanPublicado := c.Ctx.Input.Param(":idPlanPublicado")
+	var planPublicado models.PlanPublicado
+	v2, err := models.GetPlanAdquisicionesMongoById(idPlanPublicado)
+
+	if err := formatdata.FillStruct(*v2, &planPublicado); err != nil {
+		logs.Error(err)
+		c.Data["system"] = err
+		c.Abort("502")
+	}
+
+	// Query to retrieve registers by Plan Adquisiciones ID
+	query := bson.M{"id": planPublicado.IdPlan}
+	// Sorting elements by creation date descendent (-1)
+	sort := map[string]interface{}{"fechacreacion": -1}
+	// Limit consult results (2)
+	limit := int64(2)
+
+	l, err := models.GetFilterPlanAdquisicionesMongo(query, sort, limit)
+	if len(l) == 0 {
+		logs.Error(err)
+		c.Data["system"] = err
+		c.Abort("404")
+	}
+
+	if len(l) == 1 {
+		// Hacer que se devuelvan los movimientos a insertar de un plan sin anteriores publicados
+	}
+
+	v, err := helpers.CalcularDiferencias()
+	if err != nil {
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
+	} else {
+		c.Data["json"] = v
 	}
 	c.ServeJSON()
 }
