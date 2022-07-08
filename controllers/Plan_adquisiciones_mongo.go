@@ -122,7 +122,9 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 func (c *PlanAdquisicionesMongoController) GetDiferencia() {
 	idPlanPublicado := c.Ctx.Input.Param(":idPlanPublicado")
 	var planPublicado models.PlanPublicado
+	var planAntiguo models.PlanPublicado
 	v2, err := models.GetPlanAdquisicionesMongoById(idPlanPublicado)
+	var movimientos []models.MovimientosDetalle
 
 	if err := formatdata.FillStruct(*v2, &planPublicado); err != nil {
 		logs.Error(err)
@@ -144,18 +146,39 @@ func (c *PlanAdquisicionesMongoController) GetDiferencia() {
 		c.Abort("404")
 	}
 
-	if len(l) == 1 {
-		// Hacer que se devuelvan los movimientos a insertar de un plan sin anteriores publicados
+	if len(l) > 1 {
+		if err := formatdata.FillStruct(l[0], &planPublicado); err != nil {
+			logs.Error(err)
+			c.Data["system"] = err
+			c.Abort("502")
+		}
+		if err := formatdata.FillStruct(l[1], &planAntiguo); err != nil {
+			logs.Error(err)
+			c.Data["system"] = err
+			c.Abort("502")
+		}
+	} else {
+		if err := formatdata.FillStruct(l[0], &planPublicado); err != nil {
+			logs.Error(err)
+			c.Data["system"] = err
+			c.Abort("502")
+		}
 	}
 
-	v, err := helpers.CalcularDiferencias()
+	if len(l) == 1 {
+		movimientos, err = helpers.PublicarPlan(planPublicado)
+	}
+
+	if len(l) == 2 {
+		movimientos, err = helpers.DevuelveMovimientos(planPublicado, planAntiguo)
+	}
+
 	if err != nil {
 		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
 		c.Abort("404")
 	} else {
-		c.Data["json"] = v
+		c.Data["json"] = movimientos
 	}
 	c.ServeJSON()
 }
