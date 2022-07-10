@@ -83,7 +83,8 @@ Pruebas unitarias
 
 ## Modelo de datos
 
-[Mode Relacional plan_adquisicion_crud](modelobd.png)
+[SVG](database/plan_adquisiciones.svg) -
+[PGmodeler](database/plan_adquisiciones.dbm)
 
 ## Estado CI
 

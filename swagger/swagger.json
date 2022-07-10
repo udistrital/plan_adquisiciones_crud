@@ -985,6 +985,38 @@
                 }
             }
         },
+        "/Plan_adquisiciones_mongo/diferencia/{idPlanPublicado}": {
+            "get": {
+                "tags": [
+                    "Plan_adquisiciones_mongo"
+                ],
+                "description": "Retorna la diferencia entre dos planes publicados",
+                "operationId": "PlanAdquisicionesMongoController.Get Diferencia de Planes",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "idPlanPublicado",
+                        "description": "Id de la versión del plan de adquisiciones",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.PlanAdquisicionesMongo"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/Plan_adquisiciones_mongo/{id}": {
             "get": {
                 "tags": [
@@ -2496,7 +2528,7 @@
                     "type": "boolean"
                 },
                 "registro_plan_adquisiciones": {
-                    "$ref": "#/definitions/map[string][60817.0xc000588720.false]"
+                    "$ref": "#/definitions/map[string][61036.0xc00053f500.false]"
                 },
                 "vigencia": {
                     "type": "integer",
