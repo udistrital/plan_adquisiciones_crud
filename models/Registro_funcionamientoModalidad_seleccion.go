@@ -15,7 +15,7 @@ type RegistroFuncionamientoModalidadSeleccion struct {
 	FechaModificacion           string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo                      bool                       `orm:"column(activo)"`
 	FechaCreacion               string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(Registro_plan_adquisiciones_id);rel(fk)"`
+	RegistroPlanAdquisicionesId *RegistroPlanAdquisiciones `orm:"column(registro_plan_adquisiciones_id);rel(fk)"`
 }
 
 func (t *RegistroFuncionamientoModalidadSeleccion) TableName() string {

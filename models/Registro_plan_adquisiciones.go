@@ -10,22 +10,22 @@ import (
 )
 
 type RegistroPlanAdquisiciones struct {
-	Id                  	int                	`orm:"column(id);pk;auto"`
-	AreaFuncional       	int                	`orm:"column(area_funcional)"`
-	CentroGestor        	int                	`orm:"column(centro_gestor)"`
-	FechaCreacion       	string             	`orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   	string             	`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	ResponsableId       	int                	`orm:"column(responsable_id)"`
-	Activo              	bool               	`orm:"column(activo)"`
-	MetaId              	string             	`orm:"column(meta_id);null"`
-	ProductoId          	string             	`orm:"column(producto_id);null"`
-	RubroId             	string             	`orm:"column(rubro_id)"`
-	FechaEstimadaInicio 	string             	`orm:"column(fecha_estimada_inicio);type(timestamp without time zone)"`
-	FechaEstimadaFin    	string             	`orm:"column(fecha_estimada_fin);type(timestamp without time zone)"`
-	FuenteFinanciamientoId	string				`orm:"column(fuente_financiamiento_id)"`
-	ActividadId		       	int                	`orm:"column(actividad_id)"`
-	ValorActividad       	int                	`orm:"column(valor_actividad)"`
-	PlanAdquisicionesId 	*PlanAdquisiciones 	`orm:"column(Plan_adquisiciones_id);rel(fk)"`
+	Id                     int                `orm:"column(id);pk;auto"`
+	AreaFuncional          int                `orm:"column(area_funcional)"`
+	CentroGestor           int                `orm:"column(centro_gestor)"`
+	FechaCreacion          string             `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion      string             `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	ResponsableId          int                `orm:"column(responsable_id)"`
+	Activo                 bool               `orm:"column(activo)"`
+	MetaId                 string             `orm:"column(meta_id);null"`
+	ProductoId             string             `orm:"column(producto_id);null"`
+	RubroId                string             `orm:"column(rubro_id)"`
+	FechaEstimadaInicio    string             `orm:"column(fecha_estimada_inicio);type(timestamp without time zone)"`
+	FechaEstimadaFin       string             `orm:"column(fecha_estimada_fin);type(timestamp without time zone)"`
+	FuenteFinanciamientoId string             `orm:"column(fuente_financiamiento_id)"`
+	ActividadId            int                `orm:"column(actividad_id)"`
+	ValorActividad         int                `orm:"column(valor_actividad)"`
+	PlanAdquisicionesId    *PlanAdquisiciones `orm:"column(plan_adquisiciones_id);rel(fk)"`
 }
 
 func (t *RegistroPlanAdquisiciones) TableName() string {

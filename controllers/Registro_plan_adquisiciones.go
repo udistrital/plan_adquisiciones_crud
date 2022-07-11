@@ -32,7 +32,7 @@ func (c *RegistroPlanAdquisicionesController) URLMapping() {
 // @Title Post
 // @Description create RegistroPlanAdquisiciones
 // @Param	body		body 	models.RegistroPlanAdquisiciones	true		"body for RegistroPlanAdquisiciones content"
-// @Success 201 {int} models.RegistroPlanAdquisiciones
+// @Success 201 {object} models.RegistroPlanAdquisiciones
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *RegistroPlanAdquisicionesController) Post() {
@@ -63,7 +63,7 @@ func (c *RegistroPlanAdquisicionesController) Post() {
 // GetOne ...
 // @Title Get One
 // @Description get RegistroPlanAdquisiciones by id
-// @Param	id		path 	string	true		"The key for staticblock"
+// @Param	id		path 	int	true		"The key for staticblock"
 // @Success 200 {object} models.RegistroPlanAdquisiciones
 // @Failure 404 not found resource
 // @router /:id [get]
@@ -91,7 +91,7 @@ func (c *RegistroPlanAdquisicionesController) GetOne() {
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.RegistroPlanAdquisiciones
+// @Success 200 {object} []models.RegistroPlanAdquisiciones
 // @Failure 404 not found resource
 // @router / [get]
 func (c *RegistroPlanAdquisicionesController) GetAll() {
@@ -144,7 +144,7 @@ func (c *RegistroPlanAdquisicionesController) GetAll() {
 		c.Abort("404")
 	} else {
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			l = []interface{}{}
 		}
 		c.Data["json"] = l
 	}
@@ -154,7 +154,7 @@ func (c *RegistroPlanAdquisicionesController) GetAll() {
 // Put ...
 // @Title Put
 // @Description update the RegistroPlanAdquisiciones
-// @Param	id		path 	string	true		"The id you want to update"
+// @Param	id		path 	int	true		"The id you want to update"
 // @Param	body		body 	models.RegistroPlanAdquisiciones	true		"body for RegistroPlanAdquisiciones content"
 // @Success 200 {object} models.RegistroPlanAdquisiciones
 // @Failure 400 the request contains incorrect syntax
@@ -188,7 +188,7 @@ func (c *RegistroPlanAdquisicionesController) Put() {
 // Delete ...
 // @Title Delete
 // @Description delete the RegistroPlanAdquisiciones
-// @Param	id		path 	string	true		"The id you want to delete"
+// @Param	id		path 	int	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]

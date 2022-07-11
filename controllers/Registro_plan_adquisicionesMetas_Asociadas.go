@@ -3,9 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/plan_adquisiciones_crud/models"
 	"strconv"
 	"strings"
+
+	"github.com/udistrital/plan_adquisiciones_crud/models"
 
 	"github.com/udistrital/utils_oas/time_bogota"
 
@@ -31,7 +32,7 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) URLMapping() {
 // @Title Post
 // @Description create RegistroPlanAdquisicionesMetasAsociadas
 // @Param	body		body 	models.RegistroPlanAdquisicionesMetasAsociadas	true		"body for RegistroPlanAdquisicionesMetasAsociadas content"
-// @Success 201 {int} models.RegistroPlanAdquisicionesMetasAsociadas
+// @Success 201 {object} models.RegistroPlanAdquisicionesMetasAsociadas
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *RegistroPlanAdquisicionesMetasAsociadasController) Post() {
@@ -41,7 +42,8 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) Post() {
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddRegistroPlanAdquisicionesMetasAsociadas(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}		} else {
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
+		} else {
 			logs.Error(err)
 			c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
 			c.Abort("400")
@@ -57,7 +59,7 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) Post() {
 // GetOne ...
 // @Title Get One
 // @Description get RegistroPlanAdquisicionesMetasAsociadas by id
-// @Param	id		path 	string	true		"The key for staticblock"
+// @Param	id		path 	int	true		"The key for staticblock"
 // @Success 200 {object} models.RegistroPlanAdquisicionesMetasAsociadas
 // @Failure 404 not found resource
 // @router /:id [get]
@@ -68,7 +70,7 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) GetOne() {
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetOne: The request contains an incorrect parameter or no record exists"
- 		c.Abort("404")
+		c.Abort("404")
 	} else {
 		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": v}
 	}
@@ -84,7 +86,7 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) GetOne() {
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.RegistroPlanAdquisicionesMetasAsociadas
+// @Success 200 {object} []models.RegistroPlanAdquisicionesMetasAsociadas
 // @Failure 404 not found resource
 // @router / [get]
 func (c *RegistroPlanAdquisicionesMetasAsociadasController) GetAll() {
@@ -133,10 +135,10 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) GetAll() {
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"
- 		c.Abort("404")
+		c.Abort("404")
 	} else {
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			l = []interface{}{}
 		}
 		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
 	}
@@ -146,7 +148,7 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) GetAll() {
 // Put ...
 // @Title Put
 // @Description update the RegistroPlanAdquisicionesMetasAsociadas
-// @Param	id		path 	string	true		"The id you want to update"
+// @Param	id		path 	int	true		"The id you want to update"
 // @Param	body		body 	models.RegistroPlanAdquisicionesMetasAsociadas	true		"body for RegistroPlanAdquisicionesMetasAsociadas content"
 // @Success 200 {object} models.RegistroPlanAdquisicionesMetasAsociadas
 // @Failure 400 the request contains incorrect syntax
@@ -163,12 +165,12 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) Put() {
 		} else {
 			logs.Error(err)
 			c.Data["mesaage"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
- 			c.Abort("400")
+			c.Abort("400")
 		}
 	} else {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
- 		c.Abort("400")
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -176,7 +178,7 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) Put() {
 // Delete ...
 // @Title Delete
 // @Description delete the RegistroPlanAdquisicionesMetasAsociadas
-// @Param	id		path 	string	true		"The id you want to delete"
+// @Param	id		path 	int	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]
@@ -189,7 +191,7 @@ func (c *RegistroPlanAdquisicionesMetasAsociadasController) Delete() {
 	} else {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service Delete: Request contains incorrect parameter"
- 		c.Abort("404")
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

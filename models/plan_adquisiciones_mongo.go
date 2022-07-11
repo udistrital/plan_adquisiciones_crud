@@ -4,22 +4,30 @@ import (
 	"context"
 
 	"github.com/astaxie/beego/logs"
-	dbMongoManager "github.com/udistrital/plan_adquisiciones_crud/database"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo/options"
+
+	dbMongoManager "github.com/udistrital/plan_adquisiciones_crud/database"
 )
+
+//PlanAdquisicionesMongo con ID
+type PlanAdquisicionesMongoID struct {
+	IdMongo               interface{}
+	PlanAdquisiconesMongo PlanAdquisicionesMongo
+}
 
 // PlanAdquisicionesMongo ...
 type PlanAdquisicionesMongo struct {
-	ID                        int                    	`json:"id"`
-	Descripcion               string                 	`json:"descripcion"`
-	Vigencia                  int                    	`json:"vigencia"`
-	FechaCreacion             string                 	`json:"FechaCreacion"`
-	FechaModificacion         string                 	`json:"FechaModificacion"`
-	Activo                    bool            	     	`json:"activo"`
-	Publicado                 bool             	     	`json:"publicado"`
-	FichaEbImga               []FichaEBIMGA          	`json:"ficha_eb_imga"`
-	RegistroPlanAdquisiciones []map[string]interface{} 	`json:"registro_plan_adquisiciones"`
+	ID                        int                      `json:"id"`
+	Descripcion               string                   `json:"descripcion"`
+	Vigencia                  int                      `json:"vigencia"`
+	FechaCreacion             string                   `json:"FechaCreacion"`
+	FechaModificacion         string                   `json:"FechaModificacion"`
+	Activo                    bool                     `json:"activo"`
+	Publicado                 bool                     `json:"publicado"`
+	FichaEbImga               []FichaEBIMGA            `json:"ficha_eb_imga"`
+	RegistroPlanAdquisiciones []map[string]interface{} `json:"registro_plan_adquisiciones"`
 }
 
 // FichaEbImga ...
@@ -171,6 +179,28 @@ func GetAllPlanAdquisicionesMongo(query bson.M) (ml []interface{}, err error) {
 		query = bson.M{}
 	}
 	cursor, err := collection.Find(context.TODO(), query)
+	var ml2 []bson.M
+	if err = cursor.All(context.TODO(), &ml2); err != nil {
+		logs.Error(err)
+		return nil, err
+	}
+	for _, m := range ml2 {
+		ml = append(ml, m)
+	}
+	return ml, nil
+}
+
+// GetAllPlanAdquisicionesMongo retrieves all PlanAdquisiciones matches certain condition (filter, sort and limit). Returns empty list if
+// no records exist
+func GetFilterPlanAdquisicionesMongo(query bson.M, sort map[string]interface{}, limit int64) (ml []interface{}, err error) {
+	collection, err := dbMongoManager.GetMainCollection()
+	if query == nil {
+		query = bson.M{}
+	}
+	cursor, err := collection.Find(context.TODO(), query, &options.FindOptions{
+		Sort:  sort,
+		Limit: &limit,
+	})
 	var ml2 []bson.M
 	if err = cursor.All(context.TODO(), &ml2); err != nil {
 		logs.Error(err)

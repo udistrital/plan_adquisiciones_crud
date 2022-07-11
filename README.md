@@ -83,13 +83,14 @@ Pruebas unitarias
 
 ## Modelo de datos
 
-[Mode Relacional plan_adquisicion_crud](modelobd.png)
+[SVG](database/plan_adquisiciones.svg) -
+[PGmodeler](database/plan_adquisiciones.dbm)
 
 ## Estado CI
 
-| Develop | Release 1.1.1 | Master |
+| Develop | Release 1.2.0 | Master |
 | -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/release/1.1.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/master)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) |
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/release/1.2.0)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/plan_adquisiciones_crud/status.svg?ref=refs/heads/master)](https://hubci.portaloas.udistrital.edu.co/udistrital/plan_adquisiciones_crud) |
 
 ## Licencia
 

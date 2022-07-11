@@ -12,11 +12,11 @@ import (
 type RegistroInversionActividadFuenteFinanciamiento struct {
 	Id                                   int                                 `orm:"column(id);pk;auto"`
 	FuenteFinanciamientoId               string                              `orm:"column(fuente_financiamiento_id)"`
-	ValorAsignado                        int                                 `orm:"column(valor_asignado)"`
+	ValorAsignado                        float64                             `orm:"column(valor_asignado);digits(20);decimals(7)"`
 	FechaModificacion                    string                              `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo                               bool                                `orm:"column(activo)"`
 	FechaCreacion                        string                              `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	RegistroPlanAdquisicionesActividadId *RegistroPlanAdquisicionesActividad `orm:"column(Registro_plan_adquisiciones-Actividad_id);rel(fk)"`
+	RegistroPlanAdquisicionesActividadId *RegistroPlanAdquisicionesActividad `orm:"column(registro_plan_adquisiciones_actividad_id);rel(fk)"`
 }
 
 func (t *RegistroInversionActividadFuenteFinanciamiento) TableName() string {

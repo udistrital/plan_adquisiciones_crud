@@ -3,9 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/plan_adquisiciones_crud/models"
 	"strconv"
 	"strings"
+
+	"github.com/udistrital/plan_adquisiciones_crud/models"
 
 	"github.com/udistrital/utils_oas/time_bogota"
 
@@ -31,7 +32,7 @@ func (c *RegistroPlanAdquisicionesCodigoArkaController) URLMapping() {
 // @Title Post
 // @Description create RegistroPlanAdquisicionesCodigoArka
 // @Param	body		body 	models.RegistroPlanAdquisicionesCodigoArka	true		"body for RegistroPlanAdquisicionesCodigoArka content"
-// @Success 201 {int} models.RegistroPlanAdquisicionesCodigoArka
+// @Success 201 {object} models.RegistroPlanAdquisicionesCodigoArka
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *RegistroPlanAdquisicionesCodigoArkaController) Post() {
@@ -60,7 +61,7 @@ func (c *RegistroPlanAdquisicionesCodigoArkaController) Post() {
 // GetOne ...
 // @Title Get One
 // @Description get RegistroPlanAdquisicionesCodigoArka by id
-// @Param	id		path 	string	true		"The key for staticblock"
+// @Param	id		path 	int	true		"The key for staticblock"
 // @Success 200 {object} models.RegistroPlanAdquisicionesCodigoArka
 // @Failure 404 not found resource
 // @router /:id [get]
@@ -88,7 +89,7 @@ func (c *RegistroPlanAdquisicionesCodigoArkaController) GetOne() {
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.RegistroPlanAdquisicionesCodigoArka
+// @Success 200 {object} []models.RegistroPlanAdquisicionesCodigoArka
 // @Failure 404 not found resource
 // @router / [get]
 func (c *RegistroPlanAdquisicionesCodigoArkaController) GetAll() {
@@ -141,7 +142,7 @@ func (c *RegistroPlanAdquisicionesCodigoArkaController) GetAll() {
 		c.Abort("404")
 	} else {
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			l = []interface{}{}
 		}
 		c.Data["json"] = l
 	}
@@ -151,7 +152,7 @@ func (c *RegistroPlanAdquisicionesCodigoArkaController) GetAll() {
 // Put ...
 // @Title Put
 // @Description update the RegistroPlanAdquisicionesCodigoArka
-// @Param	id		path 	string	true		"The id you want to update"
+// @Param	id		path 	int	true		"The id you want to update"
 // @Param	body		body 	models.RegistroPlanAdquisicionesCodigoArka	true		"body for RegistroPlanAdquisicionesCodigoArka content"
 // @Success 200 {object} models.RegistroPlanAdquisicionesCodigoArka
 // @Failure 400 the request contains incorrect syntax
@@ -183,7 +184,7 @@ func (c *RegistroPlanAdquisicionesCodigoArkaController) Put() {
 // Delete ...
 // @Title Delete
 // @Description delete the RegistroPlanAdquisicionesCodigoArka
-// @Param	id		path 	string	true		"The id you want to delete"
+// @Param	id		path 	int	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]

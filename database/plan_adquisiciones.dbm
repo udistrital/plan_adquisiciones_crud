@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2" last-position="751,718" last-zoom="1" max-obj-count="14"
+	 default-schema="public" default-owner="postgres">
+<database name="test" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8" is-template="false" allow-conns="true">
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layer="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="plan_adquisiciones" layer="0" rect-visible="true" fill-color="#65f2ce">
+</schema>
+
+<table name="Meta" layer="0" collapse-mode="2" max-obj-count="9">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Tabla para almacenar las metas creadas en el plan de adquisición.]]></comment>
+	<position x="960" y="800"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Meta_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la meta.]]></comment>
+	</column>
+	<column name="numero" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Número asociado a la meta.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[Nombre de la meta]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo la meta.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Última fecha en la que se modifico la meta.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos.]]></comment>
+	</column>
+	<column name="rubro" not-null="true">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Rubro al que se encuentra asociada la meta]]></comment>
+	</column>
+	<column name="lineamiento_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Meta_pk" type="pk-constr" table="plan_adquisiciones.&quot;Meta&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Meta_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Lineamiento" layer="0" collapse-mode="2" max-obj-count="13">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Tabla para almacenar los lineamientos del plan de adquisiciones.]]></comment>
+	<position x="500" y="620"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Lineamiento_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[ID del lineamiento]]></comment>
+	</column>
+	<column name="numero" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Número asignado al lineamiento.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="120"/>
+		<comment><![CDATA[Nombre asignado al lineamiento.]]></comment>
+	</column>
+	<column name="objetivo" not-null="true">
+		<type name="text" length="0"/>
+		<comment><![CDATA[Objetivo asignado al lineamiento.]]></comment>
+	</column>
+	<column name="fuente_recurso_id" not-null="true">
+		<type name="character varying" length="5"/>
+		<comment><![CDATA[Fuente de recurso asignado al lineamiento.]]></comment>
+	</column>
+	<column name="centro_gestor" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Centro gestor asignado al lineamiento.]]></comment>
+	</column>
+	<column name="area_funcional_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Área funcional a la que se realiza el lineamiento.]]></comment>
+	</column>
+	<column name="vigencia" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Vigencia a la que pertenece el lineamiento.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que ha sido creado el lineamiento.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Última fecha en la que se modificó el lineamiento.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo en la base de datos]]></comment>
+	</column>
+	<constraint name="Lineamiento_pk" type="pk-constr" table="plan_adquisiciones.&quot;Lineamiento&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Lineamiento_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Actividad" layer="0" collapse-mode="2" max-obj-count="8">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Actividades creadas dentro de un plan de adquisiciones asociadas a una meta.]]></comment>
+	<position x="1500" y="560"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Actividad_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la actividad.]]></comment>
+	</column>
+	<column name="numero" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Número asociado a la actividad.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[Nombre asociado a la actividad.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de creación de la actividad.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Última fecha en la que se modificó la actividad.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos.]]></comment>
+	</column>
+	<column name="meta_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Actividad_pk" type="pk-constr" table="plan_adquisiciones.&quot;Actividad&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Actividad_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Registro_plan_adquisiciones" layer="0" collapse-mode="2" max-obj-count="19">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[En esta tabla se guardan los campos comúnes de los renglos de inversión y funcionamiento del plan de adquisiciones.]]></comment>
+	<position x="1460" y="900"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Registro_plan_adquisiciones_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla.]]></comment>
+	</column>
+	<column name="area_funcional" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Área funcional a la que se le crea el registro.]]></comment>
+	</column>
+	<column name="centro_gestor" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Centro gestor que crea el registro del plan de adquisiciones.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la creación del registro del plan de adquisiciones.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación hecha en el registro.]]></comment>
+	</column>
+	<column name="responsable_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador del responsable del registro del plan de adquisiciones.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Campo que indica si el registro se encuentra activo dentro de la base de datos.]]></comment>
+	</column>
+	<column name="meta_id">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Meta a la que se encuentra asociada el registro]]></comment>
+	</column>
+	<column name="producto_id">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Identificador del producto al que está asociado el registro.]]></comment>
+	</column>
+	<column name="plan_adquisiciones_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="rubro_id" not-null="true">
+		<type name="text" length="0"/>
+		<comment><![CDATA[Cuando el registro es de funcionamiento, es necesario guardar la fuente de financiamiento de forma directa]]></comment>
+	</column>
+	<column name="fecha_estimada_inicio" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha estimada de inicio del proceso]]></comment>
+	</column>
+	<column name="fecha_estimada_fin" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha estimada de finalizacion del proceso]]></comment>
+	</column>
+	<column name="fuente_financiamiento_id">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="actividad_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Actividad Relacionada al registro del plan de adquisiciones de funcionamiento]]></comment>
+	</column>
+	<column name="valor_actividad">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Valor de la actividad relacionada del registro del plan de adquisiciones de funcionamiento]]></comment>
+	</column>
+	<constraint name="Registro_plan_adquisiciones_pk" type="pk-constr" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Registro_plan_adquisiciones_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Plan_adquisiciones" layer="0" collapse-mode="2" max-obj-count="8">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Tabla para guardar el plan de adquisiciones.]]></comment>
+	<position x="860" y="1240"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Plan_adquisiciones_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador del plan de adquisiciones.]]></comment>
+	</column>
+	<column name="descripcion" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[Descripción del plan de adquisiciones]]></comment>
+	</column>
+	<column name="vigencia" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Vigencia para la que se desarrolla el plan de adquisiciones.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación que se hizo en el registro.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo en la base de datos.]]></comment>
+	</column>
+	<column name="publicado" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Verificar si estado de publicacion del plan de adquisicion]]></comment>
+	</column>
+	<constraint name="Plan_adquisiciones_pk" type="pk-constr" table="plan_adquisiciones.&quot;Plan_adquisiciones&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Plan_adquisiciones_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Registro_funcionamiento-Modalidad_seleccion" layer="0" collapse-mode="2" max-obj-count="7">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Tabla de rompimiento entre el registro de funcionamiento y las posibles modalidades de selección.]]></comment>
+	<position x="2240" y="1400"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Registro_funcionamiento-Modalidad_seleccion_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="id_modalidad_seleccion" not-null="true">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Identificador de la modalidad de selección relacionada al registro de funcionamiento.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación realizada al registro]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro.]]></comment>
+	</column>
+	<column name="registro_plan_adquisiciones_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Registro_funcionamiento-Modalidad_seleccion_pk" type="pk-constr" table="plan_adquisiciones.&quot;Registro_funcionamiento-Modalidad_seleccion&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Registro_funcionamiento-Modalidad_seleccion_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Registro_plan_adquisiciones-Actividad" layer="0" collapse-mode="2" max-obj-count="8">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Tabla de rompimiento para las actividades asociadas a un registro del plan de inversion.]]></comment>
+	<position x="2240" y="440"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="valor" not-null="true">
+		<type name="numeric" length="20" precision="7"/>
+		<comment><![CDATA[Valor de la actividad]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación realizada al registro.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos.]]></comment>
+	</column>
+	<column name="actividad_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="registro_plan_adquisiciones_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Registro_inversion-Actividad_pk" type="pk-constr" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Registro_plan_adquisiciones-Actividad_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Registro_inversion_actividad-Fuente_financiamiento" layer="0" collapse-mode="2" max-obj-count="8">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Almacena las fuentes de financiamiento relacionadas con las actividades de un plan de inversión.]]></comment>
+	<position x="2920" y="660"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Registro_inversion_actividad-Fuente_financiamiento_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificadro de la tabla]]></comment>
+	</column>
+	<column name="fuente_financiamiento_id" not-null="true">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Fuente de financiamiento asociada a al actividad]]></comment>
+	</column>
+	<column name="valor_asignado" not-null="true">
+		<type name="numeric" length="20" precision="7"/>
+		<comment><![CDATA[Porcentaje de la participación de la fuente de financiamiento dentro del valor total de la actividad.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación realizada al regsitro.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el regsitro se encuentra activo dentro de la base de datos.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro]]></comment>
+	</column>
+	<column name="registro_plan_adquisiciones_actividad_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Registro_inversion_actividad-Fuente_financiamiento_pk" type="pk-constr" table="plan_adquisiciones.&quot;Registro_inversion_actividad-Fuente_financiamiento&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Registro_inversion_actividad-Fuente_financiamiento_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Ficha_EB_IMGA" layer="0" collapse-mode="2" max-obj-count="13">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Se guarda la Ficha estadística básica y de inversión y de metodología general ajustada.]]></comment>
+	<position x="1460" y="1300"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Ficha_EB_IMGA_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="meta_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Número de la meta asociada]]></comment>
+	</column>
+	<column name="proceso" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Verbo que describe el proceso]]></comment>
+	</column>
+	<column name="magnitud" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Número de unidades a adquirir.(Unidades de la unidad de medida)]]></comment>
+	</column>
+	<column name="unidad_medida" not-null="true">
+		<type name="character varying" length="120"/>
+		<comment><![CDATA[Unidad usada como medida en la meta.]]></comment>
+	</column>
+	<column name="descripcion" not-null="true">
+		<type name="text" length="0"/>
+		<comment><![CDATA[Descripción de la meta.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación realizada al registro]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos.]]></comment>
+	</column>
+	<column name="rubro" not-null="true">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Rubro de financiamiento al cual se encuentra asociada la ficha]]></comment>
+	</column>
+	<column name="plan_adquisiciones_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Ficha_EB_IMGA_pk" type="pk-constr" table="plan_adquisiciones.&quot;Ficha_EB_IMGA&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Ficha_EB_IMGA_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Registro_plan_adquisiciones-Codigo_arka" layer="0" collapse-mode="2" max-obj-count="7">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Códigos de Arka asociados al plan de inversion o de funcionamiento.]]></comment>
+	<position x="2240" y="940"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Registro_plan_adquisiciones-Codigo_arka_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="codigo_arka" not-null="true">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Código de producto que viene desde el subsistema Arka]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación realizada al registro.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro]]></comment>
+	</column>
+	<column name="registro_plan_adquisiciones_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Registro_plan_adquisiciones-Codigo_arka_pk" type="pk-constr" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Codigo_arka&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Registro_plan_adquisiciones-Codigo_arka_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Registro_plan_adquisiciones-Metas_Asociadas" layer="0" collapse-mode="2" max-obj-count="7">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Códigos de Arka asociados al plan de inversion o de funcionamiento.]]></comment>
+	<position x="2240" y="700"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Registro_plan_adquisiciones-Metas_Asociadas_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación realizada al registro.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro]]></comment>
+	</column>
+	<column name="registro_plan_adquisiciones_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="meta_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Registro_plan_adquisiciones-Metas_Asociadas_pk" type="pk-constr" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Metas_Asociadas&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Registro_plan_adquisiciones-Metas_Asociadas_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<table name="Registro_plan_adquisiciones-Productos_Asociados" layer="0" collapse-mode="2" max-obj-count="8">
+	<schema name="plan_adquisiciones"/>
+	<comment><![CDATA[Códigos de Arka asociados al plan de inversion o de funcionamiento.]]></comment>
+	<position x="2240" y="1160"/>
+	<column name="id" not-null="true" default-value="nextval('plan_adquisiciones.&quot;Registro_plan_adquisiciones-Productos_Asociados_id_seq&quot;'::regclass)">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla]]></comment>
+	</column>
+	<column name="producto_asociado_id" not-null="true">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Codigo de Meta Asociada]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha de la última modificación realizada al registro.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Indica si el registro se encuentra activo dentro de la base de datos]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que se creo el registro]]></comment>
+	</column>
+	<column name="registro_plan_adquisiciones_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="porcentaje_distribucion">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[porcentaje de distribucion del producto asociado al registro del plan de adquisiciones de inversion]]></comment>
+	</column>
+	<constraint name="Registro_plan_adquisiciones-Productos_Asociados_pk" type="pk-constr" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Productos_Asociados&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="Registro_plan_adquisiciones-Productos_Asociados_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+	<schema name="plan_adquisiciones"/>
+</sequence>
+
+<constraint name="Lineamiento_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Lineamiento&quot;" table="plan_adquisiciones.&quot;Meta&quot;">
+	<columns names="lineamiento_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Meta_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Meta&quot;" table="plan_adquisiciones.&quot;Actividad&quot;">
+	<columns names="meta_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Plan_adquisiciones_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Plan_adquisiciones&quot;" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;">
+	<columns names="plan_adquisiciones_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Registro_plan_adquisiciones_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" table="plan_adquisiciones.&quot;Registro_funcionamiento-Modalidad_seleccion&quot;">
+	<columns names="registro_plan_adquisiciones_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Actividad_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Actividad&quot;" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad&quot;">
+	<columns names="actividad_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Registro_plan_adquisiciones_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad&quot;">
+	<columns names="registro_plan_adquisiciones_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Registro_plan_adquisiciones-Actividad_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad&quot;" table="plan_adquisiciones.&quot;Registro_inversion_actividad-Fuente_financiamiento&quot;">
+	<columns names="registro_plan_adquisiciones_actividad_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Plan_adquisiciones_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Plan_adquisiciones&quot;" table="plan_adquisiciones.&quot;Ficha_EB_IMGA&quot;">
+	<columns names="plan_adquisiciones_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Registro_plan_adquisiciones_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Codigo_arka&quot;">
+	<columns names="registro_plan_adquisiciones_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Registro_plan_adquisiciones_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Metas_Asociadas&quot;">
+	<columns names="registro_plan_adquisiciones_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Meta_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Meta&quot;" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Metas_Asociadas&quot;">
+	<columns names="meta_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Registro_plan_adquisiciones_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="SET NULL" ref-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Productos_Asociados&quot;">
+	<columns names="registro_plan_adquisiciones_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="&quot;rel_Meta_Lineamiento&quot;" type="relfk" layer="0"
+	 custom-color="#5b275b"
+	 src-table="plan_adquisiciones.&quot;Meta&quot;"
+	 dst-table="plan_adquisiciones.&quot;Lineamiento&quot;" reference-fk="Lineamiento_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Actividad_Meta&quot;" type="relfk" layer="0"
+	 custom-color="#374f05"
+	 src-table="plan_adquisiciones.&quot;Actividad&quot;"
+	 dst-table="plan_adquisiciones.&quot;Meta&quot;" reference-fk="Meta_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_plan_adquisiciones_Plan_adquisiciones&quot;" type="relfk" layer="0"
+	 custom-color="#c4fd7c"
+	 src-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;"
+	 dst-table="plan_adquisiciones.&quot;Plan_adquisiciones&quot;" reference-fk="Plan_adquisiciones_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_funcionamiento-Modalidad_seleccion_Registro_plan_a&quot;" type="relfk" layer="0"
+	 custom-color="#4807fc"
+	 src-table="plan_adquisiciones.&quot;Registro_funcionamiento-Modalidad_seleccion&quot;"
+	 dst-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" reference-fk="Registro_plan_adquisiciones_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_plan_adquisiciones-Actividad_Actividad&quot;" type="relfk" layer="0"
+	 custom-color="#efd46f"
+	 src-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad&quot;"
+	 dst-table="plan_adquisiciones.&quot;Actividad&quot;" reference-fk="Actividad_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_plan_adquisiciones-Actividad_Registro_plan_adquisi&quot;" type="relfk" layer="0"
+	 custom-color="#7b484e"
+	 src-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad&quot;"
+	 dst-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" reference-fk="Registro_plan_adquisiciones_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_inversion_actividad-Fuente_financiamiento_Registro&quot;" type="relfk" layer="0"
+	 custom-color="#51b5ab"
+	 src-table="plan_adquisiciones.&quot;Registro_inversion_actividad-Fuente_financiamiento&quot;"
+	 dst-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Actividad&quot;" reference-fk="Registro_plan_adquisiciones-Actividad_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Ficha_EB_IMGA_Plan_adquisiciones&quot;" type="relfk" layer="0"
+	 custom-color="#8f7617"
+	 src-table="plan_adquisiciones.&quot;Ficha_EB_IMGA&quot;"
+	 dst-table="plan_adquisiciones.&quot;Plan_adquisiciones&quot;" reference-fk="Plan_adquisiciones_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_plan_adquisiciones-Codigo_arka_Registro_plan_adqui&quot;" type="relfk" layer="0"
+	 custom-color="#721331"
+	 src-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Codigo_arka&quot;"
+	 dst-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" reference-fk="Registro_plan_adquisiciones_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_plan_adquisiciones-Metas_Asociadas_Registro_plan_a&quot;" type="relfk" layer="0"
+	 custom-color="#d65b94"
+	 src-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Metas_Asociadas&quot;"
+	 dst-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" reference-fk="Registro_plan_adquisiciones_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_plan_adquisiciones-Metas_Asociadas_Meta&quot;" type="relfk" layer="0"
+	 custom-color="#f6bd00"
+	 src-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Metas_Asociadas&quot;"
+	 dst-table="plan_adquisiciones.&quot;Meta&quot;" reference-fk="Meta_fk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Registro_plan_adquisiciones-Productos_Asociados_Registro_pl&quot;" type="relfk" layer="0"
+	 custom-color="#c8b436"
+	 src-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones-Productos_Asociados&quot;"
+	 dst-table="plan_adquisiciones.&quot;Registro_plan_adquisiciones&quot;" reference-fk="Registro_plan_adquisiciones_fk"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
