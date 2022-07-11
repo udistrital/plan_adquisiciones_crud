@@ -11,4 +11,5 @@ type DetalleMovimiento struct {
 	RubroId                string
 	ActividadId            int
 	FuenteFinanciamientoId string
+	PlanAdquisicionesId    int
 }
