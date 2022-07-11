@@ -24,7 +24,7 @@ func DevuelveMovimientos(planPublicado models.PlanPublicado, planAntiguo models.
 		return nil, err
 	}
 
-	movimientos, err = ModelaMovimientos(nuevosRubros)
+	movimientos, err = ModelaMovimientos(nuevosRubros, planPublicado.IdPlan)
 	if err != nil {
 		return nil, err
 	}
@@ -123,12 +123,13 @@ func CalculaDiferencias(rubrosPublicado []models.RubroCalculo, rubrosAntiguo []m
 }
 
 // Función que modela los movimientos que devuelve el helper
-func ModelaMovimientos(nuevosRubros []models.RubroCalculo) (rubros []models.MovimientosDetalle, err error) {
+func ModelaMovimientos(nuevosRubros []models.RubroCalculo, idPlanPublicado int) (rubros []models.MovimientosDetalle, err error) {
 	for _, rubro := range nuevosRubros {
 		detalleFormat, err := json.Marshal(models.DetalleMovimiento{
 			RubroId:                rubro.RubroId,
 			ActividadId:            rubro.ActividadId,
 			FuenteFinanciamientoId: rubro.FuenteFinanciamientoId,
+			PlanAdquisicionesId:    idPlanPublicado,
 		})
 		if err != nil {
 			return nil, err
@@ -153,7 +154,7 @@ func PublicarPlan(planPublicado models.PlanPublicado) (movimientos []models.Movi
 		return nil, err
 	}
 
-	movimientos, err = ModelaMovimientos(rubros)
+	movimientos, err = ModelaMovimientos(rubros, planPublicado.IdPlan)
 	if err != nil {
 		return nil, err
 	}
