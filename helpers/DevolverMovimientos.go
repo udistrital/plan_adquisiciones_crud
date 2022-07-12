@@ -106,18 +106,25 @@ func CalculaDiferencias(rubrosPublicado []models.RubroCalculo, rubrosAntiguo []m
 		}
 	}
 
-	rubrosNuevos, err := NuevosRubros(rubrosPublicado, rubrosDiferencia, false)
-	if err != nil {
-		return nil, err
-	}
+	// logs.Debug(fmt.Sprintf("rubrosDiferencia: %+v", rubrosDiferencia))
 
-	rubrosDeprecados, err := NuevosRubros(rubrosAntiguo, rubrosPublicado, true)
-	if err != nil {
-		return nil, err
-	}
+	if len(rubrosDiferencia) > 0 {
 
-	rubrosTemp := append(rubrosDiferencia, rubrosNuevos...)
-	rubros = append(rubrosTemp, rubrosDeprecados...)
+		rubrosNuevos, err := NuevosRubros(rubrosPublicado, rubrosDiferencia, false)
+		if err != nil {
+			return nil, err
+		}
+
+		rubrosDeprecados, err := NuevosRubros(rubrosAntiguo, rubrosPublicado, true)
+		if err != nil {
+			return nil, err
+		}
+
+		rubrosTemp := append(rubrosDiferencia, rubrosNuevos...)
+		rubros = append(rubrosTemp, rubrosDeprecados...)
+	} else {
+		rubros = rubrosDiferencia
+	}
 
 	return
 }
