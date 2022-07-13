@@ -56,7 +56,7 @@ func ExtraeRubros(plan models.PlanPublicado) (rubros []models.RubroCalculo, err 
 								rubroTemp := models.RubroCalculo{
 									RubroId:                rubro.Rubro,
 									DeltaAcum:              fuente.ValorAsignado,
-									ActividadId:            actividad.RegistroActividadId,
+									ActividadId:            actividad.Actividad.Id,
 									FuenteFinanciamientoId: fuente.FuenteFinanciamiento,
 								}
 								rubros = append(rubros, rubroTemp)
