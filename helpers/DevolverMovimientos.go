@@ -29,9 +29,6 @@ func DevuelveMovimientos(planPublicado models.PlanPublicado, planAntiguo models.
 		return nil, err
 	}
 
-	// logs.Debug(fmt.Sprintf("rubrosCalculoPublicado: %+v", rubrosPublicado))
-	// logs.Debug(fmt.Sprintf("rubrosCalculoAntiguo: %+v", rubrosAntiguo))
-	// logs.Debug(fmt.Sprintf("nuevosRubros: %+v", nuevosRubros))
 	// logs.Debug(fmt.Sprintf("movimientos: %+v", movimientos))
 
 	return
@@ -56,7 +53,7 @@ func ExtraeRubros(plan models.PlanPublicado) (rubros []models.RubroCalculo, err 
 								rubroTemp := models.RubroCalculo{
 									RubroId:                rubro.Rubro,
 									DeltaAcum:              fuente.ValorAsignado,
-									ActividadId:            actividad.RegistroActividadId,
+									ActividadId:            actividad.Actividad.Id,
 									FuenteFinanciamientoId: fuente.FuenteFinanciamiento,
 								}
 								rubros = append(rubros, rubroTemp)
@@ -106,25 +103,18 @@ func CalculaDiferencias(rubrosPublicado []models.RubroCalculo, rubrosAntiguo []m
 		}
 	}
 
-	// logs.Debug(fmt.Sprintf("rubrosDiferencia: %+v", rubrosDiferencia))
-
-	if len(rubrosDiferencia) > 0 {
-
-		rubrosNuevos, err := NuevosRubros(rubrosPublicado, rubrosDiferencia, false)
-		if err != nil {
-			return nil, err
-		}
-
-		rubrosDeprecados, err := NuevosRubros(rubrosAntiguo, rubrosPublicado, true)
-		if err != nil {
-			return nil, err
-		}
-
-		rubrosTemp := append(rubrosDiferencia, rubrosNuevos...)
-		rubros = append(rubrosTemp, rubrosDeprecados...)
-	} else {
-		rubros = rubrosDiferencia
+	rubrosNuevos, err := AñadeRubros(rubrosPublicado, rubrosAntiguo, false)
+	if err != nil {
+		return nil, err
 	}
+
+	rubrosDeprecados, err := AñadeRubros(rubrosAntiguo, rubrosPublicado, true)
+	if err != nil {
+		return nil, err
+	}
+
+	rubrosTemp := append(rubrosDiferencia, rubrosNuevos...)
+	rubros = append(rubrosTemp, rubrosDeprecados...)
 
 	return
 }
@@ -170,7 +160,7 @@ func PublicarPlan(planPublicado models.PlanPublicado) (movimientos []models.Movi
 }
 
 // Función que busca dentro de unos rubros objetivo y añade movimientos con valor negativo o positivo según sea el caso
-func NuevosRubros(rubrosBusqueda []models.RubroCalculo, rubrosObjetivo []models.RubroCalculo, deprecar bool) (rubros []models.RubroCalculo, err error) {
+func AñadeRubros(rubrosBusqueda []models.RubroCalculo, rubrosObjetivo []models.RubroCalculo, deprecar bool) (rubros []models.RubroCalculo, err error) {
 	var contenido bool
 	for _, rubroBusqueda := range rubrosBusqueda {
 		contenido = false
@@ -181,6 +171,7 @@ func NuevosRubros(rubrosBusqueda []models.RubroCalculo, rubrosObjetivo []models.
 					rubroBusqueda.ActividadId == rubroObjetivo.ActividadId &&
 					rubroBusqueda.FuenteFinanciamientoId == rubroObjetivo.FuenteFinanciamientoId {
 					contenido = true
+					break
 				}
 
 				if rubroBusqueda.ActividadId == 0 &&
@@ -188,6 +179,7 @@ func NuevosRubros(rubrosBusqueda []models.RubroCalculo, rubrosObjetivo []models.
 					rubroBusqueda.ActividadId == rubroObjetivo.ActividadId &&
 					rubroBusqueda.FuenteFinanciamientoId == rubroObjetivo.FuenteFinanciamientoId {
 					contenido = true
+					break
 				}
 			}
 		}
