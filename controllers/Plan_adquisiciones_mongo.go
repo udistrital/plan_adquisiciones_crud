@@ -24,7 +24,7 @@ func (c *PlanAdquisicionesMongoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
-	c.Mapping("PostDiferencia", c.PostDiferencia)
+	c.Mapping("GetDiferencia", c.GetDiferencia)
 }
 
 // Post ...
@@ -113,14 +113,14 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 	c.ServeJSON()
 }
 
-// PostDiferencia ...
+// GetDiferencia ...
 // @Title Diferencia entre Planes
 // @Description Retorna la diferencia entre dos planes de adquisición
 // @Param	versionPlan	body models.PlanPublicado	true	"Versión de Plan de Adquisiciones a publicar"
 // @Success 200 {object} []models.PlanAdquisicionesMongo
 // @Failure 404 not found resource
 // @router /diferencia [post]
-func (c *PlanAdquisicionesMongoController) PostDiferencia() {
+func (c *PlanAdquisicionesMongoController) GetDiferencia() {
 	var versionPlan models.VersionPlan
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &versionPlan); err != nil {
 		logs.Error(err)
