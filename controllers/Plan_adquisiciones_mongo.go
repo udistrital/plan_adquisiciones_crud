@@ -114,7 +114,7 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 }
 
 // PostDiferencia ...
-// @Title Post Diferencia de Planes
+// @Title Diferencia entre Planes
 // @Description Retorna la diferencia entre dos planes de adquisición
 // @Param	versionPlan	body models.PlanPublicado	true	"Versión de Plan de Adquisiciones a publicar"
 // @Success 200 {object} []models.PlanAdquisicionesMongo

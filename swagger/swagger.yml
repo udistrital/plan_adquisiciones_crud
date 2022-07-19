@@ -679,7 +679,7 @@ paths:
       tags:
       - Plan_adquisiciones_mongo
       description: Retorna la diferencia entre dos planes de adquisición
-      operationId: PlanAdquisicionesMongoController.Post Diferencia de Planes
+      operationId: PlanAdquisicionesMongoController.Diferencia entre Planes
       parameters:
       - in: body
         name: versionPlan
@@ -1544,22 +1544,22 @@ paths:
         "404":
           description: not found resource
 definitions:
-  74097.0xc000723bc0.false:
+  74097.0xc0007ba120.false:
     title: "false"
     type: object
-  76883.0xc000723e90.false:
+  76883.0xc0007ba3f0.false:
     title: "false"
     type: object
-  77131.0xc000723ec0.false:
+  77131.0xc0007ba420.false:
     title: "false"
     type: object
-  77396.0xc000723ef0.false:
+  77396.0xc0007ba450.false:
     title: "false"
     type: object
-  77837.0xc00075e000.false:
+  77837.0xc0007ba540.false:
     title: "false"
     type: object
-  78249.0xc00075e060.false:
+  78249.0xc0007ba5a0.false:
     title: "false"
     type: object
   models.Actividad:
@@ -1599,7 +1599,7 @@ definitions:
     type: object
     properties:
       ActividadData:
-        $ref: '#/definitions/74097.0xc000723bc0.false'
+        $ref: '#/definitions/74097.0xc0007ba120.false'
       ActividadId:
         type: integer
         format: int64
@@ -1719,17 +1719,17 @@ definitions:
       FechaModificacion:
         type: string
       Movimientos:
-        $ref: '#/definitions/77131.0xc000723ec0.false'
+        $ref: '#/definitions/77131.0xc0007ba420.false'
       Nombre:
         type: string
       NumeroDocumento:
         type: string
       Rubros:
-        $ref: '#/definitions/76883.0xc000723e90.false'
+        $ref: '#/definitions/76883.0xc0007ba3f0.false'
       TipoDocumento:
         type: string
       TipoFuente:
-        $ref: '#/definitions/77396.0xc000723ef0.false'
+        $ref: '#/definitions/77396.0xc0007ba450.false'
       UnidadEjecutora:
         type: string
       ValorActual:
@@ -1878,7 +1878,7 @@ definitions:
       publicado:
         type: boolean
       registro_plan_adquisiciones:
-        $ref: '#/definitions/map[string][61470.0xc000722390.false]'
+        $ref: '#/definitions/map[string][61470.0xc00078a8d0.false]'
       vigencia:
         type: integer
         format: int64
@@ -2206,13 +2206,13 @@ definitions:
       Hijos:
         type: array
         items:
-          $ref: '#/definitions/77837.0xc00075e000.false'
+          $ref: '#/definitions/77837.0xc0007ba540.false'
       Nombre:
         type: string
       Padre:
         type: string
       Productos:
-        $ref: '#/definitions/78249.0xc00075e060.false'
+        $ref: '#/definitions/78249.0xc0007ba5a0.false'
       UnidadEjecutora:
         type: string
       ValorInicial:
