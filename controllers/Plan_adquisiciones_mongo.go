@@ -24,6 +24,7 @@ func (c *PlanAdquisicionesMongoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
+	c.Mapping("PostDiferencia", c.PostDiferencia)
 }
 
 // Post ...
@@ -112,65 +113,61 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 	c.ServeJSON()
 }
 
-// GetDiferencia ...
-// @Title Get Diferencia de Planes
-// @Description Retorna la diferencia entre dos planes publicados
-// @Param	idPlanPublicado	path string	true	"Id de la versión del plan de adquisiciones"
+// PostDiferencia ...
+// @Title Diferencia entre Planes
+// @Description Retorna la diferencia entre dos planes de adquisición
+// @Param	versionPlan	body models.PlanPublicado	true	"Versión de Plan de Adquisiciones a publicar"
 // @Success 200 {object} []models.PlanAdquisicionesMongo
 // @Failure 404 not found resource
-// @router /diferencia/:idPlanPublicado [get]
-func (c *PlanAdquisicionesMongoController) GetDiferencia() {
-	idPlanPublicado := c.Ctx.Input.Param(":idPlanPublicado")
-	var planPublicado models.PlanPublicado
-	var planAntiguo models.PlanPublicado
-	v2, err := models.GetPlanAdquisicionesMongoById(idPlanPublicado)
-	var movimientos []models.MovimientosDetalle
-
-	if err := formatdata.FillStruct(*v2, &planPublicado); err != nil {
+// @router /diferencia [post]
+func (c *PlanAdquisicionesMongoController) PostDiferencia() {
+	var versionPlan models.VersionPlan
+	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &versionPlan); err != nil {
 		logs.Error(err)
 		c.Data["system"] = err
-		c.Abort("502")
+		c.Abort("400")
 	}
 
+	// logs.Debug("versionPlan: ")
+	// formatdata.JsonPrint(versionPlan)
+	var planAntiguo models.PlanPublicado
+	var movimientos []models.MovimientosDetalle
+
 	// Query to retrieve registers by Plan Adquisiciones ID
-	query := bson.M{"id": planPublicado.IdPlan}
+	query := bson.M{"id": versionPlan.Id}
 	// Sorting elements by creation date descendent (-1)
 	sort := map[string]interface{}{"fechacreacion": -1}
 	// Limit consult results (2)
-	limit := int64(2)
+	limit := int64(1)
 
 	l, err := models.GetFilterPlanAdquisicionesMongo(query, sort, limit)
-	if len(l) == 0 {
+	if err != nil {
 		logs.Error(err)
 		c.Data["system"] = err
 		c.Abort("404")
 	}
 
-	if len(l) > 1 {
-		if err := formatdata.FillStruct(l[0], &planPublicado); err != nil {
+	if len(l) == 0 {
+		movimientos, err = helpers.PublicarPlan(versionPlan)
+		if err != nil {
 			logs.Error(err)
 			c.Data["system"] = err
-			c.Abort("502")
-		}
-		if err := formatdata.FillStruct(l[1], &planAntiguo); err != nil {
-			logs.Error(err)
-			c.Data["system"] = err
-			c.Abort("502")
-		}
-	} else {
-		if err := formatdata.FillStruct(l[0], &planPublicado); err != nil {
-			logs.Error(err)
-			c.Data["system"] = err
-			c.Abort("502")
+			c.Abort("404")
 		}
 	}
 
-	if len(l) == 1 {
-		movimientos, err = helpers.PublicarPlan(planPublicado)
-	}
-
-	if len(l) == 2 {
-		movimientos, err = helpers.DevuelveMovimientos(planPublicado, planAntiguo)
+	if len(l) > 0 {
+		if err := formatdata.FillStruct(l[0], &planAntiguo); err != nil {
+			logs.Error(err)
+			c.Data["system"] = err
+			c.Abort("502")
+		}
+		movimientos, err = helpers.DevuelveMovimientos(versionPlan, planAntiguo)
+		if err != nil {
+			logs.Error(err)
+			c.Data["system"] = err
+			c.Abort("404")
+		}
 	}
 
 	if err != nil {
