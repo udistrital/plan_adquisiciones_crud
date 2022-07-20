@@ -113,7 +113,7 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 	c.ServeJSON()
 }
 
-// GetDiferencia ...
+// PostDiferencia ...
 // @Title Diferencia entre Planes
 // @Description Retorna la diferencia entre dos planes de adquisición
 // @Param	versionPlan	body models.PlanPublicado	true	"Versión de Plan de Adquisiciones a publicar"
@@ -147,6 +147,8 @@ func (c *PlanAdquisicionesMongoController) GetDiferencia() {
 		c.Abort("404")
 	}
 
+	// logs.Debug("l: ")
+	// formatdata.JsonPrint(l)
 	if len(l) == 0 {
 		movimientos, err = helpers.PublicarPlan(versionPlan)
 		if err != nil {
@@ -170,6 +172,8 @@ func (c *PlanAdquisicionesMongoController) GetDiferencia() {
 		}
 	}
 
+	// logs.Debug("movimientos: ")
+	// formatdata.JsonPrint(movimientos)
 	if err != nil {
 		logs.Error(err)
 		c.Data["system"] = err

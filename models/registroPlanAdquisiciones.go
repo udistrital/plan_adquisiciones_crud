@@ -51,6 +51,8 @@ type DatosRubro struct {
 	AreaFuncional                            int                                             `json:"AreaFuncional"`
 	CentroGestor                             int                                             `json:"CentroGestor"`
 	FechaCreacion                            string                                          `json:"FechaCreacion"`
+	FechaEstimadaOfertasInicio               string                                          `json:"FechaEstimadaOfertasInicio"`
+	FechaEstimadaOfertasFin                  string                                          `json:"FechaEstimadaOfertasFin"`
 	Id                                       int                                             `json:"Id"`
 	RegistroPlanAdquisicionesCodigoArka      []RegistroPlanAdquisicionesCodigoArkaMongo      `json:"registro_plan_adquisiciones-codigo_arka"`
 	ActividadData                            interface{}                                     `json:"ActividadData"`
