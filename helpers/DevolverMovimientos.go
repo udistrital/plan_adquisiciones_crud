@@ -7,7 +7,18 @@ import (
 )
 
 // Función para entregar la estructura de los movimientos de da comparación entre planes publicados
-func DevuelveMovimientos(planPublicado models.PlanPublicado, planAntiguo models.PlanPublicado) (movimientos []models.MovimientosDetalle, err error) {
+func DevuelveMovimientos(versionPlan models.VersionPlan, planAntiguo models.PlanPublicado) (movimientos []models.MovimientosDetalle, err error) {
+	planPublicado := models.PlanPublicado{
+		IdPlan:                    versionPlan.Id,
+		Descripcion:               versionPlan.Descripcion,
+		Vigencia:                  versionPlan.Vigencia,
+		FechaCreacion:             versionPlan.FechaCreacion,
+		FechaModificacion:         versionPlan.FechaModificacion,
+		Activo:                    versionPlan.Activo,
+		Publicado:                 versionPlan.Publicado,
+		FichaEBImga:               versionPlan.FichaEBImga,
+		RegistroPlanAdquisiciones: versionPlan.RegistroPlanAdquisiciones,
+	}
 	// logs.Debug(fmt.Sprintf("planPublicado.Id: %+v, planAntiguo.Id: %+v", planPublicado.Id, planAntiguo.Id))
 	rubrosPublicado, err := ExtraeRubros(planPublicado)
 	if err != nil {
@@ -145,17 +156,26 @@ func ModelaMovimientos(nuevosRubros []models.RubroCalculo, idPlanPublicado int) 
 }
 
 // Función que se encarga de crear los movimientos para la primera publicación de un plan
-func PublicarPlan(planPublicado models.PlanPublicado) (movimientos []models.MovimientosDetalle, err error) {
+func PublicarPlan(versionPlan models.VersionPlan) (movimientos []models.MovimientosDetalle, err error) {
+	planPublicado := models.PlanPublicado{
+		IdPlan:                    versionPlan.Id,
+		Descripcion:               versionPlan.Descripcion,
+		Vigencia:                  versionPlan.Vigencia,
+		FechaCreacion:             versionPlan.FechaCreacion,
+		FechaModificacion:         versionPlan.FechaModificacion,
+		Activo:                    versionPlan.Activo,
+		Publicado:                 versionPlan.Publicado,
+		FichaEBImga:               versionPlan.FichaEBImga,
+		RegistroPlanAdquisiciones: versionPlan.RegistroPlanAdquisiciones,
+	}
 	rubros, err := ExtraeRubros(planPublicado)
 	if err != nil {
 		return nil, err
 	}
-
-	movimientos, err = ModelaMovimientos(rubros, planPublicado.IdPlan)
+	movimientos, err = ModelaMovimientos(rubros, versionPlan.Id)
 	if err != nil {
 		return nil, err
 	}
-
 	return
 }
 

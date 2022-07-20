@@ -5,9 +5,11 @@ import (
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
+
 	dbMongoManager "github.com/udistrital/plan_adquisiciones_crud/database"
 	_ "github.com/udistrital/plan_adquisiciones_crud/routers"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/utils_oas/auditoria"
 	"github.com/udistrital/utils_oas/customerror"
 )
 
@@ -47,6 +49,6 @@ func main() {
 	}))
 	beego.ErrorController(&customerror.CustomErrorController{})
 	apistatus.Init()
-
+	auditoria.InitMiddleware()
 	beego.Run()
 }

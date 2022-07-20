@@ -985,20 +985,22 @@
                 }
             }
         },
-        "/Plan_adquisiciones_mongo/diferencia/{idPlanPublicado}": {
-            "get": {
+        "/Plan_adquisiciones_mongo/diferencia": {
+            "post": {
                 "tags": [
                     "Plan_adquisiciones_mongo"
                 ],
-                "description": "Retorna la diferencia entre dos planes publicados",
-                "operationId": "PlanAdquisicionesMongoController.Get Diferencia de Planes",
+                "description": "Retorna la diferencia entre dos planes de adquisición",
+                "operationId": "PlanAdquisicionesMongoController.Diferencia entre Planes",
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "idPlanPublicado",
-                        "description": "Id de la versión del plan de adquisiciones",
+                        "in": "body",
+                        "name": "versionPlan",
+                        "description": "Versión de Plan de Adquisiciones a publicar",
                         "required": true,
-                        "type": "string"
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanPublicado"
+                        }
                     }
                 ],
                 "responses": {
@@ -2322,6 +2324,30 @@
         }
     },
     "definitions": {
+        "74661.0xc0007b8780.false": {
+            "title": "false",
+            "type": "object"
+        },
+        "77447.0xc0007b8a50.false": {
+            "title": "false",
+            "type": "object"
+        },
+        "77695.0xc0007b8a80.false": {
+            "title": "false",
+            "type": "object"
+        },
+        "77960.0xc0007b8ab0.false": {
+            "title": "false",
+            "type": "object"
+        },
+        "78401.0xc0007b8ba0.false": {
+            "title": "false",
+            "type": "object"
+        },
+        "78813.0xc0007b8c00.false": {
+            "title": "false",
+            "type": "object"
+        },
         "models.Actividad": {
             "title": "Actividad",
             "type": "object",
@@ -2348,6 +2374,130 @@
                 "Numero": {
                     "type": "integer",
                     "format": "int64"
+                }
+            }
+        },
+        "models.Datos": {
+            "title": "Datos",
+            "type": "object",
+            "properties": {
+                "Rubro": {
+                    "type": "string"
+                },
+                "RubroInfo": {
+                    "$ref": "#/definitions/models.RubroInfo"
+                },
+                "datos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.DatosRubro"
+                    }
+                }
+            }
+        },
+        "models.DatosRubro": {
+            "title": "DatosRubro",
+            "type": "object",
+            "properties": {
+                "ActividadData": {
+                    "$ref": "#/definitions/74661.0xc0007b8780.false"
+                },
+                "ActividadId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Activo": {
+                    "type": "boolean"
+                },
+                "AreaFuncional": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "CentroGestor": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaEstimadaFin": {
+                    "type": "string"
+                },
+                "FechaEstimadaInicio": {
+                    "type": "string"
+                },
+                "FechaEstimadaOfertasFin": {
+                    "type": "string"
+                },
+                "FechaEstimadaOfertasInicio": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "FuenteFinanciamientoData": {
+                    "$ref": "#/definitions/models.FuenteFinanciamientoData"
+                },
+                "FuenteFinanciamientoId": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "MetaId": {
+                    "type": "string"
+                },
+                "ProductoId": {
+                    "type": "string"
+                },
+                "ResponsableId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ResponsableNombre": {
+                    "type": "string"
+                },
+                "RubroId": {
+                    "type": "string"
+                },
+                "ValorActividad": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "ValorTotalActividades": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "registro_funcionamiento-metas_asociadas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroFuncionamientoMetasAsociadas"
+                    }
+                },
+                "registro_funcionamiento-modalidad_seleccion": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroFuncionamientoModalidadSeleccionMongo"
+                    }
+                },
+                "registro_funcionamiento-productos_asociados": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroFuncionamientoProductosAsociados"
+                    }
+                },
+                "registro_plan_adquisiciones-actividad": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesActividadMongoNuevo"
+                    }
+                },
+                "registro_plan_adquisiciones-codigo_arka": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RegistroPlanAdquisicionesCodigoArkaMongo"
+                    }
                 }
             }
         },
@@ -2390,6 +2540,107 @@
                 },
                 "UnidadMedida": {
                     "type": "string"
+                }
+            }
+        },
+        "models.FuenteData": {
+            "title": "FuenteData",
+            "type": "object",
+            "properties": {
+                "Codigo": {
+                    "type": "string"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "UnidadEjecutora": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.FuenteFinanciamientoData": {
+            "title": "FuenteFinanciamientoData",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Codigo": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "Estado": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Movimientos": {
+                    "$ref": "#/definitions/77695.0xc0007b8a80.false"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "NumeroDocumento": {
+                    "type": "string"
+                },
+                "Rubros": {
+                    "$ref": "#/definitions/77447.0xc0007b8a50.false"
+                },
+                "TipoDocumento": {
+                    "type": "string"
+                },
+                "TipoFuente": {
+                    "$ref": "#/definitions/77960.0xc0007b8ab0.false"
+                },
+                "UnidadEjecutora": {
+                    "type": "string"
+                },
+                "ValorActual": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "ValorInicial": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.FuentesFinanciamiento": {
+            "title": "FuentesFinanciamiento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "FuenteFinanciamiento": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "ValorAsignado": {
+                    "type": "number",
+                    "format": "double"
                 }
             }
         },
@@ -2469,6 +2720,38 @@
                 }
             }
         },
+        "models.MetaId": {
+            "title": "MetaId",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LineamientoId": {
+                    "type": "string"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Numero": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Rubro": {
+                    "type": "string"
+                }
+            }
+        },
         "models.PlanAdquisiciones": {
             "title": "PlanAdquisiciones",
             "type": "object",
@@ -2528,11 +2811,109 @@
                     "type": "boolean"
                 },
                 "registro_plan_adquisiciones": {
-                    "$ref": "#/definitions/map[string][61036.0xc00053f500.false]"
+                    "$ref": "#/definitions/map[string][61785.0xc00079cf30.false]"
                 },
                 "vigencia": {
                     "type": "integer",
                     "format": "int64"
+                }
+            }
+        },
+        "models.PlanPublicado": {
+            "title": "PlanPublicado",
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "activo": {
+                    "type": "boolean"
+                },
+                "descripcion": {
+                    "type": "string"
+                },
+                "fechacreacion": {
+                    "type": "string"
+                },
+                "fechamodificacion": {
+                    "type": "string"
+                },
+                "fichaebimga": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.FichaEBIMGA"
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "publicado": {
+                    "type": "boolean"
+                },
+                "registroplanadquisiciones": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.RubrosRegistroPlanAdquisicionesMongo"
+                    }
+                },
+                "vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.ProductoData": {
+            "title": "ProductoData",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Codigo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.RegistroFuncionamientoMetasAsociadas": {
+            "title": "RegistroFuncionamientoMetasAsociadas",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "MetaId": {
+                    "$ref": "#/definitions/models.MetaId"
                 }
             }
         },
@@ -2558,6 +2939,60 @@
                 },
                 "RegistroPlanAdquisicionesId": {
                     "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                }
+            }
+        },
+        "models.RegistroFuncionamientoModalidadSeleccionMongo": {
+            "title": "RegistroFuncionamientoModalidadSeleccionMongo",
+            "type": "object",
+            "properties": {
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "IdModalidadSeleccion": {
+                    "type": "string"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "activo": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RegistroFuncionamientoProductosAsociados": {
+            "title": "RegistroFuncionamientoProductosAsociados",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "PorcentajeDistribucion": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ProductoAsociadoId": {
+                    "type": "string"
+                },
+                "ProductoData": {
+                    "$ref": "#/definitions/models.ProductoData"
                 }
             }
         },
@@ -2616,6 +3051,12 @@
                     "type": "string"
                 },
                 "FechaEstimadaInicio": {
+                    "type": "string"
+                },
+                "FechaEstimadaOfertasFin": {
+                    "type": "string"
+                },
+                "FechaEstimadaOfertasInicio": {
                     "type": "string"
                 },
                 "FechaModificacion": {
@@ -2679,6 +3120,45 @@
                 }
             }
         },
+        "models.RegistroPlanAdquisicionesActividadMongoNuevo": {
+            "title": "RegistroPlanAdquisicionesActividadMongoNuevo",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "FuentesFinanciamiento": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.FuentesFinanciamiento"
+                    }
+                },
+                "NumeroMeta": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RegistroActividadId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RegistroPlanAdquisicionesId": {
+                    "type": "string"
+                },
+                "Valor": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "actividad": {
+                    "$ref": "#/definitions/models.Actividad"
+                }
+            }
+        },
         "models.RegistroPlanAdquisicionesCodigoArka": {
             "title": "RegistroPlanAdquisicionesCodigoArka",
             "type": "object",
@@ -2701,6 +3181,31 @@
                 },
                 "RegistroPlanAdquisicionesId": {
                     "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                }
+            }
+        },
+        "models.RegistroPlanAdquisicionesCodigoArkaMongo": {
+            "title": "RegistroPlanAdquisicionesCodigoArkaMongo",
+            "type": "object",
+            "properties": {
+                "CodigoArka": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "activo": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },
@@ -2755,6 +3260,80 @@
                 },
                 "RegistroPlanAdquisicionesId": {
                     "$ref": "#/definitions/models.RegistroPlanAdquisiciones"
+                }
+            }
+        },
+        "models.RubroInfo": {
+            "title": "RubroInfo",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Apropiaciones": {
+                    "type": "boolean"
+                },
+                "Bloqueado": {
+                    "type": "boolean"
+                },
+                "Codigo": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "Estado": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Hijos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/78401.0xc0007b8ba0.false"
+                    }
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Padre": {
+                    "type": "string"
+                },
+                "Productos": {
+                    "$ref": "#/definitions/78813.0xc0007b8c00.false"
+                },
+                "UnidadEjecutora": {
+                    "type": "string"
+                },
+                "ValorInicial": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.RubrosRegistroPlanAdquisicionesMongo": {
+            "title": "RubrosRegistroPlanAdquisicionesMongo",
+            "type": "object",
+            "properties": {
+                "Fuente": {
+                    "type": "string"
+                },
+                "FuenteData": {
+                    "$ref": "#/definitions/models.FuenteData"
+                },
+                "datos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Datos"
+                    }
                 }
             }
         }

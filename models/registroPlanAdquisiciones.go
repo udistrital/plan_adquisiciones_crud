@@ -13,6 +13,18 @@ type PlanPublicado struct {
 	RegistroPlanAdquisiciones []RubrosRegistroPlanAdquisicionesMongo `json:"registroplanadquisiciones"`
 }
 
+type VersionPlan struct {
+	Activo                    bool                                   `json:"Activo"`
+	Descripcion               string                                 `json:"Descripcion"`
+	FechaCreacion             string                                 `json:"FechaCreacion"`
+	FechaModificacion         string                                 `json:"FechaModificacion"`
+	Id                        int                                    `json:"Id"`
+	Publicado                 bool                                   `json:"Publicado"`
+	Vigencia                  int                                    `json:"Vigencia"`
+	FichaEBImga               []FichaEBIMGA                          `json:"ficha_eb_imga"`
+	RegistroPlanAdquisiciones []RubrosRegistroPlanAdquisicionesMongo `json:"registro_plan_adquisiciones"`
+}
+
 type RubrosRegistroPlanAdquisicionesMongo struct {
 	Fuente     string     `json:"Fuente"`
 	FuenteData FuenteData `json:"FuenteData"`
@@ -39,6 +51,8 @@ type DatosRubro struct {
 	AreaFuncional                            int                                             `json:"AreaFuncional"`
 	CentroGestor                             int                                             `json:"CentroGestor"`
 	FechaCreacion                            string                                          `json:"FechaCreacion"`
+	FechaEstimadaOfertasInicio               string                                          `json:"FechaEstimadaOfertasInicio"`
+	FechaEstimadaOfertasFin                  string                                          `json:"FechaEstimadaOfertasFin"`
 	Id                                       int                                             `json:"Id"`
 	RegistroPlanAdquisicionesCodigoArka      []RegistroPlanAdquisicionesCodigoArkaMongo      `json:"registro_plan_adquisiciones-codigo_arka"`
 	ActividadData                            interface{}                                     `json:"ActividadData"`
