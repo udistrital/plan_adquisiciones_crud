@@ -2324,27 +2324,27 @@
         }
     },
     "definitions": {
-        "74097.0xc0007ba120.false": {
+        "74097.0xc0005e11a0.false": {
             "title": "false",
             "type": "object"
         },
-        "76883.0xc0007ba3f0.false": {
+        "76883.0xc0005e1380.false": {
             "title": "false",
             "type": "object"
         },
-        "77131.0xc0007ba420.false": {
+        "77131.0xc0005e13b0.false": {
             "title": "false",
             "type": "object"
         },
-        "77396.0xc0007ba450.false": {
+        "77396.0xc0005e13e0.false": {
             "title": "false",
             "type": "object"
         },
-        "77837.0xc0007ba540.false": {
+        "77837.0xc0005e1470.false": {
             "title": "false",
             "type": "object"
         },
-        "78249.0xc0007ba5a0.false": {
+        "78249.0xc0005e14d0.false": {
             "title": "false",
             "type": "object"
         },
@@ -2400,7 +2400,7 @@
             "type": "object",
             "properties": {
                 "ActividadData": {
-                    "$ref": "#/definitions/74097.0xc0007ba120.false"
+                    "$ref": "#/definitions/74097.0xc0005e11a0.false"
                 },
                 "ActividadId": {
                     "type": "integer",
@@ -2575,7 +2575,7 @@
                     "type": "string"
                 },
                 "Movimientos": {
-                    "$ref": "#/definitions/77131.0xc0007ba420.false"
+                    "$ref": "#/definitions/77131.0xc0005e13b0.false"
                 },
                 "Nombre": {
                     "type": "string"
@@ -2584,13 +2584,13 @@
                     "type": "string"
                 },
                 "Rubros": {
-                    "$ref": "#/definitions/76883.0xc0007ba3f0.false"
+                    "$ref": "#/definitions/76883.0xc0005e1380.false"
                 },
                 "TipoDocumento": {
                     "type": "string"
                 },
                 "TipoFuente": {
-                    "$ref": "#/definitions/77396.0xc0007ba450.false"
+                    "$ref": "#/definitions/77396.0xc0005e13e0.false"
                 },
                 "UnidadEjecutora": {
                     "type": "string"
@@ -2805,7 +2805,7 @@
                     "type": "boolean"
                 },
                 "registro_plan_adquisiciones": {
-                    "$ref": "#/definitions/map[string][61470.0xc00078a8d0.false]"
+                    "$ref": "#/definitions/map[string][61470.0xc0005c9bf0.false]"
                 },
                 "vigencia": {
                     "type": "integer",
@@ -3282,7 +3282,7 @@
                 "Hijos": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/77837.0xc0007ba540.false"
+                        "$ref": "#/definitions/77837.0xc0005e1470.false"
                     }
                 },
                 "Nombre": {
@@ -3292,7 +3292,7 @@
                     "type": "string"
                 },
                 "Productos": {
-                    "$ref": "#/definitions/78249.0xc0007ba5a0.false"
+                    "$ref": "#/definitions/78249.0xc0005e14d0.false"
                 },
                 "UnidadEjecutora": {
                     "type": "string"
