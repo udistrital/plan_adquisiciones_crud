@@ -170,6 +170,8 @@ func (c *RegistroPlanAdquisicionesController) Put() {
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		v.FechaEstimadaInicio = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaInicio)
 		v.FechaEstimadaFin = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaFin)
+		v.FechaEstimadaOfertasInicio = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaOfertasInicio)
+		v.FechaEstimadaOfertasFin = time_bogota.TiempoCorreccionFormato(v.FechaEstimadaOfertasFin)
 		if err := models.UpdateRegistroPlanAdquisicionesById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
