@@ -262,8 +262,8 @@ func init() {
     beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:PlanAdquisicionesMongoController"] = append(beego.GlobalControllerRouter["github.com/udistrital/plan_adquisiciones_crud/controllers:PlanAdquisicionesMongoController"],
         beego.ControllerComments{
             Method: "GetDiferencia",
-            Router: "/diferencia/:idPlanPublicado",
-            AllowHTTPMethods: []string{"get"},
+            Router: "/diferencia",
+            AllowHTTPMethods: []string{"post"},
             MethodParams: param.Make(),
             Filters: nil,
             Params: nil})
