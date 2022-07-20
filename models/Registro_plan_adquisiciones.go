@@ -10,7 +10,7 @@ import (
 )
 
 type RegistroPlanAdquisiciones struct {
-	Id                         int                `orm:"column(id);pk;auto"`
+	Id                         int                `orm:"column(id);auto"`
 	AreaFuncional              int                `orm:"column(area_funcional)"`
 	CentroGestor               int                `orm:"column(centro_gestor)"`
 	FechaCreacion              string             `orm:"column(fecha_creacion);type(timestamp without time zone)"`
@@ -26,8 +26,8 @@ type RegistroPlanAdquisiciones struct {
 	FuenteFinanciamientoId     string             `orm:"column(fuente_financiamiento_id)"`
 	ActividadId                int                `orm:"column(actividad_id)"`
 	ValorActividad             int                `orm:"column(valor_actividad)"`
-	FechaEstimadaOfertasInicio string             `orm:"column(fecha_estimada_ofertas_inicio);type(timestamp without time zone)"`
-	FechaEstimadaOfertasFin    string             `orm:"column(fecha_estimada_ofertas_fin);type(timestamp without time zone)"`
+	FechaEstimadaOfertasInicio string             `orm:"column(fecha_estimada_ofertas_inicio)"`
+	FechaEstimadaOfertasFin    string             `orm:"column(fecha_estimada_ofertas_fin)"`
 }
 
 func (t *RegistroPlanAdquisiciones) TableName() string {
