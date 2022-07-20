@@ -64,6 +64,8 @@ type RegistroPlanAdquisicionesMongo struct {
 	ValorTotalActividades                    float64                                         `json:"ValorTotalActividades"`
 	FechaEstimadaInicio                      string                                          `json:"FechaEstimadaInicio"`
 	FechaEstimadaFin                         string                                          `json:"FechaEstimadaFin"`
+	FechaEstimadaOfertasInicio               string                                          `json:"FechaEstimadaOfertasInicio"`
+	FechaEstimadaOfertasFin                  string                                          `json:"FechaEstimadaOfertasFin"`
 	RegistroPlanAdquisicionesCodigoArka      []RegistroPlanAdquisicionesCodigoArkaMongo      `json:"registro_plan_adquisiciones-codigo_arka"`
 	RegistroFuncionamientoModalidadSeleccion []RegistroFuncionamientoModalidadSeleccionMongo `json:"registro_funcionamiento-modalidad_seleccion"`
 	RegistroPlanAdquisicionesActividad       []RegistroPlanAdquisicionesActividadMongo       `json:"registro_plan_adquisiciones-actividad"`
