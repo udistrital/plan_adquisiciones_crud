@@ -24,7 +24,7 @@ func (c *PlanAdquisicionesMongoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
-	c.Mapping("PostDiferencia", c.PostDiferencia)
+	c.Mapping("GetDiferencia", c.GetDiferencia)
 }
 
 // Post ...
@@ -120,7 +120,7 @@ func (c *PlanAdquisicionesMongoController) GetAll() {
 // @Success 200 {object} []models.PlanAdquisicionesMongo
 // @Failure 404 not found resource
 // @router /diferencia [post]
-func (c *PlanAdquisicionesMongoController) PostDiferencia() {
+func (c *PlanAdquisicionesMongoController) GetDiferencia() {
 	var versionPlan models.VersionPlan
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &versionPlan); err != nil {
 		logs.Error(err)
@@ -147,6 +147,8 @@ func (c *PlanAdquisicionesMongoController) PostDiferencia() {
 		c.Abort("404")
 	}
 
+	// logs.Debug("l: ")
+	// formatdata.JsonPrint(l)
 	if len(l) == 0 {
 		movimientos, err = helpers.PublicarPlan(versionPlan)
 		if err != nil {
@@ -170,6 +172,8 @@ func (c *PlanAdquisicionesMongoController) PostDiferencia() {
 		}
 	}
 
+	// logs.Debug("movimientos: ")
+	// formatdata.JsonPrint(movimientos)
 	if err != nil {
 		logs.Error(err)
 		c.Data["system"] = err
